@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: freemarket_sample_66a__production
-  username: freemarket_sample_66a_
-  password: <%= ENV['FREEMARKET_SAMPLE_66A__DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= Rails.application.credentials[:db][:DATABASE_PASSWORD] %>
+  socket: /var/lib/mysql/mysql.sock
