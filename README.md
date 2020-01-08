@@ -189,7 +189,7 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-|comment|text|null: false|
+|content|text|null: false|
 
 ### Association
 - belongs_to :user
