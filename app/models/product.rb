@@ -1,8 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :user
-  belongs_to :large_category
-  belongs_to :middle_category
-  belongs_to :small_category
+  belongs_to :category
   belongs_to :brand
   has_many :photos
   has_many :likes
