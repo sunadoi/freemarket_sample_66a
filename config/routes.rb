@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  root to: 'users/registrations#new'
+  root to: 'products#index'
   resources :products
 end
