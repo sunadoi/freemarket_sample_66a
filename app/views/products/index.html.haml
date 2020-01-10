@@ -1,1 +1,344 @@
-%h1 Hello, world
+.mein
+  .mein_head
+    .mein_head_top
+      %a.log{:href => "#"} 
+        %img{:alt => "メルちゃん", :src => "../fmarket_logo_red.svg",class: "mein_title"}
+          
+      = form_for "#" do |f|
+        .from_top
+          = f.text_field :content, class:'Search',placeholder: "何をお探しですか？"
+          = button_tag type: 'submit', class: 'form_submit' do
+            %i.fa-lg.fa-fw.fa-search
+
+
+    .mein_head_bottme
+      .mein_head_bottme_left
+        %ul.left
+          %li.bottme_menu
+            = link_to "#" ,class: "color" do
+              = icon('fas', 'list', class: 'icon', :style => "color:red")
+              カテゴリーから探す
+          %li.bottme_menu
+            = link_to "#" ,class: "color" do
+              = icon('fas', 'tag', class: 'icon', :style => "color:red")
+              ブランドから探す
+      .mein_head_bottme_right
+        %ul.right
+          %li.bottme_menu
+            = link_to "#" ,class: "color" do
+              = icon('fas', 'heart', class: 'icon', :style => "color:gray")
+              いいね！一覧
+          %li.bottme_menu
+            = link_to "#" ,class: "color" do
+              = icon('fas', 'bell', class: 'icon', :style => "color:gray")
+              お知らせ
+          %li.bottme_menu
+            = link_to "#" ,class: "color" do
+              = icon('fas', 'check', class: 'icon', :style => "color:gray")
+              やる事リスト
+          %li#user.menu
+            %a.my_account{:href => "#",class: "color" } 
+              %img{:alt => "#", :src => "../inu.jpg",class: "my_user", :style => "color:gray"}
+              マイページ
+              
+
+  .mein_pic
+    .pic_ad
+      %img{:alt => "広告", :src => "../inu.jpg", :title => "inu",:class =>"pic"}
+    .mein_pic_title
+      .mein_pic_title_mein
+        %h2 ちゃんチャカちゃん簡単アプリ
+      .mein_pic_title_text
+        %a 安心スマホアプリ
+      .mein_pic_title_log
+        %a.link{:href => "#",:class =>"new_item"} 
+          %img{:alt => "app", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",:class =>"app"}
+        %a.link{:href => "#",:class =>"new_item"} 
+          %img{:alt => "app", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",:class =>"app"}
+
+
+  .category
+    %h2 人気カテゴリー
+    .category_btn
+      %button.btn{:type => "button"}>レディース
+      %button.btn{:type => "button"}>メンズ
+      %button.btn{:type => "button"}>家電・スマホ・カメラ
+      %button.btn{:type => "button"}>おもちゃ・ホビー・グッズ
+
+
+  .new
+    .new_title
+      %h2.new_item_title レディース新着アイテム
+      %li.more_item
+        %a.link{:href => "#"} もっと見る >
+    .new_list
+      %ul.new_list_item
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+
+
+
+
+  .new
+    .new_title
+      %h2.new_item_title メンズ新着アイテム
+      %li.more_item
+        %a.link{:href => "#"} もっと見る >
+    .new_list
+      %ul.new_list_item
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            %a.item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+        %li.item
+          %a.link{:href => "#",:class =>"new_item"} 
+            .item_text RED BULL
+            %img{:alt => "販売写真", :src => "../inu.jpg",:class =>"item_pic"}
+              %span{"aria-label" => "¥1000", :href => "#",:class =>"price"} 
+                #text_price ¥1000
+
+
+
+
+  .footer
+    .footer_ad
+      %img{:alt => "広告", :src => "../inu.jpg", :title => "inu",:class =>"foot_ad"}
+    .footer_pic_title
+      .footer_pic_title_mein
+        %h3 スマホで簡単フリマアップリ
+        %h1 ダウンロードしないでね！
+      .footer_pic_title_log
+        %a.link{:href => "#",:class =>"new_item"} 
+          %img{:alt => "app", :src => "../logo_red.svg",:class =>"app_box"}
+        %a.link{:href => "#",:class =>"new_item"} 
+          %img{:alt => "app", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",:class =>"app"}
+        %a.link{:href => "#",:class =>"new_item"} 
+          %img{:alt => "app", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",:class =>"app"}
+
+
+
+    .footer_bottme
+      .footer_bottme_list
+        .footer_bottme_list_1
+          %ul.list_item
+            %h4 フリマについて
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                会社概要（運営会社）
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                採用情報
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                プレスリリース
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                公式ブログ
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                メルカリロゴ利用ガイドライン
+                
+
+        .footer_bottme_list_2
+          %ul.list_item
+            %h4 ヘルプ＆ガイド
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                メルカリガイド
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                らくらくメルカリ便
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                ゆうゆうメルカリ便
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                大型メルカリ便
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                車体取引ガイド
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                メルカリあんしん・あんぜん宣言！
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                偽ブランド品撲滅への取り組み
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                メルカリボックス
+
+
+        .footer_bottme_list_3
+          .list_3_left
+            %ul.list_item
+              %h4 プライバシーと利用規約
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  プライバシーポリシー
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  メルカリ利用規約
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  あんしんスマホサポート制度に関する利用特約
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  コンプライアンスポリシー
+            
+
+          .list_3_rigth
+            %ul.list_item
+              %h4 　　　　　　　　　　　
+              -# %h4 は残しといて！！！
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  個人データの安全管理に係る基本方針
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  特定商取引に関する表記
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  資金決済法に基づく表示
+              %li.f_item
+                %a.link{:href => "#",:class =>"p_item"}
+                  資金決済法に基づく表示
+
+
+        .footer_bottme_list_4
+          %ul.list_item
+            %h4 国
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                日本
+            %li.f_item
+              %a.link{:href => "#",:class =>"f_item"}
+                United States
+
+
+      .footer_bottme_row
+        .footer_bottme_row_text
+          .footer_bottme_row_text_log
+            %a.log{:href => "#"} 
+              %img{:alt => "メルちゃん", :src => "../fmarket_logo_red.svg",class: "mein_log"}
+          .footer_bottme_row_text_end
+            © Morukari, Inc.
+
+
+
+
+
+
+.producte
+  .producte_now
+    .producte_text 出品
+    = link_to "#" do
+      = icon('fas', 'camera', class: 'camera', :style => "color:white")
+      
