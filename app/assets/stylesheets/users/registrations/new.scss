@@ -1,0 +1,180 @@
+*{
+  margin: 0;
+}
+.signin__header{
+  height: 128px;
+  text-align: center;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  &__logo{
+    a{
+    width: 185px;
+    line-height: 49px;
+      img{
+        margin: 40px 0 0;
+        width: 180px;
+        height: 50px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.signin-main {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  height: 350px;
+  margin: 0;
+  padding: 0;
+
+  &__head {
+    background-color: #FFFFFF;
+    border-bottom:#eee solid 1px;
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 33px;
+    padding: 32px;
+    text-align: center;
+    margin: 0 auto 0;
+    width: 600px;
+  }
+  .signin-submit-button-form {
+    background-color: #FFFFFF;
+    height: 196px;
+    margin: 0 auto;
+    padding: 40px 40px 64px 40px;
+    width: 582px;
+    .signin-index-mail-box {
+      height: 50px;
+      margin: 0 auto 16px;
+      width: 620px;
+      display: inline-flex;
+      a {
+        background-color: #EA352D;
+        border: 1px solid;
+        border-radius: 4px;
+        color: #FFFFFF;
+        font-size: 14px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        width: 343px;
+        margin: 0 auto;
+        display:block;
+        padding-right: 16px;
+        text-decoration: none;
+        i {
+          float: left;
+          padding-left: 11px;
+          bottom: 25px;
+          font-size: 20px;
+          color: #ffffff;
+          padding-top: 15px;
+        }
+      }    
+    }
+    .signin-index-facebook-form {
+      height: 50px;
+      margin: 0 auto 16px;
+      width: 620px;
+      display: inline-flex;
+      a{
+        background-color: #385185;
+        border: 1px solid;
+        border-radius: 4px;
+        color: #FFFFFF;
+        font-size: 14px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        width: 343px;
+        margin: 0 auto;
+        display:block;
+        padding-right: 16px;
+        text-decoration: none;
+        i {
+          float: left;
+          padding-left: 11px;
+          bottom: 25px;
+          font-size: 33px;
+          color: #ffffff;
+          padding-top: 10px;
+        }
+      }     
+    } 
+    .signin-index-google-form {
+      height: 50px;
+      margin: 0 auto 16px;
+      width: 620px;
+      display: inline-flex;
+      a{
+        background-color: #FFFFFF;
+        border: 1px solid;
+        border-color: #979797;
+        border-radius: 4px;
+        color: #333333;
+        font-size: 14px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        width: 343px;
+        margin: 0 auto;
+        display:block;
+        padding-right: 16px;
+        text-decoration: none;
+        .main__conect__lists__google__btn {
+        color: #333;
+        }
+        .main__conect__lists__google__icon {
+          background-image:url("https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png");
+          background-size:cover;
+          height: 30px;
+          width: 30px;
+          position: relative;
+          bottom:40px;
+          left:15px;
+        }      
+      }
+    }
+  }
+}
+.signin__footer {
+  background: whitesmoke;
+  height: 360px;
+  text-align: center;
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  padding: 40px;
+  margin: 0;
+  &__box {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px auto;
+    width: 450px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  &__logo img {
+    width: 80px;
+    height: 80px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  p {
+    font-size: 11px;
+  }
+}
