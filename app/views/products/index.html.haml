@@ -1,1 +1,70 @@
-%h1 Hello, world!!!!!
+= render partial: 'header'
+.mein_pic
+  .pic_ad
+    = image_tag "inu.jpg", class: "pic", alt: "広告", title: "inu"
+  .mein_pic_title
+    .mein_pic_title_mein
+      %h2 ちゃんチャカちゃん簡単アプリ
+    .mein_pic_title_text
+      %a 安心スマホアプリ
+    .mein_pic_title_log
+      =link_to "#" ,class: "new_item" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app", alt: "app" 
+      =link_to "#" ,class: "new_item" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app", alt: "app" 
+
+
+
+.category
+  %h2 人気カテゴリー
+  .category_btn
+    %button.btn{type: "button"}>レディース
+    %button.btn{type: "button"}>メンズ
+    %button.btn{type: "button"}>家電・スマホ・カメラ
+    %button.btn{type: "button"}>おもちゃ・ホビー・グッズ
+
+
+.new
+  .new_title
+    %h2.new_item_title レディース新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  = render partial: "product"
+
+
+.new
+  .new_title
+    %h2.new_item_title メンズ新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  = render partial: "product"
+
+
+
+
+.footer
+  .footer_ad
+    = image_tag "inu.jpg",class: "foot_ad", alt: "inu"
+  .footer_pic_title
+    .footer_pic_title_mein
+      %h3 スマホで簡単フリマアップリ
+      %h1 ダウンロードしないでね！
+    .footer_pic_title__log
+      =link_to "#" ,class: "footer_pic_title__log__new_item" do
+        = image_tag "logo_red.svg",class: "app_box", alt: "app"          
+      =link_to "#" ,class: "new_item" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app_box", alt: "app"
+      =link_to "#" ,class: "new_item" do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app" 
+
+
+= render partial: 'footer'
+
+.producte
+  .producte_now
+    .producte_text 出品
+    = link_to "#" do
+      = icon('fas', 'camera', class: 'camera', :style => "color:white")
+      

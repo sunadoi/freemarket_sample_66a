@@ -1,0 +1,500 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  background-color: #EEEEEE;
+  .nav{
+    height: 50px;
+    box-shadow: 0 0 10px 0 #999;
+    padding: 15px 0;
+    &__inner{
+      margin: 0 auto;
+      width: 1020px;
+      font-size: 15px;
+      &__mel{
+        color: black;
+        margin-right: 5px;
+      }
+      &__mypage{
+        font-weight: bold;
+        margin-left: 5px;
+      }
+    }
+  }
+  .main{
+    background-color: #EEEEEE;
+    &__wrapper{
+      margin-top: 40px;
+      margin-right: 200px;
+      margin-bottom: 0px;
+      margin-left: 200px;
+      display: flex;
+      &__left{
+        width: 50%;
+        height: 1252px;
+        &__top{
+          height: 672px;
+          &__list_topPage{
+            height: 48px;
+            background-color: #DDDDDD;
+            border: 1px solid #EEEEEE;
+            color: black;
+            font-weight: bold;
+            position: relative;
+            &__middle{
+              height: 30px;
+              width: 240px;
+              margin: 0 auto;
+              &__text{
+                width: 80%;
+                height: 48px;
+                float: left;
+                line-height: 48px;
+              }
+              &__icon{
+                width: 20%;
+                height: 48px;
+                float: right;
+                text-align: center;
+                line-height: 48px;
+              } 
+            }
+          }
+          &__list{
+            height: 48px;
+            background-color:white;
+            border: 1px solid #EEEEEE;
+            color: black;
+            position: relative;
+            &__middle{
+              height: 30px;
+              width: 240px;
+              margin: 0 auto;
+              &__text{
+                width: 80%;
+                height: 48px;
+                float: left;
+                line-height: 48px;
+              }
+              &__icon{
+                width: 20%;
+                height: 48px;
+                float: right;
+                text-align: center;
+                line-height: 48px;
+                position: relative;
+              } 
+            }
+        
+          }
+        }
+        &__middle{
+          height: 48px;
+          width: 280px;
+          font-size: 16px;
+          display: table-cell;
+          vertical-align: bottom;
+          background-color: #EEEEEE;
+          border: 1px solid #EEEEEE;
+          color: black;
+          font-weight: bold;
+        }
+        &__middle2{
+          height: 96px;
+          width: 280px;
+          background-color: #EEEEEE;
+          &__list{
+            height: 48px;
+            width: 280px;
+            background-color:white;
+            border: 1px solid #EEEEEE;
+            color: black;
+            position: relative;
+            &__middle{
+              height: 30px;
+              width: 240px;
+              margin: 0 auto;
+              &__text{
+                width: 80%;
+                height: 48px;
+                float: left;
+                line-height: 48px;
+              }
+              &__icon{
+                width: 20%;
+                height: 48px;
+                float: right;
+                text-align: center;
+                line-height: 48px;
+              }
+            }
+        
+          }
+        }
+        &__set{
+          height: 48px;
+          width: 280px;
+          font-size: 16px;
+          display: table-cell;
+          vertical-align: bottom;
+          background-color: #EEEEEE;
+          border: 1px solid #EEEEEE;
+          color: black;
+          font-weight: bold;
+        }
+        &__bottom{
+          height: 384px;
+          width: 280px;
+          &__list{
+            height: 48px;
+            width: 280px;
+            background-color:white;
+            border: 1px solid #EEEEEE;
+            color: black;
+            position: relative;
+            &__middle{
+              height: 30px;
+              width: 240px;
+              margin: 0 auto;
+              &__text{
+                width: 80%;
+                height: 48px;
+                float: left;
+                line-height: 48px;
+              }
+              &__icon{
+                width: 20%;
+                height: 48px;
+                float: right;
+                text-align: center;
+                line-height: 48px;
+              }
+            }
+          }
+        }
+      }
+      &__right{
+        width: 100vw;
+        height: 100vw;
+        margin-left: 30px;
+        &__top{
+          width: 100%;
+          height: 200px;
+          background-image: url("https://d1f5hsy4d47upe.cloudfront.net/1c/1c0a73e254f713c2a9f33f8f6b06fb5e_t.jpeg");
+          &__a{
+            width: 100%;
+            height: 160px;
+            padding-top: 40px;
+            margin: 0 auto;
+            &__image{
+              margin: 0 auto;
+              border-radius: 50%;
+              width: 60px;
+              height: 60px;
+              .image_top{
+                border-radius: 50%;
+              }
+            }
+            &__name{
+              text-align: center;
+              width: 100%;
+              height: 20px;
+              margin-top: 3px;
+              font-weight: bold;
+              color: black;
+            }
+            &__info{
+              width: 30%;
+              height: 20px;
+              margin: 0 auto;
+              color: black;
+              &__wrappe{
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                padding-left: 30px;
+                &__evaluate{
+                  margin-left: 10px;
+                  text-align: center;
+                  color: black;
+                }
+                &__evaluate_figure{
+                  margin-left: 10px;
+                  text-align: center;
+                  padding-top: 5px;
+                  color: black;
+                  font-weight: bold;
+                }
+                &__sell{
+                  margin-left: 10px;
+                  text-align: center;
+                  color: black;
+                }
+                &__sell_figure{
+                  margin-left: 10px;
+                  text-align: center;
+                  padding-top: 5px;
+                  font-weight: bold;
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+        &__middle_tab{
+          width: 100%;
+          // background-image: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?2442575");
+          &__top{
+            width: 100%;
+            height: 75px;
+            display: flex;
+            &__1{
+              width: 50%;
+              height: 100%;
+              background-color: #DDDDDD;
+              text-align: center;
+              line-height: 75px;
+              font-size: 20px;
+              font-size: 17px;
+              border:0;
+              cursor:pointer;
+            }
+            &__2{
+              width: 50%;
+              height: 100%;
+              background-color: white;
+              text-align: center;
+              line-height: 75px;
+              font-size: 17px;
+              border:0;
+              cursor:pointer;
+            }
+          }
+          &__under{
+            width: 100%;
+            height: 236px;
+            background-color: white;
+            background-image: url("logo_gray.svg");
+            background-repeat: no-repeat;
+            background-position: center 40px;
+            background-size: 78px 85px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            line-height: 300px;
+          }
+        }
+        &__title{
+          width: 100%;
+          height: 75px;
+          background-color: green;
+          margin-top: 30px;
+          line-height: 75px;
+          background-color: white;
+          font-weight: bold;
+          padding-left: 10px;
+
+        }
+        &__middle_tab_1{
+          width: 100%;
+          &__top{
+            width: 100%;
+            height: 75px;
+            display: flex;
+            &__1{
+              width: 50%;
+              height: 100%;
+              background-color: white;
+              text-align: center;
+              line-height: 75px;
+              font-size: 17px;
+              border:0;
+              cursor:pointer;
+            }
+            &__2{
+              width: 50%;
+              height: 100%;
+              background-color: #DDDDDD;
+              text-align: center;
+              line-height: 75px;
+              font-size: 17px;
+              border:0;
+              cursor:pointer;
+            }
+          }
+          &__under{
+            width: 100%;
+            height: 236px;
+            background-color: white;
+            background-image: url("logo_gray.svg");
+            background-repeat: no-repeat;
+            background-position: center 40px;
+            background-size: 78px 85px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            line-height: 300px;
+          }
+        }
+      }
+    }
+  }
+  a{
+    text-decoration: none;
+  }
+  .main__wrapper__left__top__list:hover{
+    background-color: #FFF0F5;
+  }
+  .main__wrapper__left__middle2__list:hover{
+    background-color: #FFF0F5;
+  }
+  .main__wrapper__left__bottom__list:hover{
+    background-color: #FFF0F5;
+  }
+  
+
+
+
+  .main__wrapper__left__top__list_topPage::after {
+    position: absolute;
+    top: 40%;
+    right: 40px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #AAAAAA;
+    border-right: 2px solid #AAAAAA;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all .2s;
+  }
+
+
+  .main__wrapper__left__top__list_topPage:hover::after {
+    right: 35px;
+    border-color: black;
+  }
+
+
+  .main__wrapper__left__top__list_topPage:hover {
+    background: #eeeeee;
+  }
+  .main__wrapper__left__top__list::after {
+    position: absolute;
+    top: 40%;
+    right: 40px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #AAAAAA;
+    border-right: 2px solid #AAAAAA;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all .2s;
+  }
+
+
+  .main__wrapper__left__top__list:hover::after {
+    right: 35px;
+    border-color: black;
+  }
+
+
+  .main__wrapper__left__top__list:hover {
+    background: #eeeeee;
+  }
+
+  .main__wrapper__left__middle2__list::after {
+    position: absolute;
+    top: 40%;
+    right: 40px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #AAAAAA;
+    border-right: 2px solid #AAAAAA;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all .2s;
+  }
+
+
+  .main__wrapper__left__middle2__list:hover::after {
+    right: 35px;
+    border-color: black;
+  }
+
+
+  .main__wrapper__left__middle2__list:hover {
+    background: #eeeeee;
+  }
+
+  .main__wrapper__left__bottom__list::after {
+    position: absolute;
+    top: 40%;
+    right: 40px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #AAAAAA;
+    border-right: 2px solid #AAAAAA;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all .2s;
+  }
+
+
+  .main__wrapper__left__bottom__list:hover::after {
+    right: 35px;
+    border-color: black;
+  }
+
+
+  .main__wrapper__left__bottom__list:hover {
+    background: #eeeeee;
+  }
+
+  .main__wrapper__right__middle_tab__top__1:focus {
+    outline:0;
+  }
+
+  .main__wrapper__right__middle_tab__top__1:hover{
+    opacity: 0.8
+  }
+
+  .main__wrapper__right__middle_tab__top__2:focus {
+    outline:0;
+  }
+
+  .main__wrapper__right__middle_tab__top__2:hover {
+    opacity: 0.8
+  }
+
+  .main__wrapper__right__middle_tab_1__top__1:focus {
+    outline:0;
+  }
+
+  .main__wrapper__right__middle_tab_1__top__1:hover {
+    opacity: 0.8
+  }
+
+  .main__wrapper__right__middle_tab_1__top__2:focus {
+    outline:0;
+  }
+
+  .main__wrapper__right__middle_tab_1__top__2:hover {
+    opacity: 0.8;
+  }
+
+  .main__wrapper__right__top__a:hover{
+    opacity: 0.6;
+    .main__wrapper__right__top__a__name{
+      text-decoration: underline;
+    }
+  }
+
+  
+ 
+}
+
