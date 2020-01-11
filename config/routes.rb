@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
   }
   root to: 'products#index'
-  resources :products
+  resources :products 
+  resources :users
 end
