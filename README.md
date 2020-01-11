@@ -12,10 +12,10 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthdate|date|null: false|
+|birthday|date|null: false|
 |tel|string|null: false, unique: true|
 |profile|text||
-|icon|text||
+|image|text||
 
 ### Association
 - has_many :products

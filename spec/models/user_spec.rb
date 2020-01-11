@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User do
   describe '#create' do
     context 'can save' do
-      it "is valid with a nickname, email, password, last_name, first_name, last_name_kana, first_name_kana, birthdate, tel" do
+      it "is valid with a nickname, email, password, last_name, first_name, last_name_kana, first_name_kana, birthday, tel" do
         user = build(:user)
         expect(user).to be_valid
       end
@@ -72,16 +72,10 @@ describe User do
         expect(user.errors[:first_name_kana]).to include("を入力してください")
       end
 
-      it "is invalid without a birthdate" do
-        user = build(:user, birthdate: "")
+      it "is invalid without a birthday" do
+        user = build(:user, birthday: "")
         user.valid?
-        expect(user.errors[:birthdate]).to include("を入力してください")
-      end
-
-      it "is invalid without a tel" do
-        user = build(:user, tel: "")
-        user.valid?
-        expect(user.errors[:tel]).to include("を入力してください")
+        expect(user.errors[:birthday]).to include("を入力してください")
       end
 
       it "is invalid with a duplicate tel" do
