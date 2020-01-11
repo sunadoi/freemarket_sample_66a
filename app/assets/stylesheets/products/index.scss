@@ -8,7 +8,7 @@
   height: 130px;
   background-color:#eeeeee;
   position: relative;
-  box-shadow:  0px 2px  10px;
+  border-bottom: 1px solid #DDDDDD;
   z-index: 999;
 
 .mein_head_top{
@@ -107,7 +107,7 @@
   }
 
   .my_account{
-    width: 110px;
+    width: 130px;
     display: flex;
     justify-content: flex-start;
   }
@@ -115,7 +115,7 @@
       .my_user{
         border-radius: 15px;
         height: 30px;
-        width: 32px;
+        width: 35px;
         overflow: hidden;
       }
 
