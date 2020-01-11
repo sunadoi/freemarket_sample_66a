@@ -161,13 +161,14 @@
     max-width: 860px;
     
     .mein_pic_title_mein{
-      font-size: 60px;
+      font-size: 90px;
+      font-weight: bold;
       color: #e0e0e0;
     }
 
 
     .mein_pic_title_text{
-      font-size: 16px;
+      font-size: 20px;
       height: 15%;
       color: black;
     }
@@ -194,9 +195,12 @@
   text-align: center;
   padding-top: 40px;
   
+  font-size: 30px;
+  
 }
-  h2{
+  h1{
     color: green($color: #d1d1d1);
+    font-weight: 900;
   }
 .category_btn{
   padding-top: 20px;
@@ -213,6 +217,8 @@
   line-height: 2px;
   color: rgb(0, 0, 0);
   border-radius:15px;
+  font-weight: 900;
+  font-size:40%;
 }
 
 
@@ -233,10 +239,12 @@
   // background-color: rgb(132, 211, 211);
 }
   .new_item_title{
-    padding-top: 4%;
+    padding: 4%;
+    font-size: 30px;
+    font-weight: bold;
   }
   .more_item{
-    padding-top: 5%;
+    padding: 5% 2% 0% 0%;
     width: 8vw;
   }
   a.link{
@@ -327,21 +335,23 @@
     max-width: 860px;
     
     .footer_pic_title_mein{
-      font-size: 60px;
-      color: #e0e0e0;
+      color: #ffffff;
       margin-top: 5%;
       padding-left: 5%;
-      font-size: larger;
+      font-size: 35px;
+    }
+    h3{
+      font-size: 70%;
     }
 
     &__log{
       margin-bottom: 2%;
       width: 100%;
-      margin-top: 5%;
+      margin-top: 2%;
       padding-left: 5%;
       &__new_item {
         .app_box{
-          width: 40px;
+          width: 60px;
           padding-right: 2%;
         }
       }
