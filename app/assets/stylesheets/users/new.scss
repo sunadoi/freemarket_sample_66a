@@ -35,7 +35,7 @@
   font-size: 0;
   text-align: center;
   .progress-barfive__active {
-    color:black;
+    color:red;
     margin: 0 40px 0 0;
     min-width: 60px;
     position: relative;
@@ -208,6 +208,7 @@
     width: 700px;
     margin: 0 auto;
     background: #fff;
+    max-width: 480px;
     .l-registration-head__registration {
       font-size: 22px;
       font-weight: bold;
@@ -255,6 +256,35 @@
               background: #fff;
             } 
           }
+          &__password {
+            margin: 24px 0 0;
+            label {
+              font-weight: 600;
+              font-size: 13px;
+            }
+            #password {
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              font-size: 16px;
+              background: #fff;
+            }
+          }
+          &__information{
+            color: #888;
+          }
+          .l-registration-content__password{
+            &__checkbox{
+              margin: 16px 0 0;
+              color: #888;
+              font-weight: 400;
+            }
+          }
+          
           .l-registration-sub-head {
             margin: 24px 0 0;
             &__left-text {
@@ -296,8 +326,7 @@
                 padding: 10px 16px 8px;
                 border: 1px solid #CCC;
               }
-            }
-            
+            } 
           }
           .signup-main__form__name-kana{
             margin-top: 32px;
@@ -431,7 +460,8 @@
   text-decoration: none;
   touch-action: manipulation;
   text-align: right;
-
+  margin: 10px;
+  margin-top: 32px;
 }
 a{
   color: #0099e8;

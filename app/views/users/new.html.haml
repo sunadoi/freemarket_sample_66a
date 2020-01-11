@@ -37,6 +37,17 @@
               %span.l-registration-content__require 必須
               %br/
               = form.email_field :email, autocomplete: "email",placeholder: "PC・携帯どちらでも可"
+            .l-registration-content__password
+              = form.label :password, 'パスワード'
+              %span.l-registration-content__require 必須
+              %br/
+              = form.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
+              %p.l-registration-content__information
+                ※ 英字と数字の両方を含めて設定してください
+            .l-registration-content__password
+              .l-registration-content__password__checkbox  
+                =check_box_tag :check1
+                =label_tag :check1, "パスワードを表示する"  
             .l-registration-sub-head
               %h3.l-registration-sub-head__left-text 本人確認
               %p.l-registration-sub-head__text 
