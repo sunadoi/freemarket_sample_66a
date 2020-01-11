@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_one :buyer
   has_one :seller
 
-  validates :last_name, :first_name, :last_name_kana, :first_name_kana, :birthdate, presence: true
-  validates :nickname, :email, :tel, presence: true, uniqueness: true
+  validates :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, presence: true
+  validates :nickname, :email, presence: true, uniqueness: true
+  validates :tel, uniqueness: true
   validates :password, presence: true, length: { minimum: 7 }
 end
