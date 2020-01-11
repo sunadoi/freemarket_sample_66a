@@ -7,7 +7,7 @@ FactoryBot.define do
       first_name         {Faker::Name.first_name}
       last_name_kana     {"ヤマダ"}
       first_name_kana    {"タロウ"}
-      birthdate          {Faker::Date.birthday}
+      birthday           {Faker::Date.birthday}
       tel                {Faker::PhoneNumber.cell_phone}
   end
 end
