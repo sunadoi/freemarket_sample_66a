@@ -1,0 +1,14 @@
+%h2 カード情報を入力してください
+= form_with(model: @card, url: card_path, local: true) do |form|
+  .admin-card__form__coupon
+    .admin-card__form__coupon__input
+      = form.label :number, "カード番号", class: "label"
+      = form.number_field :number, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :expiration, "有効期限", class: "label"
+      = form.date_field :expiration, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :security_code, "セキュリティコード", class: "label"
+      = form.number_field :security_code, required: true, class: "form-input description"
+  .admin-card__form__submit
+    = form.submit "次へ",  class: "form-submit btn btn-primary"

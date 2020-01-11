@@ -1,0 +1,20 @@
+%h2 住所を入力してください
+= form_with(model: @address, url: address_path, local: true) do |form|
+  .admin-card__form__coupon
+    .admin-card__form__coupon__input
+      = form.label :postal_code, "郵便番号", class: "label"
+      = form.text_field :postal_code, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :prefecture, "都道府県", class: "label"
+      = form.text_field :prefecture, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :city, "市区町村", class: "label"
+      = form.text_field :city, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :street, "番地", class: "label"
+      = form.text_field :street, required: true, class: "form-input description"
+    .admin-card__form__coupon__input
+      = form.label :building, "ビル、マンション", class: "label"
+      = form.text_field :building, required: true, class: "form-input description"
+  .admin-card__form__submit
+    = form.submit "次へ",  class: "form-submit btn btn-primary"
