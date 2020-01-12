@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     post 'complete', to: 'users/registrations#complete'
   end
   root to: 'products#index'
+
   resources :products
-  resources :users, only: [:show]
+  resources :users, only: [:show, :new]
 end
