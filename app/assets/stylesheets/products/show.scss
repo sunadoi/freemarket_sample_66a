@@ -5,9 +5,7 @@
   box-sizing: border-box;
   
   &__list{
-    // width: 50% ;
     margin: 0 auto;
-    // width: 90%;
     margin: 2% 25% 0 25%;
     padding: 10px;
     border: solid 30px rgb(255, 255, 255);
@@ -77,12 +75,7 @@
                 width: 100%;
 
                 &_text{
-                  // width: 50%;
-                  // height: 50%;
-                  padding-top: 10%;
-                  // text-align: center;
-                  // line-height: 100%;
-                  
+                  padding-top: 10%;                  
                   vertical-align: middle;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
@@ -110,10 +103,7 @@
                 width: 100%;
                 font-size: 80%;
                 &_category{
-                  // width: 50%;
-                  // height: 50%;
                   padding-top: 17%;
-                  // text-align: center;
                   display: table-cell;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
@@ -150,10 +140,6 @@
                 height: 50%;
                 line-height: 40px;
                 &_hoghog{
-                  // width: 50%;
-                  // height: 50%;
-                  // padding-top: 13%;
-                  // text-align: center;
                   display: table-cell;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
@@ -243,9 +229,7 @@
     }
   }
   &__list_2nd{
-    // width: 50% ;
     margin: 0 auto;
-    // width: 90%;
     margin: 2% 25% 0 25%;
     padding: 10px;
     border: solid 30px rgb(255, 255, 255);
@@ -357,8 +341,7 @@
           height: 70%;
         }
         .title{
-          height: 8%;
-          padding: 5%;
+          padding: 8%;
           vertical-align: middle;
           overflow-wrap: break-word;
           word-wrap: break-word;
