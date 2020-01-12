@@ -104,8 +104,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|int||
-###Association
+|ancestry|string||
+### Association
 - has_many :products
 - has_many :brands_categories
 - has_many :brands, through: :brands
