@@ -1,0 +1,64 @@
+.identification{
+  width: 700px;
+  font-size: 81%;
+  &__content{
+    border-top: 1px solid #eeeeee;
+    padding: 64px;
+    background-color: #ffffff;
+    .explaination{
+      &__help{
+        margin-top: 8px;
+      }
+    }
+    .id_forms{
+      margin-top: 40px;
+      label{
+        font-weight: 600;
+        &:after{
+          content: '任意';
+          background-color: #cccccc;
+          color: #ffffff;
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          font-size: 12px;
+          font-weight: normal;
+        }
+      }
+      p{
+        margin-top: 8px;
+      }
+      @mixin inputs {
+        display: block;
+        height: 48px;
+        width: 100%;
+        margin-top: 8px;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .select{
+        @include inputs;
+        padding: 0 16px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &:after{
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f078";
+        }
+      }
+      .field{
+        @include inputs;
+        padding: 10px 16px 8px;
+        background: #ffffff;
+
+      }
+    }
+  }
+  .red_button{
+    margin: 40px 0 40px;
+  }
+}
