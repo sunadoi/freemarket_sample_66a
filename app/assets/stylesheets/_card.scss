@@ -1,0 +1,14 @@
+.card{
+  width: 700px;
+  font-size: 81%;
+  .card__content{
+    padding: 64px;
+    border-top: 1px solid #eeeeee;
+    background-color: #ffffff;
+    &__list{
+      justify-content: center;
+      width: 320px;
+      margin: 0 auto 32px;
+    }
+  }
+}

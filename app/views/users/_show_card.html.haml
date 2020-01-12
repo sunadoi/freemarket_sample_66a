@@ -1,0 +1,17 @@
+.card
+  %h2
+    支払い方法
+  .card__content
+    .card__content__list
+      %h3
+        クレジットカード一覧
+      = link_to('#') do
+        .red_button
+          = icon('far', 'credit-card')
+          クレジットカードを追加する
+    .explaination
+      .explaination__help
+        = link_to '#', class: 'help' do
+          .explaination__help__text
+            支払い方法について
+            = icon('fas', 'chevron-right')
