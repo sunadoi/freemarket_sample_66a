@@ -1,0 +1,210 @@
+.exhibition_wrapper
+  .exhibition_header
+    = link_to "#" do
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2091621301", size: "185x49", alt: "logo", class: "image_top"
+  .exhibition_main
+    %form
+      .exhibition_main__container
+        .exhibition_main__container__title
+          商品情報を入力
+        .exhibition_main__container__image_send
+          .exhibition_main__container__image_send__top
+            %h3.exhibition_main__container__image_send__top__left
+              出品画像
+              %span.exhibition_main__container__image_send__top__right
+                必須
+          %p.exhibition_main__container__image_send__message
+            最大10枚までアップロードできます
+          %label.exhibition_main__container__image_label
+            
+            .exhibition_main__container__image_label__file
+              %input{type: "file", class: "file"}
+                .exhibition_main__container__image_label__file__message
+                  %h4.exhibition_main__container__image_label__file__message__1
+                    ドラッグアンドドロップ
+                  %h4.exhibition_main__container__image_label__file__message__2
+                    またはクリックしてファイルをアップロード
+            
+
+
+        .exhibition_main__container__product
+          .exhibition_main__container__product__send
+            .exhibition_main__container__product__send__top
+              %h3.exhibition_main__container__product__send__top__left
+                商品名
+                %span.exhibition_main__container__product__send__top__right
+                  必須
+            %input.exhibition_main__container__product__send__name{type: "text", placeholder: "  商品名 (必須40文字まで)"}
+            .exhibition_main__container__product__send__top
+              %h3.exhibition_main__container__product__send__top__left
+                商品の説明
+                %span.exhibition_main__container__product__send__top__right
+                  必須
+            %textarea.exhibition_main__container__product__send__discription{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+
+
+
+          .exhibition_main__container__product__detail
+            .exhibition_main__container__product__detail__inner
+              商品の詳細
+              .exhibition_main__container__product__detail__inner__select
+                .exhibition_main__container__product__detail__inner__select__top
+                  %h3.exhibition_main__container__product__detail__inner__select__top__left
+                    カテゴリー
+                    %span.exhibition_main__container__product__detail__inner__select__top__right
+                      必須
+                .exhibition_main__container__product__detail__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  %select.exhibition_main__container__product__detail__inner__select__wrappe__button
+                    %option{value: ""} ---
+                    %option{value: "1"} レディース
+                    %option{value: "2"} メンズ
+                    %option{value: "3"} ベビー・キッズ
+                    %option{value: "4"} インテリア・住まい・小物
+                    %option{value: "5"} 本・音楽・ゲーム
+                    %option{value: "6"} おもちゃ・ホビー・グッズ
+                    %option{value: "7"} コスメ・香水・美容
+                    %option{value: "8"} 家電・スマホ・カメラ
+                    %option{value: "9"} スポーツ・レジャー
+                    %option{value: "10"} ハンドメイド
+                    %option{value: "11"} チケット
+                    %option{value: "12"} 自動車・オートバイ
+                    %option{value: "13"} その他
+
+
+
+                .exhibition_main__container__product__detail__inner__select__status
+                  %h3.exhibition_main__container__product__detail__inner__select__status__left
+                    商品の状態
+                    %span.exhibition_main__container__product__detail__inner__select__status__right
+                      必須
+                .exhibition_main__container__product__detail__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  %select.exhibition_main__container__product__detail__inner__select__wrappe__button
+                    %option{value: ""} ---
+                    %option{value: "1"} 新品、未使用
+                    %option{value: "2"} 未使用に近い
+                    %option{value: "3"} 目立った傷や汚れなし
+                    %option{value: "4"} やや傷や汚れなし
+                    %option{value: "5"} やや傷や汚れあり
+                    %option{value: "6"} 傷や汚れあり
+                    %option{value: "7"} 傷や汚れあり
+                    %option{value: "8"} 全体的に状態が悪い
+
+
+
+          .exhibition_main__container__product__shipping_method
+            .exhibition_main__container__product__shipping_method__inner
+              配送について
+              = link_to "#" do
+                %i.fa.fa-question-circle{class: "question"}
+              .exhibition_main__container__product__shipping_method__inner__select
+                .exhibition_main__container__product__shipping_method__inner__select__burden
+                  %h3.exhibition_main__container__product__shipping_method__inner__select__burden__left
+                    配送料の負担
+                    %span.exhibition_main__container__product__shipping_method__inner__select__burden__right
+                      必須
+                .exhibition_main__container__product__shipping_method__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  %select.exhibition_main__container__product__shipping_method__inner__select__wrappe__button
+                    %option{value: ""} ---
+                    %option{value: "1"} 送料込み(出品者負担)
+                    %option{value: "2"} 着払い(購入者負担)
+
+
+
+                .exhibition_main__container__product__shipping_method__inner__select__region
+                  %h3.exhibition_main__container__product__shipping_method__inner__select__region__left
+                    発送元の地域
+                    %span.exhibition_main__container__product__shipping_method__inner__select__region__right
+                      必須
+                .exhibition_main__container__product__shipping_method__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  %select.exhibition_main__container__product__shipping_method__inner__select__wrappe__button
+                    %option{value: ""} ---
+                    %option{value: "1"} 新品、未使用
+                    %option{value: "2"} 未使用に近い
+                    %option{value: "3"} 目立った傷や汚れなし
+                    %option{value: "4"} やや傷や汚れなし
+                    %option{value: "5"} やや傷や汚れあり
+                    %option{value: "6"} 傷や汚れあり
+                    %option{value: "7"} 傷や汚れあり
+                    %option{value: "8"} 全体的に状態が悪い
+
+
+
+                .exhibition_main__container__product__shipping_method__inner__select__day
+                  %h3.exhibition_main__container__product__shipping_method__inner__select__day__left
+                    発送までの日数
+                    %span.exhibition_main__container__product__shipping_method__inner__select__day__right
+                      必須
+                .exhibition_main__container__product__shipping_method__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  %select.exhibition_main__container__product__shipping_method__inner__select__wrappe__button
+                    %option{value: ""} ---
+                    %option{value: "1"} 1~2日で発送
+                    %option{value: "2"} 2~3日で発送
+                    %option{value: "3"} 4~7日で発送
+
+          .exhibition_main__container__product__money
+            .exhibition_main__container__product__money__inner
+              販売価格(300~9,999,999)
+              = link_to "#" do
+                %i.fa.fa-question-circle{class: "question"}
+              .exhibition_main__container__product__money__inner__select
+                .exhibition_main__container__product__money__inner__select__a
+                  %h3.exhibition_main__container__product__money__inner__select__a__left
+                    価格
+                    %span.exhibition_main__container__product__money__inner__select__a__right
+                      必須
+                  .exhibition_main__container__product__money__inner__select__a__price
+                    .exhibition_main__container__product__money__inner__select__a__price__yen
+                      ¥
+                    %input.exhibition_main__container__product__money__inner__select__a__price__figure{type: "text", placeholder: "例） 300"}
+              
+                .exhibition_main__container__product__money__inner__select__commission
+                  販売手数料(10%)
+                .exhibition_main__container__product__money__inner__select__profit
+                  販売履歴
+          .exhibition_main__container__product__discription
+            %p.exhibition_main__container__product__discription__1
+              = link_to "#", class: "link" do
+                禁止されている出品、行為
+              を必ずご確認ください。
+            %p.exhibition_main__container__product__discription__2
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to "#", class: "link" do
+                偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p.exhibition_main__container__product__discription__3
+              また、出品をもちまして
+              = link_to "#", class: "link" do
+                加盟店規約
+              に同意したことになります。
+
+            %input.exhibition_main__container__product__discription__exhibition{type: "submit", value: "出品する", }
+            = link_to "#" do
+              .exhibition_main__container__product__discription__back
+                もどる
+  .exhibition_footer  
+    .exhibition_footer__inner
+      .exhibition_footer__inner__text
+        = link_to "#" do
+          .exhibition_footer__inner__text__1{class: "hover"}
+            プライバシーポリシー
+        = link_to "#" do
+          .exhibition_footer__inner__text__2{class: "hover"}
+            メルカリ利用規約
+        = link_to "#" do
+          .exhibition_footer__inner__text__3{class: "hover"}
+            特定商取引に関する表記
+      .exhibition_footer__inner__image
+        = link_to "#" do
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2091621301", size: "80x65", alt: "logo", class: "image_under"
+      .exhibition_footer__inner__inc
+        © Mercari, Inc.
