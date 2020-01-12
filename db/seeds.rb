@@ -12,7 +12,7 @@ User.create!(
 
 Address.create!(
   user_id: "1",
-  postal_code: "0000000",
+  postal_code: "1234567",
   prefecture: "1",
   city: "渋谷区",
   street: "渋谷駅",
@@ -21,8 +21,8 @@ Address.create!(
 
 Card.create!(
   user_id: "1",
-  number: "1111222233334444",
-  expiration: "2020-2",
+  number: "1234",
+  expiration: "2020-02-28",
   security_code: "111",
 )
 
