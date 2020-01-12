@@ -12,10 +12,10 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birthdate|date|null: false|
+|birthday|date|null: false|
 |tel|string|null: false, unique: true|
 |profile|text||
-|icon|text||
+|image|text||
 
 ### Association
 - has_many :products
@@ -104,8 +104,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|int||
-###Association
+|ancestry|string||
+### Association
 - has_many :products
 - has_many :brands_categories
 - has_many :brands, through: :brands
