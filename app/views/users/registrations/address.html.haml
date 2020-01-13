@@ -1,20 +1,98 @@
-%h2 住所を入力してください
-= form_with(model: @address, url: address_path, local: true) do |form|
-  .admin-card__form__coupon
-    .admin-card__form__coupon__input
-      = form.label :postal_code, "郵便番号", class: "label"
-      = form.text_field :postal_code, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :prefecture, "都道府県", class: "label"
-      = form.text_field :prefecture, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :city, "市区町村", class: "label"
-      = form.text_field :city, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :street, "番地", class: "label"
-      = form.text_field :street, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :building, "ビル、マンション", class: "label"
-      = form.text_field :building, required: true, class: "form-input description"
-  .admin-card__form__submit
-    = form.submit "次へ",  class: "form-submit btn btn-primary"
+.signup-wrapper
+  .address-header
+    %h1.address-header__logo
+      = link_to "#"do 
+        = image_tag "fmarket_logo_white.svg"
+    %nav.step-barfive
+      %ol.clearfix
+        %li.step-barfive__active
+          会員情報
+          .step-barfive__active__status
+        %li.step-barfive__active__tell
+          電話番号認証
+          .step-barfive__active__status__tell
+        %li.step-barfive__active__address
+          お届け先住所入力
+          .step-barfive__active__status__address
+        %li.step-barfive__active__pay
+          支払い方法
+          .step-barfive__active__status__pay
+        %li.step-barfive__active__end
+          完了
+          .step-barfive__active__status__end
+  %main.registration-main
+    %section.l-registration-container
+      %h2.l-registration-head__registration 住所入力
+      .l-registration-head__registration__form
+        .l-registration-content
+          = form_with(model: @address, url: address_path, local: true) do |form|
+            .admin-address__form__coupon
+              .admin-address__form__coupon__input
+                = form.label :name,"お名前" ,class:"name"
+                %a.red 必要
+                = form.text_field :last_name, required: true, class: "form_address",placeholder:"例）山田"
+                = form.text_field :first_name, required: true, class: "form_address",placeholder:"例）綾"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :name,"お名前カナ" ,class:"name"
+                %a.red 必要
+                = form.text_field :last_name_kana, required: true, class: "form_address",placeholder:"例）ヤマダ"
+                = form.text_field :first_name_kana, required: true, class: "form_address",placeholder:"例）アヤ"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :postal_code,"郵便番号" ,class:"name"
+                %a.red 必要
+                = form.text_field :postal_code, required: true, class: "form_address",placeholder:"例）123-0000"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :prefecture,"都道府県" ,class:"name"
+                %a.red 必要
+                %select.form_address_prefecture{:name => "month" }
+                  %option{:value => "1"} 北海道
+                  %option{:value => "2"} 青森県
+                  %option{:value => "3"} 岩手県
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :city,"市区町村" ,class:"name"
+                %a.red 必要
+                = form.text_field :city, required: true, class: "form_address",placeholder:"例）横浜市緑区"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :street,"番地" ,class:"name"
+                %a.red 必要
+                = form.text_field :street, required: true, class: "form_address",placeholder:"例）青山1-1-1"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :building,"建物名" ,class:"name"
+                %a.gray 必要
+                = form.text_field :building, required: true, class: "form_address",placeholder:"例）MatudaBuilding 103"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__input
+                = form.label :tel,"電話番号" ,class:"name"
+                %a.gray 必要
+                = form.text_field :tel, required: true, class: "form_address",placeholder:"例）090-5555-7777"
+                %br/
+                %br/
+                %br/
+              .admin-address__form__coupon__next
+                = form.submit "「次へ進む」",  class: "next-btn" 
+
+  .signup__footer
+    = render partial: "footer"
+
+
+
