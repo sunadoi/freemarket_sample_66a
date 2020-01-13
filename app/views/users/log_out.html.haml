@@ -1,0 +1,12 @@
+.header
+= render partial: '/products/header'
+.wrapper
+  = render partial: 'bread'
+  .logout_container
+    = render partial: 'sidebar'
+    .logout
+      = form_with url: '#', class: 'logout__button' do |f|
+        = f.submit 'ログアウト', class: 'red_button'
+.footer
+  = render partial: '/products/adbtm'
+  = render partial: '/products/footer'

@@ -11,12 +11,16 @@
 @import 'users/def';
 @import 'users/profile';
 @import 'users/identification';
+@import 'users/log_out';
 
 @import 'users/new';
 
 @import 'products/show';
 @import 'products/index';
 
-@import 'cards/show_card';
 
+@import 'users/sessions/new';
+
+
+@import 'cards/show_card';
 

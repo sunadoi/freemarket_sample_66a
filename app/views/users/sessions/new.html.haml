@@ -1,17 +1,46 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+.signin-contents
+  .signin__simple__header
+    .signin__simple__header__logo
+      = link_to "/"do
+        = image_tag "fmarket_logo_red.svg"
+  .signin-main
+    .signin-main__section
+      .signin-main__section__top
+        アカウントをお持ちでない方はこちら
+      %ul.signin-main__conect__lists
+        %li.signin-main__conect__lists__mail
+          = link_to "/" do
+            .signin-main__conect__lists__mail__btn
+              新規会員登録
+    .signin-main__conect
+      = form_with(url: "/", local: true, class: "signin-main__conect") do |form|
+        %ul.signin-main__conect__lists
+          %li.signin-main__conect__lists__facebook
+            = link_to "/" do
+              .signin-main__conect__lists__facebook__btn
+                Facebookでログイン
+                %i.fbicon
+                  = icon('fab', 'facebook-square')
+          %li.signin-main__conect__lists__google2
+            = link_to "/"do
+              .signin-main__conect__lists__google2__btn
+                Googleでログイン
+              .signin-main__conect__lists__google2__icon
+          %li.signin-main__conect__lists__input
+            = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス"
+          %li.signin-main__conect__lists__input
+            = form.password_field :encrypted_password, autocomplete: "password",placeholder: "パスワード"
+          %li.signin-main__conect__lists
+            .signin-main__conect__lists__reCAPTCHA
+              =check_box_tag :check2
+              =label_tag :check2, "私はロボットではありません"
+              =image_tag "FREE icon 6.jpeg" 
+              = link_to "/"do
+                プライバシー 利用規約
+        .actions
+          .actions__btn
+            = form.submit "ログイン",  class: "action" 
+          .actions__link
+            = link_to("パスワードお忘れの方", "/")
+  .signup__footer
+    = render partial: "users/registrations/footer"        
