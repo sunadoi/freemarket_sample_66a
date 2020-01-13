@@ -2,17 +2,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'users/registrations/new';
-@import 'users/registrations/address';
 @import 'users/registrations/tel';
+@import 'users/registrations/address';
+@import 'users/registrations/complete';
+@import 'users/sessions/new';
 @import 'users/show';
+@import 'users/profile';
+@import 'users/def';
+@import 'users/identification';
+@import 'users/log_out';
+@import 'users/new';
 @import 'products/new';
 @import 'products/index';
 @import 'products/show';
-@import 'users/profile';
-@import 'users/def';
-@import 'users/new';
 @import 'buyers/new';
-
-
-
-
+@import 'cards/show_card';
