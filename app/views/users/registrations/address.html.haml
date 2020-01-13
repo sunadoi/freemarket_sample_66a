@@ -1,7 +1,7 @@
 .signup-wrapper
   .address-header
     %h1.address-header__logo
-      = link_to "#"do 
+      = link_to "/" do 
         = image_tag "fmarket_logo_white.svg"
     %nav.step-barfive
       %ol.clearfix
@@ -29,31 +29,32 @@
             .admin-address__form__coupon
               .admin-address__form__coupon__input
                 = form.label :name,"お名前" ,class:"name"
-                %a.red 必要
-                = form.text_field :last_name, required: true, class: "form_address",placeholder:"例）山田"
-                = form.text_field :first_name, required: true, class: "form_address",placeholder:"例）綾"
+                %a.red 必須
+                = form.text_field :last_name, required: true, class: "form_address", value: @user.last_name
+                = form.text_field :first_name, required: true, class: "form_address",value: @user.first_name
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :name,"お名前カナ" ,class:"name"
-                %a.red 必要
-                = form.text_field :last_name_kana, required: true, class: "form_address",placeholder:"例）ヤマダ"
-                = form.text_field :first_name_kana, required: true, class: "form_address",placeholder:"例）アヤ"
+                %a.red 必須
+                = form.text_field :last_name_kana, required: true, class: "form_address", value: @user.last_name_kana
+                = form.text_field :first_name_kana, required: true, class: "form_address", value: @user.first_name_kana
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :postal_code,"郵便番号" ,class:"name"
-                %a.red 必要
+                %a.red 必須
                 = form.text_field :postal_code, required: true, class: "form_address",placeholder:"例）123-0000"
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :prefecture,"都道府県" ,class:"name"
-                %a.red 必要
-                %select.form_address_prefecture{:name => "month" }
+                %a.red 必須
+                %select.form_address_prefecture{name: "prefecture"
+                 }
                   %option{:value => "1"} 北海道
                   %option{:value => "2"} 青森県
                   %option{:value => "3"} 岩手県
@@ -62,29 +63,29 @@
                 %br/
               .admin-address__form__coupon__input
                 = form.label :city,"市区町村" ,class:"name"
-                %a.red 必要
+                %a.red 必須
                 = form.text_field :city, required: true, class: "form_address",placeholder:"例）横浜市緑区"
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :street,"番地" ,class:"name"
-                %a.red 必要
+                %a.red 必須
                 = form.text_field :street, required: true, class: "form_address",placeholder:"例）青山1-1-1"
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :building,"建物名" ,class:"name"
-                %a.gray 必要
-                = form.text_field :building, required: true, class: "form_address",placeholder:"例）MatudaBuilding 103"
+                %a.gray 任意
+                = form.text_field :building, class: "form_address",placeholder:"例）MatudaBuilding 103"
                 %br/
                 %br/
                 %br/
               .admin-address__form__coupon__input
                 = form.label :tel,"電話番号" ,class:"name"
-                %a.gray 必要
-                = form.text_field :tel, required: true, class: "form_address",placeholder:"例）090-5555-7777"
+                %a.gray 任意
+                = form.text_field :tel, class: "form_address",placeholder:"例）090-5555-7777"
                 %br/
                 %br/
                 %br/
