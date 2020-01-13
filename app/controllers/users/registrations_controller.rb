@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     @user.birthday = birthday_params
-    binding.pry
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -71,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :street, :building)
+    params.require(:address).permit(:postal_code, :prefecture, :city, :street, :building).merge(prefecture: params[:prefecture])
   end
 
   def card_params

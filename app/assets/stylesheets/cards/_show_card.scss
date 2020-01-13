@@ -1,0 +1,36 @@
+.card{
+  width: 700px;
+  font-size: 81%;
+  .card__content{
+    padding: 64px;
+    border-top: 1px solid #eeeeee;
+    background-color: #ffffff;
+    &__list{
+      justify-content: center;
+      width: 320px;
+      margin: 0 auto 32px;
+      font-size: 14px;
+      position: relative;
+      i{
+        font-size: 35px;
+        color: #193fa8;
+      }
+      .card__number{
+        margin-top: 8px;
+      }
+      .card__date{
+        margin-top: 8px;
+      }
+      .delete_btn{
+        position: absolute;
+        top: 48px;
+        right: 0;
+        padding: 2px 6px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: 1px solid #ea352d;
+        color: #ea352d;
+      }
+    }
+  }
+}
