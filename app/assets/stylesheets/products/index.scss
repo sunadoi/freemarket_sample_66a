@@ -170,7 +170,9 @@
     .mein_pic_title_text{
       font-size: 20px;
       height: 15%;
-      color: black;
+      a {
+        color: white;
+      }
     }
 
     .mein_pic_title_log{
