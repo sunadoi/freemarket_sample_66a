@@ -26,6 +26,42 @@ Card.create!(
   security_code: "111",
 )
 
+Brand.create!(name: "CHANEL")
+Brand.create!(name: "COACH")
+Brand.create!(name: "LOUIS VUITTON")
+
+Product.create!(
+  user_id: "1",
+  category_id: "11",
+  brand_id: "1",
+  size: "3",
+  condition: "1",
+  name: "CHANELニット",
+  description: "あったかい",
+  shipping_charge: "1",
+  shipping_method: "1",
+  shipping_prefecture: "1",
+  shipping_days: "1",
+  price: "10000",
+  progress: "1",
+)
+
+Product.create!(
+  user_id: "1",
+  category_id: "23",
+  brand_id: "2",
+  size: "3",
+  condition: "2",
+  name: "COACHジャケット",
+  description: "カッコいい",
+  shipping_charge: "2",
+  shipping_method: "2",
+  shipping_prefecture: "2",
+  shipping_days: "2",
+  price: "15000",
+  progress: "2",
+)
+
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
