@@ -1,4 +1,4 @@
-.profile, .identification, .card{
+.profile, .identification, .card, .logout{
   box-sizing: border-box;
   a{
     text-decoration: none;
@@ -41,7 +41,7 @@
 .background{
   background-color: #f5f5f5;
 }
-.profile_container, .identification_container, .card_container{
+.profile_container, .identification_container, .card_container, .logout_container{
   margin: 40px auto 0;
   padding-bottom: 40px;
   width: 1020px;
