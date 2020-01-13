@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products
-  resources :users
+  resources :users do
+    member do
+      get 'identification'
+    end
+  end
 end
