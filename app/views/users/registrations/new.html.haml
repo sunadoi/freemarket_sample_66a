@@ -22,7 +22,7 @@
               = form.label :password, 'パスワード'
               %span.l-registration-content__require 必須
               %br/
-              = form.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
+              = form.password_field :encrypted_password, autocomplete: "new-password", placeholder: "7文字以上"
               %p.l-registration-content__information
                 ※ 英字と数字の両方を含めて設定してください
             .l-registration-content__password

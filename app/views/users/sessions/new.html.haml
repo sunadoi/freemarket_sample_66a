@@ -1,44 +1,43 @@
-.signin-container
-  .signin-header
-    %h1.signin-header-logo
-      = link_to "#" do
+.signin-contents
+  .signin__simple__header
+    .signin__simple__header__logo
+      = link_to "/"do
         = image_tag "fmarket_logo_red.svg"
   .signin-main
-    .signin-main__contents
-      .signin-main__contents__top
+    .signin-main__section
+      .signin-main__section__top
         アカウントをお持ちでない方はこちら
-      %ul.signin-main__contents__list 
-        %li.signin-main__contents__list__mail
-          =link_to "#" do
-            .signin-main__contents__list__mail__btn
+      %ul.signin-main__conect__lists
+        %li.signin-main__conect__lists__mail
+          = link_to "/" do
+            .signin-main__conect__lists__mail__btn
               新規会員登録
-      .signin-main__contents__midle
-        .signin-main__contents__midle__top
-          %ul.signin-main__contents__midle__top__list
-            %li.signin-main__contents__midle__top__list__facebook
-              = link_to "#" do
+    .signin-main__conect
+      = form_with(url: "#", local: true, class: "signin-main__conect") do |form|
+        %ul.signin-main__conect__lists
+          %li.signin-main__conect__lists__facebook
+            = link_to "/" do
+              .signin-main__conect__lists__facebook__btn
                 Facebookでログイン
-                = icon('fab', 'facebook-square')
-            %li.signin-main__contents__midle__top__list__google
-              = link_to "#" do
-                .signin-main__conect__lists__google__btn
-                  Googleでログイン
-                .signin-main__conect__lists__google__icon
-        .signin-main__contents__midle__botom
-          = form_with(url: "#", local: true, class: ".signin-main__contents__midle__botom") do |form|
-            %ul.signin-main__contents__midle__botom__list
-              %li.signin-main__contents__midle__botom__list__mail
-                = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス"
-              %li.signin-main__contents__midle__botom__list__passward
-                = form.email_field :password, autocomplete: "password",placeholder: "パスワード"  
-              %li.signin-main__contents__midle__botom__list__box
-                =check_box_tag :check2
-                =label_tag :check2, "私はロボットではありません"
-                = image_tag "inu.jpg"
-            .actions
-              .actions__btn
-                = form.submit "ログイン",  class: "next-btn" 
-              .actions__link
-                = link_to("パスワードお忘れの方", "＃")
-  .signin__footer
-    = render partial: "users/registrations/footer"              
+                %i.fbicon
+                  = icon('fab', 'facebook-square')
+          %li.signin-main__conect__lists__google2
+            = link_to "/"do
+              .signin-main__conect__lists__google2__btn
+                Googleでログイン
+              .signin-main__conect__lists__google2__icon
+          %li.signin-main__conect__lists__input
+            = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス"
+          %li.signin-main__conect__lists__input
+            = form.password_field :encrypted_password, autocomplete: "password",placeholder: "パスワード"
+          %li.signin-main__conect__lists
+            .signin-main__conect__lists__reCAPTCHA
+              =check_box_tag :check2
+              =label_tag :check2, "私はロボットではありません"  
+        .actions
+          .actions__btn
+            = form.submit "ログイン",  class: "action" 
+          .actions__link
+            = link_to("パスワードお忘れの方", "/")
+  .signup__footer
+    = render partial: "users/registrations/footer"        
