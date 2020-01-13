@@ -1,0 +1,20 @@
+.card
+  %h2
+    支払い方法
+  .card__content
+    .card__content__list
+      %h3
+        クレジットカード一覧
+      = form_with url: '#', class: 'card-form' do |f|
+        = icon('fab', 'cc-visa')
+        .card__number
+          ********1234
+        .card__date
+          02/20
+        = f.submit value: '削除する', class: 'delete_btn'
+    .explaination
+      .explaination__help
+        = link_to '#', class: 'help' do
+          .explaination__help__text
+            支払い方法について
+            = icon('fas', 'chevron-right')
