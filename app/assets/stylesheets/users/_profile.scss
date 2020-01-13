@@ -1,0 +1,42 @@
+.profile{
+  width: 700px;
+  font-size: 81%;
+  &__content{
+    border-top: 1px solid #eeeeee;
+    background-color: #ffffff;
+    &__top{
+      background: url('bubbles.jpg');
+      padding: 72px 16px 24px;
+      background-size: cover;
+      text-align: center;
+      img{
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      .nickname{
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+        margin-left: 8px;
+        width: 220px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 1.5;
+      }
+    }
+    &__comment{
+      padding: 40px 16px;
+      .comment{
+        width: 100%;
+        max-width: 100%;
+        height: 216px;
+        min-height: 216px;
+        resize: vertical;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
