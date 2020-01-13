@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     post 'complete', to: 'users/registrations#complete'
   end
   root to: 'products#index'
-  get 'users/profile'
 
   resources :products
   resources :users
