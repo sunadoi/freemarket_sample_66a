@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'identification'
+      get 'log_out'
     end
   end
   resources :cards
