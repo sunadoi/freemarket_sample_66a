@@ -1,0 +1,59 @@
+.identification
+  %h2
+    本人情報の登録
+  .identification__content
+    .explaination
+      お客さまの本人情報をご登録ください。
+      %br
+      登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .explaination__help
+        = link_to '#', class: 'help' do
+          .explaination__help__text
+            支払い方法について
+            = icon('fas', 'chevron-right')
+    = form_with url: '#', class: 'identification__content__form' do |f|
+      .id_forms
+        %label
+          お名前
+        %p
+          目留華梨
+      .id_forms
+        %label
+          お名前カナ
+        %p
+          メル カリ
+      .id_forms
+        %label
+          生年月日
+        %p
+          2002/03/14
+      .id_forms
+        %label.mandatory
+          郵便番号
+        = f.text_field :postal_number , placeholder: '例）1234567', class: 'field'
+      .id_forms
+        %label.mandatory
+          都道府県
+        .select
+          = f.select :prefecture ,['--', '県名', '県名', '県名'], {}, class: 'select__field'
+          = icon('fas', 'chevron-down')
+      .id_forms
+        %label.mandatory
+          市区町村
+        = f.text_field :city , placeholder: '例）横浜市緑区', class: 'field'
+      .id_forms
+        %label.mandatory
+          番地
+        = f.text_field :street , placeholder: '例）青山1-1-1', class: 'field'
+      .id_forms
+        %label.mandatory
+          建物名
+        = f.text_field :building , placeholder: '例）柳ビル103', class: 'field'
+
+      .red_button
+        登録する
+      .explaination__help
+        = link_to '#', class: 'help' do
+          .explaination__help__text
+            本人情報の登録について
+            = icon('fas', 'chevron-right')
