@@ -2,7 +2,9 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'users/registrations/new';
+@import 'users/registrations/tel';
 @import 'users/registrations/address';
+@import 'users/registrations/complete';
 @import 'users/show';
 @import 'products/new';
 @import 'products/index';
@@ -21,7 +23,4 @@
 
 
 @import 'cards/show_card';
-
-
-@import 'users/registrations/tel';
 

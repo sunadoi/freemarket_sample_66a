@@ -1,1 +1,37 @@
-%h1 会員登録完了
+.signup-wrapper
+  .simple-header
+    %h1.simple-header__logo
+      = link_to "/" do 
+        = image_tag "fmarket_logo_white.svg"
+    %nav.complete__progress-barfive
+      %ol.clearfix
+        %li.progress-barfive__active
+          会員情報
+          .progress-barfive__active__status
+        %li.progress-barfive__active__tel
+          電話番号認証
+          .progress-barfive__active__status__tel
+        %li.progress-barfive__active__address
+          お届け先住所入力
+          .progress-barfive__active__status__address
+        %li.progress-barfive__active__pay
+          支払い方法
+          .progress-barfive__active__status__pay
+        %li.progress-barfive__active__end
+          完了
+          .progress-barfive__active__status__end
+  %main.registration-main.complete-wrapper
+    %section.l-registration-container
+      %h2.l-registration-head__registration 会員登録完了
+      .l-registration-head__registration__form
+        .l-registration-head__registration__text
+          ありがとうございます。
+          %br/
+          会員登録が完了しました。
+        .l-registration-head__registration__btn
+          = link_to "/" do
+            = button_tag "メルカリをはじめる", class: 'complete-btn'
+  .footer
+    = render partial: "/products/adbtm"
+  .signup__footer
+    = render partial: "footer"
