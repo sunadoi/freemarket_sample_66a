@@ -1,0 +1,13 @@
+.profile
+  %h2
+    プロフィール
+  .profile__content
+    =form_with url: '#' do |f|
+      .profile__content__top
+        = image_tag 'no-icon.png', size: '60x60'
+        = f.text_field :nickname, placeholder: "@user.nickname", class: 'nickname'
+      .profile__content__comment
+        = text_area :comment, {}, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: 'comment'
+        = link_to('#') do
+          .red_button
+            変更する

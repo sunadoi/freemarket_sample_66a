@@ -4,5 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  end  
+  end
+
+  def edit
+  end
+
+  def identification
+  end
 end
