@@ -2,23 +2,14 @@
 .sales
   .sales__list
     .sales__list_neme
-      %h1 ルイビトン　カバン 
+      %h1 
+        = @product.name
     .sales__list_top
       .sales__list_top_pic
-       
-        = image_tag "inu.jpg",class: "sales_pic"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
-      
-        = image_tag "inu.jpg",class: "sales_pic_smoll"
+
+        = image_tag @product.photos.first.image.file.file, class: "sales_pic"
+        - @product.photos.each do |photo|
+          = image_tag photo.image.url,class: "sales_pic_smoll"
       .sales__list_top_item
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
@@ -50,16 +41,16 @@
             .sales__list_top_item_contener_rigth_secnd
               .sales__list_top_item_contener_rigth_secnd_category
                 =link_to "#",class:"color" do
-                  レディース
+                  = @product.category.parent.parent.name
               %ul
                 %li
                   =icon("fas","angle-right",class:"icon_color")
                   =link_to "#",class:"color" do
-                    レディース
+                    = @product.category.parent.name
                 %li
                   =icon("fas","angle-right",class:"icon_color")
                   =link_to "#",class:"color" do
-                    レディース
+                    = @product.category.name
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             ブランド
@@ -67,28 +58,28 @@
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
                 =link_to "#",class:"color" do
-                  ルイビトン
+                  = @product.brand.name
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             商品の状態
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                目立った傷や汚れなし
+                = @product.condition
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             配送料の負担
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                送料込み(出品者負担)
+                = @product.shipping_charge
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             配送の方法
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                未定
+                = @product.shipping_method
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             配送元地域
@@ -96,32 +87,32 @@
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
                 =link_to "#",class:"color" do
-                  大阪府
+                  = @product.shipping_prefecture
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             発送日の目安
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                1~2日で発送
+                = @product.shipping_days
     
 
 
     .sales__list_price_box
-      %h1 ¥1,000
+      %h1 
+        = "¥#{@product.price.to_s.slice(0 .. -4)},#{@product.price.to_s.slice(-3 .. -1)}"
       %p (消込)
-      %h3 送料込み
+      %h3
+        - if @product.shipping_charge = 1
+          送料込み
+        - elsif @product.shipping_charge = 2
+          着払い
     .sales__list_btn
       =link_to "#",class:"color" do
         .get_btn
           購入画面に進む
     .sales__list_comment
-      濡れたままの状態での出品になります。           
-      人間が大好きで誰にでもなつきます             
-      芸は特にできないのですが、とってこいだけは勝手に覚えました。
-      ※お手すらできません
-      気になる方はお気軽にお問い合わせください
-      ノークレームノーリターン
+      = @product.description
     .sales__list_evaluate
       .sales__list_evaluate_put
         .sales__list_evaluate_put_good
@@ -182,52 +173,25 @@
         xxxxさんのその他の出品
 
     %ul.another_list_item
-      %li.list_1
-        =link_to "#" ,class: "color" do
-          =image_tag "inu.jpg",class: "pic"
-          .title RED BULL
-          .title_iteme
-            .title_iteme_price
-              ¥1,000
-            .title_iteme_like
-              =icon("fas","heart")
-              4
-      %li.list_1
-        =link_to "#" ,class: "color" do
-          =image_tag "inu.jpg",class: "pic"
-          .title RED BULL
-          .title_iteme
-            .title_iteme_price
-              ¥1,000
-            .title_iteme_like
-              =icon("fas","heart")
-              4
-      %li.list_1
-        =link_to "#" ,class: "color" do
-          =image_tag "inu.jpg",class: "pic"
-          .title RED BULL
-          .title_iteme
-            .title_iteme_price
-              ¥1,000
-            .title_iteme_like
-              =icon("fas","heart")
-              4
-      %li.list_1
-        =link_to "#" ,class: "color" do
-          =image_tag "inu.jpg",class: "pic"
-          .title RED BULL
-          .title_iteme
-            .title_iteme_price
-              ¥1,000
-            .title_iteme_like
-              =icon("fas","heart")
-              4
+      -@products.each do |other|
+        %li.list_1
+          =link_to "#" ,class: "color" do
+            =image_tag "inu.jpg",class: "pic"
+            .title 
+              = other.name
+            .title_iteme
+              .title_iteme_price
+                = "¥#{other.price.to_s.slice(0 .. -4)},#{other.price.to_s.slice(-3 .. -1)}"
+              .title_iteme_like
+                =icon("fas","heart")
+                4
 
 .under
   .under_category
     .under_category_item
       メルちゃん
       =icon("fas","angle-right")
+      = @product.name
 
 
 .footer
