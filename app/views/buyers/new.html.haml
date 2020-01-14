@@ -1,0 +1,83 @@
+.signup-wrapper
+  .buy-header
+    %h1.address-header__logo
+      = link_to "#"do 
+        = image_tag "fmarket_logo_white.svg"
+  %main.get-main
+    %section.l-get-container
+      %h2.l-get-head__registration 購入内容の確認
+      .l-get-head__registration__form
+        .l-get-content__form__box__imag
+          = image_tag 'inu.jpg', height: '80px', width: '80px', class: 'pic'
+        .l-get-content__form__box__text
+          .l-get-content__form__box__text__title
+            おおおおおおおおおおおおおおおおおおおおお
+          .l-get-content__form__box__text__price
+            ¥16,000 （税込）送料込み
+      .l-get-head__registration__pay
+        .l-get-content__registration__pay__text
+          支払い金額
+        .l-get-content__registration__pay__price
+          ¥16,000
+      .l-get-head__registration__paypay
+        .l-get-content__registration__pay__point
+          .l-get-content__registration__pay__point_box
+          .l-get-content__registration__pay__point_text
+            ポイントを使用 (所持ポイント: P0)
+    .buyers
+      .buyers__card
+        .buyers__card__Method
+          .buyers__card__Method__text
+            .buyers__card__Method__text__top
+              .buyers__card__Method__text__top_title
+                支払い方法
+              .buyers__card__Method__text__top_chenge
+                =link_to"#" ,class:"color" do
+                  変更する
+            .buyers__card__Method__text__deadline
+              クレジットカード
+              %br
+              ************0196
+              %br
+              有効期限 01 / 21
+              %br 
+              = image_tag 'visa.png', height: '20px', width: '50px', class: 'visa'
+
+
+        .buyers__card__Method
+          .buyers__card__Method__text
+            .buyers__card__Method__text__top
+              .buyers__card__Method__text__top_title
+                配送先
+              .buyers__card__Method__text__top_chenge
+                =link_to"#" ,class:"color" do
+                  変更する
+            .buyers__card__Method__text__deadline
+              〒567-1234
+              %br
+              長崎県長崎市湯本2355
+              %br
+              大野真一郎
+              %br 
+        .buyers__card__Method
+          .buyers__card__Method__text
+            .buyers__card__Method__text__top
+            .buyers__card__Method__text__deadline
+              %a.red この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+            .buyers__card__Method__text__btn
+              =link_to"#" ,class:"color"do
+                .btn_color
+                  購入する
+            .buyers__card__Method__text__app
+              アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            .buyers__card__Method__text__app-btn
+              .buyers__card__Method__text__app-btn__appstore
+                =link_to "#" ,class: "new_item" do
+                  = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app_box", alt: "app"
+              .buyers__card__Method__text__app-btn__googleplay
+                =link_to "#" ,class: "new_item" do
+                  = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app"
+                 
+   
+  .signup__footer
+    = render partial: "users/registrations/footer"
