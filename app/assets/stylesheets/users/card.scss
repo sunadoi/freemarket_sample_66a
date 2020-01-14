@@ -1,0 +1,345 @@
+.card_registration_wrapper__simple_header{
+  height: 128px;
+  text-align: center;
+  background: #f5f5f5;
+  &__logo{
+    margin: 40px 0 0;
+    display: inline-block;
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.card_registration_progress-barfive {
+  background: #f5f5f5;
+  padding: 40px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  &__active {
+    margin: 0 40px 0 0;
+    min-width: 60px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 12px;
+    &__status {
+      background: #ea352d;
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      border-radius: 50%;
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+      }
+    }
+    &__tell {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      
+    }
+    &__status__tell { 
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      border-radius: 50%;
+      background-color: red;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+      }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+      }
+    }
+    &__address {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      }
+    &__status__address {
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      border-radius: 50%;
+      background-color: red;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color:red;
+      }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+      }
+    }
+    &__pay {
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: red;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      }
+    &__status__pay {
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      border-radius: 50%;
+      background-color: red;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: red;
+      }
+      &::after {
+        content: '';
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: lightgray;
+      }
+    }
+    &__end {
+      font-weight: 600;
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+      }
+    &__status__end {
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      border-radius: 50%;
+      background-color: lightgray;
+      &::before {
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: lightgray;
+      }
+    } 
+  }
+}
+
+
+.card_registration_wrapper__main{
+  width: 100vw;
+  background: #f5f5f5;
+  &__container{
+    margin: 0 auto;
+    background: #fff;
+    max-width: 480px;
+    &__top{
+      font-size: 22px;
+      font-weight: bold;
+      padding: 32px;
+      line-height: 33px;
+      text-align: center;
+      border-bottom: 1px solid whitesmoke;
+    }
+    &__middle{
+      width: 343px;
+      margin: 0 auto;
+      &__number{
+        width: 100%;
+        height: 76px;
+        margin-top: 50px;
+        &__left{
+          font-weight: 600;
+          font-size: 13px;
+        }
+        &__right{
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          right: 12px;
+        }
+        &__under{
+          width: 100%;
+          height: 48px;
+          display: block;
+          margin-top: 5px;
+          &::placeholder{
+            margin-left: 30px;
+          }
+        }
+      }
+      &__expiration_1{
+        width: 100%;
+        
+        margin-top: 50px;
+        &__left{
+          font-weight: 600;
+          font-size: 13px;
+        }
+        &__right{
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          right: 12px;
+        }
+      }
+      &__expiration_2{
+        height: 120px;
+        width: 300px;
+        display: flex;
+        position: relative;
+        .card_registration_chevron1{
+          position: absolute;
+          left: 90px;
+          top: 19px;
+          color: #AAAAAA;
+        }
+        .card_registration_chevron2{
+          position: absolute;
+          right: 58px;
+          top: 19px;
+          color: #AAAAAA;
+        }
+        &__mon{
+          width: 110px;
+          height: 45px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          cursor: pointer;
+          margin-top: 5px;
+          background-color: white;
+          padding-left: 10px;
+        }
+        &__j{
+          font-size: 13px;
+          margin-left: 10px;
+          line-height: 45px;
+        }
+        &__year{
+          width: 110px;
+          height: 45px;
+          -webkit-appearance: none;
+          margin-left: 9px;
+          cursor: pointer;
+          margin-top: 5px;
+          background-color: white;
+          padding-left: 10px;
+        }
+      }
+      &__safty{
+        width: 100%;
+        &__left{
+          font-weight: 600;
+          font-size: 13px;
+        }
+        &__right{
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          right: 12px;
+        }
+        &__number{
+          height: 48px;
+          width: 100%;
+          margin-top: 5px;
+          &::placeholder{
+            text-align: center;
+          }
+        }
+      }
+      &__add{
+        width: 100%;
+        height: 48px;
+        background-color: red;
+        margin-top: 15px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        border: 1px solid red;
+        &::placeholder{
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+  .card_registration_img{
+    margin-top: 30px;
+  }
+  .card_awesome{
+    font-size: 12px;
+    float: right;
+    color: #4689FF;
+  }
+}
+
