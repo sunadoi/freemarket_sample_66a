@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :brand
   has_many :photos
   has_many :likes

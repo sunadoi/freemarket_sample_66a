@@ -1,14 +1,68 @@
-%h2 カード情報を入力してください
-= form_with(model: @card, url: card_path, local: true) do |form|
-  .admin-card__form__coupon
-    .admin-card__form__coupon__input
-      = form.label :number, "カード番号", class: "label"
-      = form.number_field :number, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :expiration, "有効期限", class: "label"
-      = form.date_field :expiration, required: true, class: "form-input description"
-    .admin-card__form__coupon__input
-      = form.label :security_code, "セキュリティコード", class: "label"
-      = form.number_field :security_code, required: true, class: "form-input description"
-  .admin-card__form__submit
-    = form.submit "次へ",  class: "form-submit btn btn-primary"
+.signup-wrapper
+  .card_registration_wrapper__simple_header
+    %h1.card_registration_wrapper__simple_header__logo
+      = link_to "/" do 
+        = image_tag "fmarket_logo_white.svg"
+    %nav.card_registration_progress-barfive
+      %ol.clearfix
+        %li.card_registration_progress-barfive__active
+          会員情報
+          .card_registration_progress-barfive__active__status
+        %li.card_registration_progress-barfive__active__tell
+          電話番号認証
+          .card_registration_progress-barfive__active__status__tell
+        %li.card_registration_progress-barfive__active__address
+          お届け先住所入力
+          .card_registration_progress-barfive__active__status__address
+        %li.card_registration_progress-barfive__active__pay
+          支払い方法
+          .card_registration_progress-barfive__active__status__pay
+        %li.card_registration_progress-barfive__active__end
+          完了
+          .card_registration_progress-barfive__active__status__end
+    
+  .card_registration_wrapper__main
+    .card_registration_wrapper__main__container
+      .card_registration_wrapper__main__container__top
+        クレジットカード情報入力
+      = form_with(model: @card, url: card_path, local: true) do |form|
+        .card_registration_wrapper__main__container__middle
+          .card_registration_wrapper__main__container__middle__number
+            %span.card_registration_wrapper__main__container__middle__number__left
+              カード番号
+            %span.card_registration_wrapper__main__container__middle__number__right
+              必須
+            = form.text_field :number, placeholder: "半角数字のみ", class: "card_registration_wrapper__main__container__middle__number__under"
+          %img{alt: "カード", height: "35", src: "http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif", width: "80%",class: "card_registration_img"}
+          .card_registration_wrapper__main__container__middle__expiration_1
+            %span.card_registration_wrapper__main__container__middle__expiration_1__left
+              有効期限
+            %span.card_registration_wrapper__main__container__middle__expiration_1__right
+              必須
+          .card_registration_wrapper__main__container__middle__expiration_2
+            %i.fa.fa-chevron-down{class: "card_registration_chevron1"}
+            %i.fa.fa-chevron-down{class: "card_registration_chevron2"}
+            = form.select :expiration, [["01", 1],["02", 2],["03", 3],["04", 4]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__mon"}
+             
+            %span.card_registration_wrapper__main__container__middle__expiration_2__j
+              月
+            %select.card_registration_wrapper__main__container__middle__expiration_2__year
+              %option{value: "1"} 20
+              %option{value: "2"} 21
+              %option{value: "3"} 22
+            %span.card_registration_wrapper__main__container__middle__expiration_2__j
+              年
+          .card_registration_wrapper__main__container__middle__safty
+            %span.card_registration_wrapper__main__container__middle__safty__left
+              セキュリティーコード
+            %span.card_registration_wrapper__main__container__middle__safty__right
+              必須
+            %input.card_registration_wrapper__main__container__middle__safty__number{type: "text", placeholder: "カード背面4桁もしくは3桁の番号"}
+          .card_awesome
+            %i.fa.fa-question-circle
+            %span.card_registration_wrapper__main__container__middle__link
+              カード裏面の番号とは
+          %input.card_registration_wrapper__main__container__middle__add{type: "text", placeholder: "追加する"}    
+  .signup__footer
+    = render partial: "footer"
+          
