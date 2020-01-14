@@ -70,7 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :street, :building).merge(prefecture: params[:prefecture])
+    params.required(:address).permit(:postal_code, :city, :street, :building).merge(prefecture: params[:address][:prefecture].to_i)
   end
 
   def card_params
