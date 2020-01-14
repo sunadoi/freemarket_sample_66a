@@ -42,6 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_user_data"]["user"])
     @address = Address.new(session["devise.regist_address_data"]["address"])
     @card = Card.new(card_params)
+    @card.expiration = card_expiration
     unless @card.valid?
       flash.now[:alert] = @card.errors.full_messages
       render :card and return
@@ -74,6 +75,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def card_params
-    params.require(:card).permit(:number, :expiration, :security_code)
+    params.require(:card).permit(:number, :security_code)
+  end
+
+  def card_expiration
+    year = params[:card][:expiration_year].to_i
+    year += 2000
+    return "#{year}/#{params[:card][:expiration_month]}"
   end
 end
