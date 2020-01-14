@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products
+
+  resources :buyers
   resources :users do
     member do
       get 'identification'
