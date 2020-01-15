@@ -16,9 +16,7 @@
           .sales__list_top_item_contener_rigth
             .sales__list_top_item_contener_rigth_top
               .sales__list_top_item_contener_rigth_top_text
-                =link_to "/users/#{@product.seller.user.id}",class:"color" do
-                  = @product.seller.user.nickname
-                  -# 文字の量指定
+                =link_to "#{@product.seller.user.nickname}", user_path(@product.seller.user.id),class:"color"
             .sales__list_top_item_contener_rigth_bottom
               .sales__list_top_item_contener_rigth_bottom_evaluation
                 .sales__list_top_item_contener_rigth_bottom_evaluation_smile
@@ -36,25 +34,21 @@
           .sales__list_top_item_contener_rigth
             .sales__list_top_item_contener_rigth_secnd
               .sales__list_top_item_contener_rigth_secnd_category
-                =link_to "#",class:"color" do
-                  = @product.category.parent.parent.name
+                =link_to "#{@product.category.parent.parent.name}","#",class:"color"
               %ul
                 %li
                   =icon("fas","angle-right",class:"icon_color")
-                  =link_to "#",class:"color" do
-                    = @product.category.parent.name
+                  =link_to "#{@product.category.parent.name}","#",class:"color"
                 %li
                   =icon("fas","angle-right",class:"icon_color")
-                  =link_to "#",class:"color" do
-                    = @product.category.name
+                  =link_to "#{@product.category.name}", "#",class:"color"
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             ブランド
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                =link_to "#",class:"color" do
-                  = @product.brand.name
+                =link_to "#{@product.brand.name}", "#",class:"color"
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             商品の状態
@@ -82,8 +76,7 @@
           .sales__list_top_item_contener2_rigth2
             .sales__list_top_item_contener2_rigth2_3rd
               .sales__list_top_item_contener2_rigth2_3rd_hoghog
-                =link_to "#",class:"color" do
-                  = @product.shipping_prefecture
+                =link_to "#{@product.shipping_prefecture}", "#",class:"color" do
         .sales__list_top_item_contener2
           .sales__list_top_item_contener2_column2
             発送日の目安
