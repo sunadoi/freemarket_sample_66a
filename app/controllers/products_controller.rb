@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.includes([:photos, :brand, :category, :seller]).find(params[:id])
+    @product = Product.find(params[:id])
     @seller_products = @product.seller.user.products.limit(6)
     eval = @product.seller.user.sellers.map{ |e| e[:evaluate] }
     @good = eval.count(1)
