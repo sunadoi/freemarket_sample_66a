@@ -7,9 +7,9 @@
     .sales__list_top
       .sales__list_top_pic
 
-        = image_tag @product.photos.first.image.file.file, class: "sales_pic"
+        = image_tag @product.photos.first.image.to_s, class: "sales_pic"
         - @product.photos.each do |photo|
-          = image_tag photo.image.url,class: "sales_pic_smoll"
+          = image_tag photo.image.to_s, class: "sales_pic_smoll"
       .sales__list_top_item
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
@@ -17,23 +17,20 @@
           .sales__list_top_item_contener_rigth
             .sales__list_top_item_contener_rigth_top
               .sales__list_top_item_contener_rigth_top_text
-                =link_to "#",class:"color" do
-                  おおおおおおおおお
+                =link_to "/users/#{@product.seller.user.id}",class:"color" do
+                  = @product.seller.user.nickname
                   -# 文字の量指定
             .sales__list_top_item_contener_rigth_bottom
               .sales__list_top_item_contener_rigth_bottom_evaluation
                 .sales__list_top_item_contener_rigth_bottom_evaluation_smile
                   =icon("fas","grin-hearts",class:"face1")
-                  =link_to "#",class:"str" do
-                    7777
+                  = @good
                 .sales__list_top_item_contener_rigth_bottom_evaluation_normal
                   =icon("fas","smile-beam",class:"face2")
-                  =link_to "#",class:"str" do
-                    7777
+                  = @ok
                 .sales__list_top_item_contener_rigth_bottom_evaluation_angry
                   =icon("fas","smile",class:"face3")
-                  =link_to "#",class:"str" do
-                    7777    
+                  = @bad
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
             カテゴリー
@@ -100,7 +97,7 @@
 
     .sales__list_price_box
       %h1 
-        = "¥#{@product.price.to_s.slice(0 .. -4)},#{@product.price.to_s.slice(-3 .. -1)}"
+        = "¥#{@product.price.to_s(:delimited, delimiter: ',')}"
       %p (消込)
       %h3
         - if @product.shipping_charge = 1
@@ -108,11 +105,11 @@
         - elsif @product.shipping_charge = 2
           着払い
     .sales__list_btn
-      =link_to "#",class:"color" do
+      =link_to "#" ,class:"color" do
         .get_btn
           購入画面に進む
     .sales__list_comment
-      = @product.description
+      = simple_format@product.description
     .sales__list_evaluate
       .sales__list_evaluate_put
         .sales__list_evaluate_put_good
@@ -170,18 +167,18 @@
   .another_list
     .another_list_title
       =link_to "#",class:"my_page" do
-        xxxxさんのその他の出品
+        = "#{@product.seller.user.nickname}さんのその他の出品"
 
     %ul.another_list_item
-      -@products.each do |other|
+      -@seller_products.each do |other|
         %li.list_1
-          =link_to "#" ,class: "color" do
-            =image_tag "inu.jpg",class: "pic"
+          =link_to product_path(other.id) ,class: "color" do
+            =image_tag other.photos.first.image.to_s,class: "pic"
             .title 
               = other.name
             .title_iteme
               .title_iteme_price
-                = "¥#{other.price.to_s.slice(0 .. -4)},#{other.price.to_s.slice(-3 .. -1)}"
+                = "¥#{other.price.to_s(:delimited, delimiter: ',')}"
               .title_iteme_like
                 =icon("fas","heart")
                 4
