@@ -8,10 +8,10 @@ class User < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :sellers
+  has_many :buyers
   has_many :sns_credentials
   has_one :address
   has_one :card
-  has_one :buyer
 
 
   validates :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, presence: true
