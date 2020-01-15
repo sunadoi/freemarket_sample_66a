@@ -9,6 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+    end
     @user = User.new(sign_up_params)
     @user.birthday = birthday_params
     unless @user.valid?
@@ -42,6 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_user_data"]["user"])
     @address = Address.new(session["devise.regist_address_data"]["address"])
     @card = Card.new(card_params)
+    @card.expiration = card_expiration
     unless @card.valid?
       flash.now[:alert] = @card.errors.full_messages
       render :card and return
@@ -49,6 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.build_card(@card.attributes)
     @user.save
+    sign_in(:user, @user)
     render :complete
   end
 
@@ -70,10 +76,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :street, :building).merge(prefecture: params[:prefecture])
+    params.required(:address).permit(:postal_code, :city, :street, :building).merge(prefecture: params[:address][:prefecture].to_i)
   end
 
   def card_params
-    params.require(:card).permit(:number, :expiration, :security_code)
+    params.require(:card).permit(:number, :security_code)
+  end
+
+  def card_expiration
+    year = params[:card][:expiration_year].to_i
+    year += 2000
+    return "#{year}/#{params[:card][:expiration_month]}"
   end
 end

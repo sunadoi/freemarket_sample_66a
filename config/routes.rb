@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
-    :registrations => 'users/registrations',
-    :sessions => 'users/sessions'
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
   devise_scope :user do
-    get 'login', to: 'devise/sessions#new'
-    post 'login', to: 'devise/sessions#create'
+    get 'login', to: 'users/sessions#new'
+    post 'login', to: 'users/sessions#create'
     get 'tel', to: 'users/registrations#tel'
     post 'tel', to: 'users/registrations#tel'
     get 'address', to: 'users/registrations#address'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products
+
+  resources :buyers
   resources :users do
     member do
       get 'identification'
