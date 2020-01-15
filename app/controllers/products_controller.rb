@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
       @coachs = Product.where(brand_id:2).first(10)
       @louisvuittons = Product.where(brand_id:3).first(10)
       @guccis = Product.where(brand_id:4).first(10)
-      # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def new
