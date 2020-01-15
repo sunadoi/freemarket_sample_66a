@@ -28,6 +28,4 @@ Rails.application.routes.draw do
     end
   end
   resources :cards
-
-  resources :sellers
 end
