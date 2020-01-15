@@ -3,7 +3,7 @@
     = link_to "/" do
       = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "logo", class: "image_top"
   .exhibition_main
-    = form_with(model: @product, url: products_path, local: true) do |form|
+    = form_with(model: @product, local: true) do |form|
       .exhibition_main__container
         .exhibition_main__container__title
           商品情報を入力
