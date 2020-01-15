@@ -9,38 +9,37 @@
         アカウントをお持ちでない方はこちら
       %ul.signin-main__conect__lists
         %li.signin-main__conect__lists__mail
-          = link_to "/" do
-            .signin-main__conect__lists__mail__btn
-              新規会員登録
+          .signin-main__conect__lists__mail__btn
+            = link_to "新規会員登録", new_user_registration_path(resource_name), class: "signup__btn"
     .signin-main__conect
-      = form_with(url: "/", local: true, class: "signin-main__conect") do |form|
+      = form_with(model: @user, url: user_session_path, local: true, class: "signin-main__conect") do |form|
         %ul.signin-main__conect__lists
           %li.signin-main__conect__lists__facebook
-            = link_to "/" do
+            = link_to user_facebook_omniauth_authorize_path, method: :post do
               .signin-main__conect__lists__facebook__btn
                 Facebookでログイン
                 %i.fbicon
                   = icon('fab', 'facebook-square')
           %li.signin-main__conect__lists__google2
-            = link_to "/"do
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
               .signin-main__conect__lists__google2__btn
                 Googleでログイン
               .signin-main__conect__lists__google2__icon
           %li.signin-main__conect__lists__input
-            = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス"
+            = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス", class: "form__input"
           %li.signin-main__conect__lists__input
-            = form.password_field :encrypted_password, autocomplete: "password",placeholder: "パスワード"
+            = form.password_field :password, autocomplete: "password",placeholder: "パスワード", class: "form__input"
           %li.signin-main__conect__lists
             .signin-main__conect__lists__reCAPTCHA
               =check_box_tag :check2
               =label_tag :check2, "私はロボットではありません"
-              =image_tag "FREE_icon_6.jpg" 
-              = link_to "/"do
+              =image_tag "FREE_icon_6.jpg"
+              = link_to "#" do
                 プライバシー 利用規約
         .actions
           .actions__btn
-            = form.submit "ログイン",  class: "action" 
+            = form.submit "ログイン",  class: "action"
           .actions__link
-            = link_to("パスワードお忘れの方", "/")
+            = link_to("パスワードお忘れの方", "#")
   .signup__footer
-    = render partial: "users/registrations/footer"        
+    = render partial: "users/registrations/footer"

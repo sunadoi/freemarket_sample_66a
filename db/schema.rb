@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_01_15_030616) do
 
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "postal_code", null: false
@@ -32,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_030616) do
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "number", null: false
-    t.date "expiration", null: false
+    t.string "expiration", null: false
     t.integer "security_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,11 +72,20 @@ ActiveRecord::Schema.define(version: 2020_01_15_030616) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "product_id"
     t.integer "evaluate"
     t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

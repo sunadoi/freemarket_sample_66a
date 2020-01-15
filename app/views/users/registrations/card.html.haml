@@ -42,14 +42,10 @@
           .card_registration_wrapper__main__container__middle__expiration_2
             %i.fa.fa-chevron-down{class: "card_registration_chevron1"}
             %i.fa.fa-chevron-down{class: "card_registration_chevron2"}
-            = form.select :expiration, [["01", 1],["02", 2],["03", 3],["04", 4]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__mon"}
-             
+            = form.select :expiration_month, [["01", 1],["02", 2],["03", 3],["04", 4],["05", 5],["06", 6],["07", 7],["08", 8],["09", 9],["10", 10],["11", 11],["12", 12]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__mon"}
             %span.card_registration_wrapper__main__container__middle__expiration_2__j
               月
-            %select.card_registration_wrapper__main__container__middle__expiration_2__year
-              %option{value: "1"} 20
-              %option{value: "2"} 21
-              %option{value: "3"} 22
+            = form.select :expiration_year, [["20", 20],["21", 21],["22", 22],["23", 23]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__year"}
             %span.card_registration_wrapper__main__container__middle__expiration_2__j
               年
           .card_registration_wrapper__main__container__middle__safty
@@ -57,12 +53,13 @@
               セキュリティーコード
             %span.card_registration_wrapper__main__container__middle__safty__right
               必須
-            %input.card_registration_wrapper__main__container__middle__safty__number{type: "text", placeholder: "カード背面4桁もしくは3桁の番号"}
+            = form.text_field :security_code, class: "card_registration_wrapper__main__container__middle__safty__number", placeholder: "カード背面4桁もしくは3桁の番号"
           .card_awesome
             %i.fa.fa-question-circle
             %span.card_registration_wrapper__main__container__middle__link
               カード裏面の番号とは
-          %input.card_registration_wrapper__main__container__middle__add{type: "text", placeholder: "追加する"}    
+          .form__card_btn
+            = form.submit "次へ進む",  class: "next-btn"
   .signup__footer
     = render partial: "footer"
           

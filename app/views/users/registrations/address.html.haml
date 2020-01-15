@@ -53,10 +53,8 @@
               .admin-address__form__coupon__input
                 = form.label :prefecture,"都道府県" ,class:"name"
                 %a.red 必須
-                %select.form_address_prefecture{name: "prefecture"}
-                  %option{:value => "1"} 北海道
-                  %option{:value => "2"} 青森県
-                  %option{:value => "3"} 岩手県
+                %br/
+                = form.select :prefecture, options_for_select(Address.prefectures), {prompt: "選択してください"}, class: "prefecture-select"
                 %br/
                 %br/
                 %br/

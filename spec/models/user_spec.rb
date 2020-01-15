@@ -78,13 +78,6 @@ describe User do
         expect(user.errors[:birthday]).to include("を入力してください")
       end
 
-      it "is invalid with a duplicate tel" do
-        user = create(:user)
-        another_user = build(:user, tel: user.tel)
-        another_user.valid?
-        expect(another_user.errors[:tel]).to include("はすでに存在します")
-      end
-
     end
   end
 end
