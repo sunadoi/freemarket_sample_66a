@@ -2,8 +2,7 @@
 .sales
   .sales__list
     .sales__list_neme
-      %h1 
-        = @product.name
+      %h1= @product.name
     .sales__list_top
       .sales__list_top_pic
 
@@ -96,8 +95,7 @@
 
 
     .sales__list_price_box
-      %h1 
-        = "¥#{@product.price.to_s(:delimited, delimiter: ',')}"
+      %h1= "¥#{@product.price.to_s(:delimited, delimiter: ',')}"
       %p (消込)
       %h3
         - if @product.shipping_charge = 1
