@@ -5,8 +5,8 @@
   .logout_container
     = render partial: 'sidebar'
     .logout
-      .logout__button
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'red_button'
+      = form_with url: '#', class: 'logout__button' do |f|
+        = f.submit 'ログアウト', class: 'red_button'
 .footer
   = render partial: '/products/adbtm'
   = render partial: '/products/footer'

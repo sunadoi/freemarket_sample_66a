@@ -1,6 +1,6 @@
 .signup-wrapper
   .simple-header
-    = render partial: "users/registrations/header"
+    = render partial: "header"
   %main.registration-main
     %section.l-registration-container
       %h2.l-registration-head__registration 会員情報入力
@@ -18,20 +18,18 @@
               %span.l-registration-content__require 必須
               %br/
               = form.email_field :email, class: "form-input__user", placeholder: "PC・携帯どちらでも可"
-            - if @sns_id.present?
-              = hidden_field_tag :sns_auth, true
-            - else
-              .l-registration-content__password
-                = form.label :password, 'パスワード'
-                %span.l-registration-content__require 必須
-                %br/
-                = form.password_field :password, class: "form-input__user", placeholder: "7文字以上"
+            .l-registration-content__password
+              = form.label :password, 'パスワード'
+              %span.l-registration-content__require 必須
+              %br/
+
+              = form.password_field :password, class: "form-input__user", placeholder: "7文字以上"
               %p.l-registration-content__information
                 ※ 英字と数字の両方を含めて設定してください
-              .l-registration-content__password
-                .l-registration-content__password__checkbox 
-                  =check_box_tag :check1
-                  =label_tag :check1, "パスワードを表示する"  
+            .l-registration-content__password
+              .l-registration-content__password__checkbox 
+                =check_box_tag :check1
+                =label_tag :check1, "パスワードを表示する"  
             .l-registration-sub-head
               %h3.l-registration-sub-head__left-text 本人確認
               %p.l-registration-sub-head__text 
@@ -72,4 +70,4 @@
           = link_to("Terms of Service", "#")
           apply.
   .signup__footer
-    = render partial: "users/registrations/footer"
+    = render partial: "footer"

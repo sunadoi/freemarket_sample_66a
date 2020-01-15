@@ -21,7 +21,6 @@
 - has_many :products
 - has_many :likes
 - has_many :comments
-- has_many :sns_credentials
 - has_one :address
 - has_one :card
 - has_one :buyer
@@ -195,18 +194,5 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
-
-***
-
-## 13. SNS認証テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|provider|string||
-|uid|string||
-
-### Association
-- belongs_to :user
 
 ***
