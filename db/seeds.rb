@@ -6,13 +6,26 @@ User.create!(
   first_name: "太郎",
   last_name_kana: "ヤマダ",
   first_name_kana: "タロウ",
-  birthday: "1990-07-02",
-  tel: "123456789",
+  birthday: '1990-07-02',
+  tel: 123456789,
+)
+
+User.create!(
+  nickname: "メル",
+  email: 'nickyisgod@hoge',
+  password: 'hogehoge',
+  last_name: "Gibson",
+  first_name: "Mel",
+  last_name_kana: "ギブソン",
+  first_name_kana: "メル",
+  birthday: '1956-01-03',
+  tel: 9012345678,
+  profile: 'The Professor and the Madmanよろしくね⭐︎',
 )
 
 Address.create!(
-  user_id: "1",
-  postal_code: "1234567",
+  user_id: 1,
+  postal_code: 1234567,
   prefecture: 1,
   city: "渋谷区",
   street: "渋谷駅",
@@ -20,46 +33,302 @@ Address.create!(
 )
 
 Card.create!(
-  user_id: "1",
-  number: "1234",
-  expiration: "2020-02-28",
-  security_code: "111",
+  user_id: 1,
+  number: 1234,
+  expiration: '2020-02-28',
+  security_code: 111,
 )
 
 Brand.create!(name: "CHANEL")
 Brand.create!(name: "COACH")
 Brand.create!(name: "LOUIS VUITTON")
+Brand.create!(name: "GUCCI")
+Brand.create!(name: "CASIO")
 
 Product.create!(
-  user_id: "1",
-  category_id: "11",
-  brand_id: "1",
-  size: "3",
-  condition: "1",
+  user_id: 1,
+  category_id: 11,
+  brand_id: 1,
+  size: 3,
+  condition: 1,
   name: "CHANELニット",
   description: "あったかい",
-  shipping_charge: "1",
-  shipping_method: "1",
-  shipping_prefecture: "1",
-  shipping_days: "1",
-  price: "10000",
-  progress: "1",
+  shipping_charge: 1,
+  shipping_method: 1,
+  shipping_prefecture: 1,
+  shipping_days: 1,
+  price: 10000,
+  progress: 1,
 )
 
 Product.create!(
-  user_id: "1",
-  category_id: "23",
-  brand_id: "2",
-  size: "3",
-  condition: "2",
+  user_id: 1,
+  category_id: 23,
+  brand_id: 2,
+  size: 3,
+  condition: 2,
   name: "COACHジャケット",
   description: "カッコいい",
-  shipping_charge: "2",
-  shipping_method: "2",
-  shipping_prefecture: "2",
-  shipping_days: "2",
-  price: "15000",
-  progress: "2",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 15000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 34,
+  brand_id: 3,
+  size: 2,
+  condition: 3,
+  name: "LOUIS VUITTONダッフルコート",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 2890,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 11,
+  brand_id: 2,
+  size: 3,
+  condition: 2,
+  name: "COACHニット",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 15000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 27,
+  brand_id: 3,
+  size: 3,
+  condition: 2,
+  name: "LOUIS VUITTONライダース",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 12000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 201,
+  brand_id: 2,
+  size: 3,
+  condition: 2,
+  name: "COACHトップス",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 1000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 210,
+  brand_id: 3,
+  size: 3,
+  condition: 2,
+  name: "LOUIS VUITTONスエット",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 50000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 225,
+  brand_id: 1,
+  size: 3,
+  condition: 2,
+  name: "CHANELピーっ子ーと",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 10000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 1,
+  category_id: 67,
+  brand_id: 4,
+  size: 3,
+  condition: 2,
+  name: "gucci靴",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 50000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 2,
+  category_id: 63,
+  brand_id: 4,
+  size: 3,
+  condition: 2,
+  name: "gucciミニワンピ",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 30000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 2,
+  category_id: 963,
+  brand_id: 5,
+  size: 3,
+  condition: 2,
+  name: "扇風機",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 10000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 2,
+  category_id: 691,
+  brand_id: 5,
+  size: 3,
+  condition: 2,
+  name: "ミニカー",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 2000,
+  progress: 2,
+)
+
+Product.create!(
+  user_id: 2,
+  category_id: 686,
+  brand_id: 5,
+  size: 3,
+  condition: 2,
+  name: "おももちゃ",
+  description: "カッコいい",
+  shipping_charge: 2,
+  shipping_method: 2,
+  shipping_prefecture: 2,
+  shipping_days: 2,
+  price: 500,
+  progress: 2,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 1,
+  evaluate: 2,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 2,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 3,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 4,
+  evaluate: 2,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 5,
+  evaluate: 3,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 6,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 7,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 8,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 1,
+  product_id: 9,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 2,
+  product_id: 10,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 2,
+  product_id: 11,
+  evaluate: 1,
+)
+
+Seller.create!(
+  user_id: 2,
+  product_id: 12,
+  evaluate: 2,
+)
+
+Seller.create!(
+  user_id: 2,
+  product_id: 13,
+  evaluate: 2,
 )
 
 # レディース

@@ -1,7 +1,9 @@
 = render partial: 'header'
 .mein_pic
-  .pic_ad
-    = image_tag "inu.jpg", class: "pic", alt: "広告", title: "inu"
+  .slider
+    =image_tag "inu.jpg",class: "pic"
+    =image_tag "akai.jpg",class: "pic"
+
   .mein_pic_title
     .mein_pic_title_mein
       %h2 ちゃんチャカちゃん簡単アプリ
@@ -18,29 +20,182 @@
 .category
   %h1 人気のカテゴリー
   .category_btn
-    %button.btn{type: "button"}>レディース
-    %button.btn{type: "button"}>メンズ
-    %button.btn{type: "button"}>家電・スマホ・カメラ
-    %button.btn{type: "button"}>おもちゃ・ホビー・グッズ
+    %button.btn{type: "button",id: "lady_btn"}>レディース
+    %button.btn{type: "button",id: "men_btn"}>メンズ
+    %button.btn{type: "button",id: "appliance_btn"}>家電・スマホ・カメラ
+    %button.btn{type: "button",id: "toy_btn"}>おもちゃ・ホビー・グッズ
 
 
 .new
-  .new_title
+  .new_title{id: "lady"}
     %h2.new_item_title レディース新着アイテム
     %li.more_item
       =link_to "#" do
         もっと見る >
-  = render partial: "product"
+  .new_list
+    %ul.new_list_item
+      - @ladys.each do |lady|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =lady.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =lady.price
 
+ 
 
 .new
-  .new_title
+  .new_title{id: "men"}
     %h2.new_item_title メンズ新着アイテム
     %li.more_item
       =link_to "#" do
         もっと見る >
-  = render partial: "product"
+  .new_list
+    %ul.new_list_item
+      - @mens.each do |men|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =men.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =men.price
 
+
+ 
+
+.new
+  .new_title{id: "appliance"}
+    %h2.new_item_title 家電・スマホ・カメラ新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @appliances.each do |appliance|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =appliance.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =appliance.price
+
+
+ 
+
+.new
+  .new_title{id: "toy"}
+    %h2.new_item_title おもちゃ・ホビー・グッズ
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @toys.each do |toy|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =toy.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =toy.price
+
+
+
+
+.category
+  %h1 人気ブランド
+  .category_btn
+    %button.btn{type: "button",id: "CHANEL_btn"}>CHANEL
+    %button.btn{type: "button",id: "COACH_btn"}>COACH
+    %button.btn{type: "button",id: "LOUISVUITTON_btn"}>LOUISVUITTON
+    %button.btn{type: "button",id: "GUCCI_btn"}>GUCCI
+
+
+.new
+  .new_title{id: "CHANEL"}
+    %h2.new_item_title CHANEL新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @chanels.each do |chanel|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =chanel.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =chanel.price
+
+ 
+
+.new
+  .new_title{id: "COACH"}
+    %h2.new_item_title COACH新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @coachs.each do |coach|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =coach.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =coach.price
+
+ 
+
+.new
+  .new_title{id: "LOUISVUITTON"}
+    %h2.new_item_title LOUISVUITTON新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @louisvuittons.each do |louisvuitton|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =louisvuitton.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =louisvuitton.price
+
+
+ 
+
+.new
+  .new_title{id: "GUCCI"}
+    %h2.new_item_title GUCCI新着アイテム
+    %li.more_item
+      =link_to "#" do
+        もっと見る >
+  .new_list
+    %ul.new_list_item
+      - @guccis.each do |gucci|
+        %li.item
+          =link_to "#" ,class: "new_item" do
+            .item_text 
+              =gucci.name
+            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            %span{href:  "#",class: "price",id:"text_price"} 
+              ¥
+              =gucci.price
 
 
 
@@ -54,4 +209,7 @@
     .producte_text 出品
     = link_to "#" do
       = icon('fas', 'camera', class: 'camera', :style => "color:white")
-      
+
+
+
+  
