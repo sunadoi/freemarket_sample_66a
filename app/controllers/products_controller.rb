@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  include ApplicationHelper
+
   def index
       @ladys = Product.where(category_id:1..190).first(10)
       @mens = Product.where(category_id:200..345).first(10)
@@ -22,6 +24,7 @@ class ProductsController < ApplicationController
     @good = eval.count(1)
     @ok = eval.count(2)
     @bad = eval.count(3)
+
   end
 
 end
