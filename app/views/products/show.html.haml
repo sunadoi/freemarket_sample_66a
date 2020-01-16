@@ -8,7 +8,7 @@
     .sales__list_top
       .sales__list_top_pic
 
-        -if @product.photos
+        -if @product.photos.present?
           = image_tag @product.photos.first.image.to_s, class: "sales_pic"
           - @product.photos.each do |photo|
             = image_tag photo.image.to_s, class: "sales_pic_smoll"
@@ -174,7 +174,8 @@
         -@seller_products.each do |other|
           %li.list_1
             =link_to product_path(other.id) ,class: "color" do
-              =image_tag other.photos.first.image.to_s,class: "pic"
+              -if @product.photos.present?
+                =image_tag other.photos.first.image.to_s,class: "pic"
               .title 
                 = other.name
               .title_iteme
