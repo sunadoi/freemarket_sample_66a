@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
     @good = eval.count(1)
     @ok = eval.count(2)
     @bad = eval.count(3)
-    current_user.id = 1
   end
 
   def destroy
