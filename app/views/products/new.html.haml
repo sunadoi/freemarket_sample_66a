@@ -4,6 +4,7 @@
       = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "logo", class: "image_top"
   .exhibition_main
     = form_with(model: @product, url: products_path, local: true) do |form|
+      = form.hidden_field :progress, value: 1
       .exhibition_main__container
         .exhibition_main__container__title
           商品情報を入力
@@ -15,12 +16,16 @@
                 必須
           %p.exhibition_main__container__image_send__message
             最大10枚までアップロードできます
-          = form.label :image, class: "exhibition_main__container__image_label" do
-            .exhibition_main__container__image_label__file
-              ドラッグアンドドロップ
-              %br またはクリックしてファイルをアップロード
-              = form.file_field :image, class: "file" 
-               
+          
+          %label.image_send_crip
+            #image-box-1
+              クリックしてしてファイルをアップロード
+              .item-num-0#image-box__container
+                = form.fields_for :photos do |i|
+                  .data{"data-index" => "#{i.index}"}
+                    .input-area
+                      = i.file_field :image,type: 'file', value:"", style: "display:none", id:"img-file"     
+            
 
 
         .exhibition_main__container__product
@@ -52,9 +57,29 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :name, [["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自動車・オートバイ", 12], ["その他", 13]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"} 
+                  = form.select :category_id, Category.categories, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"} 
                     
+                .exhibition_main__container__product__detail__inner__select__status
+                  %h3.exhibition_main__container__product__detail__inner__select__status__left
+                    サイズ
+                    %span.exhibition_main__container__product__detail__inner__select__status__right
+                      必須
+                .exhibition_main__container__product__detail__inner__select__wrappe
+                  %i.fa.fa-chevron-down
+                    
+                  = form.select :size, Product.sizes, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
+
+
+                .exhibition_main__container__product__detail__inner__select__status
+                  %h3.exhibition_main__container__product__detail__inner__select__status__left
+                    ブランド
+                    %span.exhibition_main__container__product__detail__inner__select__status__right
+                      任意
+                .exhibition_main__container__product__detail__inner__select__wrappe
+                  
+                    
+                  = form.select :brand_id, [["シャネル", 1]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
                 .exhibition_main__container__product__detail__inner__select__status
@@ -65,10 +90,10 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :name, [["---", 0], ["新品、未使用", 2], ["未使用に近い", 3], ["目立った傷や汚れなし", 4], ["やや傷や汚れあり", 5], ["傷や汚れあり", 6], ["全体的に状態が悪い", 7]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :condition, Product.conditions, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
                     
-
-
+                
+                
 
           .exhibition_main__container__product__shipping_method
             .exhibition_main__container__product__shipping_method__inner
@@ -107,7 +132,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_prefecture, [["---", 0], ["北海道", 1], ["青森", 2]], {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_prefecture, Address.prefectures, {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
                     
 
 
