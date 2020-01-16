@@ -1,6 +1,6 @@
 module ApplicationHelper
   def current_user?
-    if current_user.id = @product.user_id
+    if user_signed_in? && current_user.id == @product.user_id
       return true
     end
   end
