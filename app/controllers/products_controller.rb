@@ -27,9 +27,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to controller: 'users', action: 'show'
-
+    if @product.destroy!
+      redirect_to controller: 'users', action: 'show'
+    else
+      redirect_to action: 'show', alert: '削除できませんでした'
+    end
   end
 
   private
