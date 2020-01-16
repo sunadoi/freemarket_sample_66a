@@ -175,11 +175,7 @@
                 4
 
 .under
-  .under_category
-    .under_category_item
-      メルちゃん
-      =icon("fas","angle-right")
-      = @product.name
+  = render partial: '/users/bread', locals: { where: :product }
 
 
 .footer
