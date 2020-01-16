@@ -1,7 +1,7 @@
 .header
 = render partial: '/products/header'
 .wrapper
-  = render partial: 'bread'
+  = render partial: 'bread', locals: {where: :profile}
   .profile_container
     = render partial: 'sidebar'
     = render partial: 'users_profile'
