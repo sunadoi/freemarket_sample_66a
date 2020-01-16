@@ -20,12 +20,23 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :buyers
+  resources :buyers do
+    collection do
+      post 'pay', to: 'buyers#pay'
+      get 'done', to: 'buyers#done'
+    end
+  end
   resources :users do
     member do
       get 'identification'
       get 'log_out'
     end
   end
-  resources :cards
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
 end
