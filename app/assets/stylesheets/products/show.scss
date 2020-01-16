@@ -11,7 +11,6 @@
     border: solid 30px rgb(255, 255, 255);
     border-width: 5px 50px 20px 50px;
     background:rgb(255, 255, 255);
-    box-shadow:  1px 2px  2px;
 
     &_neme h1{
       width: 100%;
@@ -58,7 +57,6 @@
             justify-content: space-between;
             
             &_column{
-             height: 80%;
              width: 117px;
              text-align: center;
              line-height: 80px;
@@ -67,15 +65,14 @@
             }
             &_rigth{
               width: 55%;
-              height: 80%;
               margin: 0 auto;
+              padding: 10px 0;
 
               &_top{
                 height: 60%;
                 width: 100%;
 
                 &_text{
-                  padding-top: 10%;                  
                   vertical-align: middle;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
@@ -103,7 +100,6 @@
                 width: 100%;
                 font-size: 80%;
                 &_category{
-                  padding-top: 17%;
                   display: table-cell;
                   overflow-wrap: break-word;
                   word-wrap: break-word;
@@ -174,6 +170,26 @@
         font-size: 20px;
       }
     }
+    .red_btn{
+      font-size: 16px;
+      display: block;
+      margin-top: 16px;
+      line-height: 56px;
+      text-align: center;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #ea352d;
+    }
+    .gray_btn{
+      font-size: 16px;
+      display: block;
+      margin-top: 16px;
+      line-height: 56px;
+      text-align: center;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #cccccc;
+    }
 
     .get_btn{
       width: 100%;
@@ -235,7 +251,6 @@
     border: solid 30px rgb(255, 255, 255);
     border-width: 5px 50px 20px 50px;
     background:rgb(255, 255, 255);
-    box-shadow:  0px 2px  5px;
 
     &_denngar{
       background-color: blanchedalmond;
@@ -334,7 +349,6 @@
         border: 1px solid rgb(230, 230, 230);
         position: relative;
         z-index: 1;
-        box-shadow: 2px 2px 4px;
         
         .pic{
           width: 100%;
@@ -364,7 +378,6 @@
   height: 50px;
   background-color:#eeeeee;
   border: 1px 0 0 0 solid;
-  box-shadow:  10px 10px 10px 5px;
   &_category{
     width: 80%;
     margin: 0 auto;
