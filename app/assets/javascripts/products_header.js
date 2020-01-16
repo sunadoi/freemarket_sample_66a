@@ -3,9 +3,9 @@ $(function() {
 
   var alocate = $('#lady').offset().top;
 
-  $('#lady_btn').click(function(){
-    $(`html,body`).scrollTop(alocate);
-  });
+    $('#lady_btn').click(function(){
+      $(`html,body`).scrollTop(alocate);
+    });
 
 
   var alocate = $('#men').offset().top;
