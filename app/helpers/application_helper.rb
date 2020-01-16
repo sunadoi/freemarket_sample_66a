@@ -4,4 +4,7 @@ module ApplicationHelper
       return true
     end
   end
+  def price_split(price)
+    price = "¥#{price.to_s(:delimited, delimiter: ',')}"
+  end
 end
