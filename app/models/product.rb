@@ -2,11 +2,11 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true
   belongs_to :brand
-  has_many :photos
+  has_many :photos, dependent: :destroy
   has_many :likes
   has_many :comments
   has_one :buyer
-  has_one :seller
+  has_one :seller, dependent: :destroy
 
   validates :name, :description, :shipping_charge, :shipping_method, :shipping_prefecture, :shipping_days, :price, :progress, presence: true
 

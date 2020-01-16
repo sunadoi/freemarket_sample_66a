@@ -1,4 +1,6 @@
 = render partial: 'header'
+-if current_user?
+  = render partial: '/users/bread', locals: { where: :product }
 .sales
   .sales__list
     .sales__list_neme
@@ -6,9 +8,10 @@
     .sales__list_top
       .sales__list_top_pic
 
-        = image_tag @product.photos.first.image.to_s, class: "sales_pic"
-        - @product.photos.each do |photo|
-          = image_tag photo.image.to_s, class: "sales_pic_smoll"
+        -if @product.photos.present?
+          = image_tag @product.photos.first.image.to_s, class: "sales_pic"
+          - @product.photos.each do |photo|
+            = image_tag photo.image.to_s, class: "sales_pic_smoll"
       .sales__list_top_item
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
@@ -19,15 +22,16 @@
                 =link_to "#{@product.seller.user.nickname}", user_path(@product.seller.user.id),class:"color"
             .sales__list_top_item_contener_rigth_bottom
               .sales__list_top_item_contener_rigth_bottom_evaluation
-                .sales__list_top_item_contener_rigth_bottom_evaluation_smile
-                  =icon("fas","grin-hearts",class:"face1")
-                  = @good
-                .sales__list_top_item_contener_rigth_bottom_evaluation_normal
-                  =icon("fas","smile-beam",class:"face2")
-                  = @ok
-                .sales__list_top_item_contener_rigth_bottom_evaluation_angry
-                  =icon("fas","smile",class:"face3")
-                  = @bad
+                -unless current_user?
+                  .sales__list_top_item_contener_rigth_bottom_evaluation_smile
+                    =icon("fas","grin-hearts",class:"face1")
+                    = @good
+                  .sales__list_top_item_contener_rigth_bottom_evaluation_normal
+                    =icon("fas","smile-beam",class:"face2")
+                    = @ok
+                  .sales__list_top_item_contener_rigth_bottom_evaluation_angry
+                    =icon("fas","smile",class:"face3")
+                    = @bad
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
             カテゴリー
@@ -88,34 +92,40 @@
 
 
     .sales__list_price_box
-      %h1= "¥#{@product.price.to_s(:delimited, delimiter: ',')}"
+      %h1= price_split(@product.price)
       %p (消込)
       %h3
         - if @product.shipping_charge = 1
           送料込み
         - elsif @product.shipping_charge = 2
           着払い
-    .sales__list_btn
-      =link_to "#" ,class:"color" do
-        .get_btn
-          購入画面に進む
+    -unless current_user?
+      .sales__list_btn
+        =link_to "#" ,class:"color" do
+          .get_btn
+            購入画面に進む
     .sales__list_comment
       = simple_format@product.description
-    .sales__list_evaluate
-      .sales__list_evaluate_put
-        .sales__list_evaluate_put_good
-          =link_to "#",class:"evaluate" do
-            =icon("fas","heart")
-            いいね！
-        .sales__list_evaluate_put_bad
-          =link_to "#",class:"evaluate" do
-            =icon("fas","flag")
-            不適切な商品の報告
-      .sales__list_evaluate_link
-        =link_to "#",class:"link" do
-          =icon("fas","key")
-          あんしん・あんぜんへの取り組み
+    -unless current_user?
+      .sales__list_evaluate
+        .sales__list_evaluate_put
+          .sales__list_evaluate_put_good
+            =link_to "#",class:"evaluate" do
+              =icon("fas","heart")
+              いいね！
+          .sales__list_evaluate_put_bad
+            =link_to "#",class:"evaluate" do
+              =icon("fas","flag")
+              不適切な商品の報告
+        .sales__list_evaluate_link
+          =link_to "#",class:"link" do
+            =icon("fas","key")
+            あんしん・あんぜんへの取り組み
 
+    -if current_user?
+      =link_to "商品の編集", edit_product_path, class: "red_btn"
+      =link_to "出品を一旦停止する", '#', class: 'gray_btn'
+      =link_to "商品を削除する", product_path, method: 'delete', class: "gray_btn"
 
     
   .sales__list_2nd
@@ -153,29 +163,30 @@
         =link_to"#" do
           =image_tag "http://www.marksign.net/wp-content/uploads/2016/03/pinterest_300.jpg",class: "sns_icon"
 
+-unless current_user?
+  .another
+    .another_list
+      .another_list_title
+        =link_to "#",class:"my_page" do
+          = "#{@product.seller.user.nickname}さんのその他の出品"
 
-.another
-  .another_list
-    .another_list_title
-      =link_to "#",class:"my_page" do
-        = "#{@product.seller.user.nickname}さんのその他の出品"
-
-    %ul.another_list_item
-      -@seller_products.each do |other|
-        %li.list_1
-          =link_to product_path(other.id) ,class: "color" do
-            =image_tag other.photos.first.image.to_s,class: "pic"
-            .title 
-              = other.name
-            .title_iteme
-              .title_iteme_price
-                = "¥#{other.price.to_s(:delimited, delimiter: ',')}"
-              .title_iteme_like
-                =icon("fas","heart")
-                4
-
-.under
-  = render partial: '/users/bread', locals: { where: :product }
+      %ul.another_list_item
+        -@seller_products.each do |other|
+          %li.list_1
+            =link_to product_path(other.id) ,class: "color" do
+              -if @product.photos.present?
+                =image_tag other.photos.first.image.to_s,class: "pic"
+              .title 
+                = other.name
+              .title_iteme
+                .title_iteme_price
+                  = price_split(other.price)
+                .title_iteme_like
+                  =icon("fas","heart")
+                  4
+-unless current_user?
+  .under
+    = render partial: '/users/bread', locals: { where: :product }
 
 
 .footer
