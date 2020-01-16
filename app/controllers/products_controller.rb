@@ -24,7 +24,12 @@ class ProductsController < ApplicationController
     @good = eval.count(1)
     @ok = eval.count(2)
     @bad = eval.count(3)
+  end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to controller: 'users', action: 'show'
   end
 
 end
