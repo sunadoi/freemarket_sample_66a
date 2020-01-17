@@ -15,23 +15,23 @@ $(function(){
       fileReader.readAsDataURL(file);
       
 
-      if (num == 10){
-        $('#image-box__container').css('display', 'none')   
-      }
+      
       fileReader.onloadend = function() {
         var src = fileReader.result
         var html= `
                 <div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
-                        <img src=${src} width="114" height="80" >
+                        <img src=${src} width="114" height="150" >
                       </div>
                     </div>
                     <div class='item-image__operetion'>
                       <div class='item-image__operetion--delete'>削除</div>
                     </div>
+                    <div class='item-image__operetion--edit'>編集</div>
+                    </div>
                   </div>`
-        $('.image_send_crip').html(html);
+        $('#image-box-1').before(html);
       };
       $('#image-box-1').attr('class', `item-num-${num}`)
     });
@@ -39,18 +39,9 @@ $(function(){
   $(document).on("click", '.item-image__operetion--delete', function(){
     var target_image = $(this).parent().parent()
     target_image.remove();
+    console.log(file_field);
     file_field.val("")
-    var html1 = `
-    <div id="image-box-1">
-    クリックしてしてファイルをアップロード
-    <div class="item-num-0" id="image-box__container">
-    <div class="data" data-index="0">
-    <div class="input-area">
-    <input type="file" value="" style="display:none" id="img-file" name="product[photos_attributes][0][image]">
-    </div>
-    </div>
-    </div>
-    </div>`
-    $('.exhibition_main__container__image_send__message').append(html1);
+    
+    
   })
 });
