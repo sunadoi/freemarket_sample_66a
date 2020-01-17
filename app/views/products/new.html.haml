@@ -22,9 +22,9 @@
               クリックしてしてファイルをアップロード
               .item-num-0#image-box__container
                 = form.fields_for :photos do |i|
-                  .data{"data-index" => "#{i.index}"}
+                  .data
                     .input-area
-                      = i.file_field :image,type: 'file', value:"", style: "display:none", id:"img-file"     
+                      = i.file_field :image,type: 'file', style: "display:none", id:"img-file"     
             
 
 
