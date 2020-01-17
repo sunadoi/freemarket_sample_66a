@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_01_15_030616) do
 
-
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "postal_code", null: false
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_030616) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
