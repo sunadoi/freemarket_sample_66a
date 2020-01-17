@@ -1,7 +1,7 @@
 .header
 = render partial: '/products/header'
 .wrapper
-  = render partial: 'bread'
+  = render partial: 'bread', locals: { where: :log_out }
   .logout_container
     = render partial: 'sidebar'
     .logout

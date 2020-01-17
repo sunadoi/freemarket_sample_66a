@@ -5,33 +5,31 @@
 
 .mein_head{
   width: 100vw;
-  height: 130px;
-  background-color:#eeeeee;
+  height: 100px;
+  background-color:#ffffff;
   position: relative;
   border-bottom: 1px solid #DDDDDD;
   z-index: 999;
 
 .mein_head_top{
-  width: 80vw;
-  height: 90px;
+  width: 1020px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  .log{
+    display: flex;
+    justify-content: flex-start;
+    .mein_title{
+      width: 135px;
+      margin-top: 8px;
+    }
+  }
 }
 
 
 
-  .log{
-    width: 20%;
-    display: flex;
-    justify-content: flex-start;
-  }
-  .mein_title{
-    margin-left: 20%;
-    margin-top: 5%;
-    width: 70%;
-    height: 70px;
-  }
+
+
   // .mellchyan{
   //   padding-top: 40px;
   //   font-size:20px;
@@ -39,28 +37,24 @@
 
 
   .from_top{
-    // padding-top: 3%;
-    width: 60vw;
-    height: 50%;
-    margin-top: 3%;
-    border-radius: 5px;
-    background-color: white;
+    width: 100%;
+    position: relative;
   }
     .Search{
-      height: 42px;
-      position: relative;
+      height: 40px;
+      margin-top: 8px;
       width: 55vw;
-      border-style:none;
+      border: 1px solid #cccccc;
       border-radius:5px;
     }
       .form_submit{
         position: absolute;
-        top: 28px;
-        left: 85%;
-        width: 42px;
+        top: 8px;
+        right: 8px;
+        width: 40px;
         height: 40px;
-        border-color: white;
-        
+        background-color: transparent;
+        border: none;
       }
       .fa-lg.fa-fw.fa-search{
         font-weight: 900; 
@@ -72,7 +66,7 @@
       ::placeholder {
         color: rgb(128, 128, 128);
         font-size: 1em;
-        padding-left:1% ;
+        padding-left: 10px;
       }
 
 
@@ -82,44 +76,40 @@
 
 
   .mein_head_bottme{
-    width: 80vw;
+    width: 1020px;
     height: 25px;
-    margin: 0 auto;
+    margin: 12px auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    font-size: 14px;
   }
   .mein_head_bottme_left{
-    width: 30%;
-    margin-left: 5%;
+    width: 320px;
   }
   .left{
     display: flex;
-    justify-content:space-around;
-    padding-left: 0;
+    justify-content:space-between;
   }
 
   .mein_head_bottme_right{
-    width: 65%;
-    padding: 0 AUTO;
-    margin-left: 5%;
+    width: 600px;
   }
 
   .right{
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
   }
 
   .my_account{
     width: 130px;
     display: flex;
-    justify-content: flex-start;
   }
 
       .my_user{
-        border-radius: 15px;
+        border-radius: 50%;
         height: 30px;
-        width: 35px;
-        overflow: hidden;
+        width: 30px;
+        transform: translateY(-3px);
       }
 
       .my_user_text{

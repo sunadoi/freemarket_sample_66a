@@ -1,7 +1,7 @@
 .header
 = render partial: '/products/header'
 .wrapper
-  = render partial: '/users/bread'
+  = render partial: '/users/bread', locals: { where: :card }
   .card_container
     = render partial: '/users/sidebar'
     = render partial: 'show_card'

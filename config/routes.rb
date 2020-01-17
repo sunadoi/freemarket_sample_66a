@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       get 'identification'
       get 'log_out'
+      get 'card'
     end
   end
   resources :cards, only: [:new, :show] do

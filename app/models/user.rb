@@ -7,17 +7,19 @@ class User < ApplicationRecord
   has_many :products
   has_many :likes
   has_many :comments
+  has_many :sellers
+  has_many :buyers
   has_many :sns_credentials
   has_one :address
   has_one :card
-  has_one :buyer
-  has_one :seller
+
 
   validates :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, presence: true
   validates :nickname, :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 7 }
 
   mount_uploader :image, ImageUploader
+
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
@@ -34,4 +36,5 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
 end
