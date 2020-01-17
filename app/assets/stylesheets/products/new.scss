@@ -587,23 +587,68 @@
 
 }
 
+.imsge_send_crip{
+  
+}
 
+.item-image{
+  float: left;
+}
 
 #image-box-1{
-  height: 240px;
+  height: 180px;
   background-color: green;
   margin-left: auto; 
   text-align: center;
-  line-height: 240px;
+  line-height: 180px;
+  float: right;
+  
+
   .data{
     height: 100%;
   
     #image-box__container{
       height: 100%;
-    
+      width: 100%;
       .input-area{
         height: 100%;
       }
     }
   }
+}
+
+.item-num-0{
+  width: 620px;
+}
+.item-num-1{
+  width: 491px;
+}
+.item-num-2{
+  width: 363px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 106px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
+}
+
+.item-image__operetion--delete{
+  float: right;
 }
