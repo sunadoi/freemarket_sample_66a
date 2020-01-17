@@ -205,10 +205,10 @@
 = render partial: 'footer'
 
 .producte
-  .producte_now
-    .producte_text 出品
-    = link_to "#" do
-      = icon('fas', 'camera', class: 'camera', :style => "color:white")
+  = link_to new_product_path do
+    .producte_now
+      .producte_text 出品
+      = icon('fas', 'camera', class: 'camera')
 
 
 

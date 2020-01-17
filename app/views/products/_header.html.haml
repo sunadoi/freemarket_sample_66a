@@ -7,7 +7,7 @@
         .from_top
           = f.text_field :content, class:'Search',placeholder: "何をお探しですか？"
           = button_tag type: 'submit', class: 'form_submit' do
-            %i.fa-lg.fa-fw.fa-search
+            = icon('fas','search')
 
 
     .mein_head_bottme
@@ -25,17 +25,17 @@
         %ul.right
           %li.bottme_menu
             = link_to "#" ,class: "color" do
-              = icon('fas', 'heart', class: 'icon', style: "color:gray")
+              = icon('fas', 'heart', class: 'icon')
               いいね！一覧
           %li.bottme_menu
             = link_to "#" ,class: "color" do
-              = icon('fas', 'bell', class: 'icon', style: "color:gray")
+              = icon('fas', 'bell', class: 'icon')
               お知らせ
           %li.bottme_menu
             = link_to "#" ,class: "color" do
-              = icon('fas', 'check', class: 'icon', style: "color:gray")
+              = icon('fas', 'check', class: 'icon')
               やる事リスト
-          %li#user.menu
-            %a.my_account{href: "#",class: "color" } 
-              = image_tag "inu.jpg",class: "my_user", style: "color:gray"
+          %li.bottme.menu
+            =link_to user_path(current_user.id) ,class: "color" do
+              = image_tag "inu.jpg",class: "my_user"
               マイページ

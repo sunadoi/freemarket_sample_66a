@@ -1,6 +1,7 @@
 
 .color {
   color: rgb(0, 0, 0);
+  display: flex;
 }
 
 .mein_head{
@@ -11,67 +12,57 @@
   border-bottom: 1px solid #DDDDDD;
   z-index: 999;
 
-.mein_head_top{
-  width: 1020px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  .log{
+  &_top{
+    width: 1020px;
+    margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
-    .mein_title{
-      width: 135px;
-      margin-top: 8px;
+    justify-content: space-between;
+    .log{
+      display: flex;
+      justify-content: flex-start;
+      .mein_title{
+        width: 135px;
+        margin-top: 8px;
+      }
     }
-  }
-}
-
-
-
-
-
-  // .mellchyan{
-  //   padding-top: 40px;
-  //   font-size:20px;
-  // }
-
-
-  .from_top{
-    width: 100%;
-    position: relative;
-  }
+    .from_top{
+      width: 100%;
+      position: relative;
+    }
     .Search{
       height: 40px;
       margin-top: 8px;
       width: 55vw;
       border: 1px solid #cccccc;
       border-radius:5px;
+      color: rgb(128, 128, 128);
+      font-size: 1em;
+      padding-left: 10px;
     }
-      .form_submit{
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        width: 40px;
-        height: 40px;
-        background-color: transparent;
-        border: none;
-      }
-      .fa-lg.fa-fw.fa-search{
-        font-weight: 900; 
-        font-family: "Font Awesome 5 Free"; 
-        background-color: transparent;
+    .form_submit{
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border: none;
+      i{
         cursor: pointer;
+        font-size: 16px;
       }
-    
-      ::placeholder {
-        color: rgb(128, 128, 128);
-        font-size: 1em;
-        padding-left: 10px;
-      }
+    }
 
-
+  }
+  // .mellchyan{
+  //   padding-top: 40px;
+  //   font-size:20px;
+  // }
   .icon{
     font-family: "Font Awesome 5 Free";
+    color: #cccccc;
+    line-height: 1.5em;
+    margin-right: 8px;
   }
 
 
@@ -93,12 +84,13 @@
 
   .mein_head_bottme_right{
     width: 600px;
+    .right{
+      display: flex;
+      justify-content:space-between;
+    }
   }
 
-  .right{
-    display: flex;
-    justify-content:space-between;
-  }
+
 
   .my_account{
     width: 130px;
@@ -107,6 +99,7 @@
 
       .my_user{
         border-radius: 50%;
+        margin-right: 8px;
         height: 30px;
         width: 30px;
         transform: translateY(-3px);
@@ -140,7 +133,7 @@
     }
   
   .mein_pic_title{
-    width: 80vw;
+    width: 1020px;
     height: 100%;
     margin: 0 auto;
     position: absolute;
@@ -198,17 +191,16 @@
   justify-content: center;
 }
 .btn{
-  height: 20px;
-  border-radius: 5px;
   background-color: #eeeeee;
-  padding: 20px;
+  padding: 4px 16px;
   margin: 5px;
   text-align: center;
-  line-height: 2px;
+  line-height: 1.5;
   color: rgb(0, 0, 0);
   border-radius:15px;
-  font-weight: 900;
-  font-size:40%;
+  font-weight: 700;
+  font-size:14px;
+  border: none;;
 }
 
 
@@ -216,26 +208,22 @@
 
 .new{
   width: 100vw;
-  height: 700px;
   background-color:#eeeeee;
 
-}
-.new_title{
-  width: 80vw;
-  height: 100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  // background-color: rgb(132, 211, 211);
-}
-  .new_item_title{
-    padding: 4%;
-    font-size: 30px;
+  &_title{
+    width: 1020px;
+    padding: 40px 0 16px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.5em;
+  }
+  &_item_title{
+    font-size: 24px;
     font-weight: bold;
   }
   .more_item{
-    padding: 5% 2% 0% 0%;
-    width: 9vw;
+    width: 120px;
   }
   a.link{
     text-decoration: none;
@@ -243,26 +231,21 @@
   li{
     list-style: none;
   }
-
+}
 
 
 .new_list{
-  width: 80vw;
-  height: 600px;
+  width: 1020px;
   margin: 0 auto;
-  // background-color: rgb(0, 139, 139);
 
-  .new_list_item{
+  &_item{
     display: flex; 
     flex-wrap: wrap; 
-    height: 40%;
-    padding-left: 1%;
   }
     .item{
-      width: 16%;
-      height: 100%;
-      margin-left: 3%;
-      margin-top: 3%;
+      width: calc(20% - 16px);
+      height: 250px;
+      margin: 8px 8px;
       border: 1px solid rgb(230, 230, 230);
       position: relative;
       z-index: 1;
@@ -307,49 +290,39 @@
 
 .footer{
   width: 100%;
-  height: 280px;
-  position: relative;
+  padding-top: 20px;
+  background-color: #eeeeee;
+  &_ad{
+    height: 260px;
+    background-image: url('inu.jpg');
+    background-size: 100% 100%;
+    display: flex;
+    vertical-align: middle;
+    .footer_pic_title{
+      width: 1020px;
+      margin: auto;
+      max-width: 860px;
+      .footer_pic_title_mein{
+        color: #ffffff;
+        font-size: 35px;
+      }
+      h3{
+        font-size: 70%;
+      }
 
-  .footer_ad{
-    height: 280px;
-
-    .foot_ad{
-      width: 100vw;
-      height: 280px;
-    }
-  }
-  .footer_pic_title{
-    width: 80vw;
-    height: 100%;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 20%;
-    max-width: 860px;
-    
-    .footer_pic_title_mein{
-      color: #ffffff;
-      margin-top: 5%;
-      padding-left: 5%;
-      font-size: 35px;
-    }
-    h3{
-      font-size: 70%;
-    }
-
-    &__log{
-      margin-bottom: 2%;
-      width: 100%;
-      margin-top: 2%;
-      padding-left: 5%;
-      &__new_item {
-        .app_box{
-          width: 60px;
+      &__log{
+        margin-bottom: 2%;
+        width: 100%;
+        margin-top: 2%;
+        &__new_item {
+          .app_box{
+            width: 60px;
+            padding-right: 2%;
+          }
+        }
+        .app{
           padding-right: 2%;
         }
-      }
-      .app{
-        padding-right: 2%;
       }
     }
   }
@@ -364,7 +337,7 @@
   
 }
   .footer_bottme_list{
-    width: 80vw;
+    width: 1020px;
     height: 300px;
     margin: 0 auto;
     display: flex; 
@@ -429,7 +402,7 @@
   height: 100px;
 }
   .footer_bottme_row_text{
-    width: 80vw;
+    width: 1020px;
     height: 50px;
     margin: 0 auto;
     padding-top: 25px;
@@ -480,6 +453,7 @@
   .camera{
     padding-top: 5%;
     font-size: 100px;
+    color: #ffffff;
   }
       
 
