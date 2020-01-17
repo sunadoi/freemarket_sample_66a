@@ -24,9 +24,9 @@ User.create!(
 )
 
 Address.create!(
-  user_id: 1,
-  postal_code: 1234567,
-  prefecture: 1,
+  user_id: "1",
+  postal_code: "1234567",
+  prefecture: "1",
   city: "渋谷区",
   street: "渋谷駅",
   building: "ハチ公前広場",

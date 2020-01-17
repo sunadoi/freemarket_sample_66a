@@ -20,7 +20,10 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :buyers do
+  resources :buyers, exept: [:new] do
+    member do
+      get 'new', to: 'buyers#new'
+    end
     collection do
       post 'pay', to: 'buyers#pay'
       get 'done', to: 'buyers#done'
