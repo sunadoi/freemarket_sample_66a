@@ -24,19 +24,20 @@ User.create!(
 )
 
 Address.create!(
-  user_id: 1,
-  postal_code: 1234567,
-  prefecture: 1,
+  user_id: "1",
+  postal_code: "1234567",
+  prefecture: "1",
   city: "渋谷区",
   street: "渋谷駅",
   building: "ハチ公前広場",
 )
 
 Card.create!(
-  user_id: 1,
-  number: 1234,
-  expiration: '2020-02-28',
-  security_code: 111,
+
+  user_id: "1",
+  customer_id: "cus_c7bd9d995dbd65b951e6e5c51ada",
+  card_id: "car_1c5fdbaf149cb827551e1d3dda11",
+
 )
 
 Brand.create!(name: "CHANEL")
