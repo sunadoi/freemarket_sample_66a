@@ -174,8 +174,9 @@
         -@seller_products.each do |other|
           %li.list_1
             =link_to product_path(other.id) ,class: "color" do
-              -if @product.photos.present?
-                =image_tag other.photos.first.image.to_s,class: "pic"
+              .pic
+                -if @product.photos.present?
+                  =image_tag other.photos.first.image.to_s
               .title 
                 = other.name
               .title_iteme
@@ -189,21 +190,7 @@
     = render partial: '/users/bread', locals: { where: :product }
 
 
-.footer
-  .footer_ad
-    = image_tag "inu.jpg",class: "foot_ad", alt: "inu"
-  .footer_pic_title
-    .footer_pic_title_mein
-      %h3 スマホで簡単フリマアップリ
-      %h1 ダウンロードしないでね！
-    .footer_pic_title__log
-      =link_to "#" ,class: "footer_pic_title__log__new_item" do
-        = image_tag "logo_red.svg",class: "app_box", alt: "app"          
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app_box", alt: "app"
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app" 
 
-
+= render partial:"adbtm"
 
 = render partial:"footer"
