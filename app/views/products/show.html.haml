@@ -101,7 +101,7 @@
           着払い
     -unless current_user?
       .sales__list_btn
-        =link_to "#" ,class:"color" do
+        =link_to buyer_path(@product.id) ,class:"color" do
           .get_btn
             購入画面に進む
     .sales__list_comment

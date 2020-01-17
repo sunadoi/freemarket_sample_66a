@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :number, :expiration, :security_code, presence: true
+  validates :customer_id, :card_id, presence: true
 end
