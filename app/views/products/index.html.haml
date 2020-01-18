@@ -30,19 +30,17 @@
   .new_title{id: "lady"}
     %h2.new_item_title レディース新着アイテム
     %li.more_item
-      =link_to "#" do
-        もっと見る >
+      =link_to "もっと見る >" , "#"
   .new_list
     %ul.new_list_item
       - @ladys.each do |lady|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(lady.id) ,class: "new_item" do
             .item_text 
               =lady.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =lady.price
+              =price_split(lady.price)
 
  
 
@@ -56,13 +54,12 @@
     %ul.new_list_item
       - @mens.each do |men|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(men.id) ,class: "new_item" do
             .item_text 
               =men.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =men.price
+              =price_split(men.price)
 
 
  
@@ -77,13 +74,12 @@
     %ul.new_list_item
       - @appliances.each do |appliance|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(appliance.id) ,class: "new_item" do
             .item_text 
               =appliance.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =appliance.price
+              =price_split(appliance.price)
 
 
  
@@ -98,13 +94,12 @@
     %ul.new_list_item
       - @toys.each do |toy|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(toy.id) ,class: "new_item" do
             .item_text 
               =toy.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =toy.price
+              =price_split(toy.price)
 
 
 
@@ -128,13 +123,12 @@
     %ul.new_list_item
       - @chanels.each do |chanel|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(chanel.id) ,class: "new_item" do
             .item_text 
               =chanel.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =chanel.price
+              =price_split(chanel.price)
 
  
 
@@ -148,13 +142,12 @@
     %ul.new_list_item
       - @coachs.each do |coach|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(coach.id) ,class: "new_item" do
             .item_text 
               =coach.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =coach.price
+              =price_split(coach.price)
 
  
 
@@ -168,13 +161,12 @@
     %ul.new_list_item
       - @louisvuittons.each do |louisvuitton|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(louisvuitton.id) ,class: "new_item" do
             .item_text 
               =louisvuitton.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =louisvuitton.price
+              =price_split(louisvuitton.price)
 
 
  
@@ -189,13 +181,12 @@
     %ul.new_list_item
       - @guccis.each do |gucci|
         %li.item
-          =link_to "#" ,class: "new_item" do
+          =link_to product_path(gucci.id) ,class: "new_item" do
             .item_text 
               =gucci.name
             = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
-              ¥
-              =gucci.price
+              =price_split(gucci.price)
 
 
 
@@ -205,10 +196,10 @@
 = render partial: 'footer'
 
 .producte
-  .producte_now
-    .producte_text 出品
-    = link_to "#" do
-      = icon('fas', 'camera', class: 'camera', :style => "color:white")
+  = link_to new_product_path do
+    .producte_now
+      .producte_text 出品
+      = icon('fas', 'camera', class: 'camera')
 
 
 
