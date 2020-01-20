@@ -101,7 +101,7 @@
           着払い
     -unless current_user?
       .sales__list_btn
-        =link_to "#" ,class:"color" do
+        =link_to buyer_path(@product.id) ,class:"color" do
           .get_btn
             購入画面に進む
     .sales__list_comment
@@ -163,47 +163,34 @@
         =link_to"#" do
           =image_tag "http://www.marksign.net/wp-content/uploads/2016/03/pinterest_300.jpg",class: "sns_icon"
 
--unless current_user?
-  .another
-    .another_list
-      .another_list_title
-        =link_to "#",class:"my_page" do
-          = "#{@product.seller.user.nickname}さんのその他の出品"
+-# -unless current_user?
+-#   .another
+-#     .another_list
+-#       .another_list_title
+-#         =link_to "#",class:"my_page" do
+-#           = "#{@product.seller.user.nickname}さんのその他の出品"
 
-      %ul.another_list_item
-        -@seller_products.each do |other|
-          %li.list_1
-            =link_to product_path(other.id) ,class: "color" do
-              -if @product.photos.present?
-                =image_tag other.photos.first.image.to_s,class: "pic"
-              .title 
-                = other.name
-              .title_iteme
-                .title_iteme_price
-                  = price_split(other.price)
-                .title_iteme_like
-                  =icon("fas","heart")
-                  4
+-#       %ul.another_list_item
+-#         -@seller_products.each do |other|
+-#           %li.list_1
+-#             =link_to product_path(other.id) ,class: "color" do
+-#               .pic
+-#                 -if @product.photos.present?
+-#                   =image_tag other.photos.first.image.to_s
+-#               .title 
+-#                 = other.name
+-#               .title_iteme
+-#                 .title_iteme_price
+-#                   = price_split(other.price)
+-#                 .title_iteme_like
+-#                   =icon("fas","heart")
+-#                   4
 -unless current_user?
   .under
     = render partial: '/users/bread', locals: { where: :product }
 
 
-.footer
-  .footer_ad
-    = image_tag "inu.jpg",class: "foot_ad", alt: "inu"
-  .footer_pic_title
-    .footer_pic_title_mein
-      %h3 スマホで簡単フリマアップリ
-      %h1 ダウンロードしないでね！
-    .footer_pic_title__log
-      =link_to "#" ,class: "footer_pic_title__log__new_item" do
-        = image_tag "logo_red.svg",class: "app_box", alt: "app"          
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app_box", alt: "app"
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app" 
 
-
+= render partial:"adbtm"
 
 = render partial:"footer"

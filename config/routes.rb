@@ -23,8 +23,17 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-end
-  resources :buyers
+  end
+  resources :buyers, exept: [:new] do
+    member do
+      get 'new', to: 'buyers#new'
+    end
+    collection do
+      post 'pay', to: 'buyers#pay'
+      get 'done', to: 'buyers#done'
+    end
+  end
+
   resources :users do
     member do
       get 'identification'
@@ -32,5 +41,11 @@ end
       get 'card'
     end
   end
-  resources :cards
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
 end

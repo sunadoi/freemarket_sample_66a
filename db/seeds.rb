@@ -33,10 +33,11 @@ Address.create!(
 )
 
 Card.create!(
+
   user_id: 1,
-  number: 1234,
-  expiration: '2020-02-28',
-  security_code: 111,
+  customer_id: "cus_c7bd9d995dbd65b951e6e5c51ada",
+  card_id: "car_1c5fdbaf149cb827551e1d3dda11",
+
 )
 
 Brand.create!(name: "CHANEL")
