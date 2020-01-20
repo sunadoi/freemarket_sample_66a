@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
+  require "payjp"
+
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -46,8 +49,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_user_data"]["user"])
     @address = Address.new(session["devise.regist_address_data"]["address"])
     if Rails.env.development?
-      @card = Card.new(card_params)
-      @card.expiration = card_expiration
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
+      if params['payjp-token'].blank?
+        render :card and return
+      else
+        customer = Payjp::Customer.create(
+        description: '登録テスト', #なくてもOK
+        email: @user.email, #なくてもOK
+        card: params['payjp-token'],
+        )
+        @card = Card.new(customer_id: customer.id, card_id: customer.default_card)
+      end
       unless @card.valid?
         flash.now[:alert] = @card.errors.full_messages
         render :card and return
