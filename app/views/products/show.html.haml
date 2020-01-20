@@ -7,11 +7,12 @@
       %h1= @product.name
     .sales__list_top
       .sales__list_top_pic
-
         -if @product.photos.present?
-          = image_tag @product.photos.first.image.to_s, class: "sales_pic"
           - @product.photos.each do |photo|
-            = image_tag photo.image.to_s, class: "sales_pic_smoll"
+            .detail
+              = image_tag photo.image.to_s, class: "sales_pic"
+            .list
+              = image_tag photo.image.to_s, class: "sales_pic_smoll"
       .sales__list_top_item
         .sales__list_top_item_contener
           .sales__list_top_item_contener_column
@@ -175,7 +176,7 @@
           %li.list_1
             =link_to product_path(other.id) ,class: "color" do
               .pic
-                -if @product.photos.present?
+                -if other.photos.present?
                   =image_tag other.photos.first.image.to_s
               .title 
                 = other.name
