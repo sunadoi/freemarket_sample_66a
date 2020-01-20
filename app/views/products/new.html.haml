@@ -17,15 +17,20 @@
           %p.exhibition_main__container__image_send__message
             最大10枚までアップロードできます
           
-          %label.image_send_crip
-            #image-box-1
-              クリックしてしてファイルをアップロード
-              .item-num-0#image-box__container
-                = form.fields_for :photos do |i|
-                  .data
-                    .input-area
-                      = i.file_field :image,type: 'file', style: "display:none", id:"img-file"     
-            
+          
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              %label{for: "product_photos_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = form.fields_for :photos do |i|
+                = i.file_field :image, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][image]", id: "product_photos_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][image]", id: "product_photos_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_photos_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][image]", id: "product_photos_attributes_4_image" }
+        .sell__block__form__name
 
 
         .exhibition_main__container__product
@@ -56,10 +61,12 @@
                       必須
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
+                  
+                  .listing-select-wrapper
+                    .listing-select-wrapper__box
+                      = form.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     
-                  = form.select :category_id, Category.categories, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"} 
-                    
-                .exhibition_main__container__product__detail__inner__select__status
+                .exhibition_main__container__product__detail__inner__select__status#margin_select
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
                     サイズ
                     %span.exhibition_main__container__product__detail__inner__select__status__right
@@ -67,7 +74,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :size, Product.sizes, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :size, Product.sizes, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
 
@@ -79,7 +86,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
                     
-                  = form.select :brand_id, [["シャネル", 1]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :brand_id, [["シャネル", 1]], {prompt: "---"}, class: "exhibition_main__container__product__detail__inner__select__wrappe__button"
 
 
                 .exhibition_main__container__product__detail__inner__select__status
@@ -90,7 +97,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :condition, Product.conditions, {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :condition, Product.conditions, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
                     
                 
                 
@@ -109,7 +116,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_charge, [["---", 0], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 3]], {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_charge, Product.shipping_charges, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
                 
 
                 .exhibition_main__container__product__shipping_method__inner__select__burden
@@ -120,7 +127,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_method, [["---", 0], ["未定", 1], ["らくらくメルカリ便", 2], ["ゆうメール", 3], ["レターパック", 4], ["普通郵便（定形, 定形外)", 5], ["クロネコヤマト", 6], ["ゆうパック", 7], ["クリックポスト", 8], ["ゆうパケット", 9]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :shipping_method, Product.shipping_methods, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
 
@@ -132,7 +139,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_prefecture, Address.prefectures, {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_prefecture, Address.prefectures, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
                     
 
 
@@ -144,7 +151,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_days, [["---", 0], ["1~2日で発送", 2], ["2~3日で発送", 3], ["4~7日で発送"]], {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_days, Product.shipping_days, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
                     
 
           .exhibition_main__container__product__money
