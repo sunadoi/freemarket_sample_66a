@@ -24,7 +24,8 @@
                 = form.fields_for :photos do |i|
                   .data
                     .input-area
-                      = i.file_field :image,type: 'file', style: "display:none", id:"img-file"     
+                      = i.label :image do
+                        = i.file_field :image,type: 'file', style: "display:none", id:"img-file"     
             
 
 
@@ -79,7 +80,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
                     
-                  = form.select :brand_id, [["シャネル", 1]], {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.collection_select :brand_id, Brand.all, :id, :name,{prompt: "--"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
                 .exhibition_main__container__product__detail__inner__select__status
