@@ -33,6 +33,7 @@
         .sell__block__form__name
 
 
+
         .exhibition_main__container__product
           .exhibition_main__container__product__send
             .exhibition_main__container__product__send__top
@@ -86,7 +87,8 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
                     
-                  = form.select :brand_id, [["シャネル", 1]], {prompt: "---"}, class: "exhibition_main__container__product__detail__inner__select__wrappe__button"
+                  = form.collection_select :brand_id, Brand.all, :id, :name,{prompt: "--"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+
 
 
                 .exhibition_main__container__product__detail__inner__select__status

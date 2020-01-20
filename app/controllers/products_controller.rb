@@ -67,10 +67,12 @@ class ProductsController < ApplicationController
   
 
   def show
-    # @seller_products = @product.seller.user.products.order(id: "DESC").first(6)
-    # @good = Seller.where(user_id: @product.seller.user.id, evaluate: 1).count
-    # @ok = Seller.where(user_id: @product.seller.user.id, evaluate: 2).count
-    # @bad = Seller.where(user_id: @product.seller.user.id, evaluate: 3).count
+
+    @seller_products = @product.user.products.order(id: "DESC").first(6)
+    @good = Seller.where(user_id: @product.user.id, evaluate: 1).count
+    @ok = Seller.where(user_id: @product.user.id, evaluate: 2).count
+    @bad = Seller.where(user_id: @product.user.id, evaluate: 3).count
+
   end
 
   def destroy
