@@ -483,9 +483,6 @@
       }
     } 
   }
-  // .file{
-  //   display: none;
-  // }
   .exhibition_main__container__product__money__inner__select__a__price__figure::placeholder{
     text-align: right;
     font-size: 16px;
@@ -587,71 +584,6 @@
 
 }
 
-// .imsge_send_crip{
-  
-// }
-
-// .item-image{
-//   float: left;
-// }
-
-// #image-box-1{
-//   height: 180px;
-//   background-color: green;
-//   margin-left: auto; 
-//   text-align: center;
-//   line-height: 180px;
-//   float: right;
-  
-
-//   .data{
-//     height: 100%;
-  
-//     #image-box__container{
-//       height: 100%;
-//       width: 100%;
-//       .input-area{
-//         height: 100%;
-//       }
-//     }
-//   }
-// }
-
-// .item-num-0{
-//   width: 620px;
-// }
-// .item-num-1{
-//   width: 491px;
-// }
-// .item-num-2{
-//   width: 363px;
-// }
-// .item-num-3{
-//   width: 234px;
-// }
-// .item-num-4{
-//   width: 106px;
-// }
-// //下段のfile_field
-// .item-num-5{
-//   width: 100%;
-// }
-// .item-num-6{
-//   width: 491px;
-// }
-// .item-num-7{
-//   width: 363px;
-// }
-// .item-num-8{
-//   width: 234px;
-// }
-// .item-num-9{
-//   width: 106px;
-// }
-
-// .item-image__operetion--delete{
-//   float: right;
-// }
 
 .post__drop__box__container{
   display: block;
@@ -659,7 +591,6 @@
   display: flex;
   flex-wrap: wrap;
 
-  //プレビュー表示欄のCSS
   .prev-content {
     display: flex;
     .preview-box {
@@ -699,7 +630,6 @@
     }
   }
 
-  //投稿クリックエリアのCSS
   .label-content{
     margin-bottom: 10px;
     width: 620px;
@@ -720,7 +650,6 @@
         font-size: 14px;
         line-height: 1.5;
         font-weight: bold;
-        // -webkit-transform: translate(0, -50%);
         transform: translate(0, -50%);
         pointer-events: none;
         white-space: pre-wrap;
@@ -729,7 +658,6 @@
     }
   }
 
-  //file_fieldのcss
   .hidden-content {
     .hidden-field {
       display: none;
