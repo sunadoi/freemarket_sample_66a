@@ -45,14 +45,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def card
     @user = User.new(session["devise.regist_user_data"]["user"])
     @address = Address.new(session["devise.regist_address_data"]["address"])
-    @card = Card.new(card_params)
-    @card.expiration = card_expiration
-    unless @card.valid?
-      flash.now[:alert] = @card.errors.full_messages
-      render :card and return
+    if Rails.env.development?
+      @card = Card.new(card_params)
+      @card.expiration = card_expiration
+      unless @card.valid?
+        flash.now[:alert] = @card.errors.full_messages
+        render :card and return
+      end
+      @user.build_card(@card.attributes)
     end
     @user.build_address(@address.attributes)
-    @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
     render :complete
