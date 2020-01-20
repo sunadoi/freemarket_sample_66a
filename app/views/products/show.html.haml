@@ -163,28 +163,28 @@
         =link_to"#" do
           =image_tag "http://www.marksign.net/wp-content/uploads/2016/03/pinterest_300.jpg",class: "sns_icon"
 
--unless current_user?
-  .another
-    .another_list
-      .another_list_title
-        =link_to "#",class:"my_page" do
-          = "#{@product.seller.user.nickname}さんのその他の出品"
+-# -unless current_user?
+-#   .another
+-#     .another_list
+-#       .another_list_title
+-#         =link_to "#",class:"my_page" do
+-#           = "#{@product.seller.user.nickname}さんのその他の出品"
 
-      %ul.another_list_item
-        -@seller_products.each do |other|
-          %li.list_1
-            =link_to product_path(other.id) ,class: "color" do
-              .pic
-                -if @product.photos.present?
-                  =image_tag other.photos.first.image.to_s
-              .title 
-                = other.name
-              .title_iteme
-                .title_iteme_price
-                  = price_split(other.price)
-                .title_iteme_like
-                  =icon("fas","heart")
-                  4
+-#       %ul.another_list_item
+-#         -@seller_products.each do |other|
+-#           %li.list_1
+-#             =link_to product_path(other.id) ,class: "color" do
+-#               .pic
+-#                 -if @product.photos.present?
+-#                   =image_tag other.photos.first.image.to_s
+-#               .title 
+-#                 = other.name
+-#               .title_iteme
+-#                 .title_iteme_price
+-#                   = price_split(other.price)
+-#                 .title_iteme_like
+-#                   =icon("fas","heart")
+-#                   4
 -unless current_user?
   .under
     = render partial: '/users/bread', locals: { where: :product }
