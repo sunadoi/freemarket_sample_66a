@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:new, :index, :create]
-  
+  before_action :set_product, except: [:new, :index, :create, :get_category_children, :get_category_grandchildren]
+  include ApplicationHelper
+  before_action :set_ancestry, only: [:new]
+
   def index
 
 
@@ -20,7 +22,30 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.photos.new
+
+    @category_parent_array = ["---"]
+  
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
   end
+
+
+
+
+ def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+ end
+
+
+ def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+ end
+
+
+
+
+
 
   def create
     @product = Product.new(product_params)
@@ -42,10 +67,12 @@ class ProductsController < ApplicationController
   
 
   def show
+
     @seller_products = @product.user.products.order(id: "DESC").first(6)
     @good = Seller.where(user_id: @product.user.id, evaluate: 1).count
     @ok = Seller.where(user_id: @product.user.id, evaluate: 2).count
     @bad = Seller.where(user_id: @product.user.id, evaluate: 3).count
+
   end
 
   def destroy
@@ -59,7 +86,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, photos_attributes: [:image]).merge(user_id: 1, category_id: params[:product][:category_id].to_i, brand_id: params[:product][:brand_id].to_i, size: params[:product][:size].to_i, condition: params[:product][:condition].to_i, shipping_charge: params[:product][:shipping_charge].to_i, shipping_method: params[:product][:shippig_method].to_i, shipping_prefecture: params[:product][:shipping_prefecture].to_i, shipping_days: params[:product][:shipping_days].to_i, brand_id: params[:product][:brand_id].to_i, price: params[:product][:price].to_i, progress: params[:product][:progress].to_i)
+    params.require(:product).permit(:name, :description, photos_attributes: [:image]).merge(user_id: current_user.id, category_id: params[:product][:category_id].to_i, brand_id: params[:product][:brand_id].to_i, size: params[:product][:size].to_i, condition: params[:product][:condition].to_i, shipping_charge: params[:product][:shipping_charge].to_i, shipping_method: params[:product][:shippig_method].to_i, shipping_prefecture: params[:product][:shipping_prefecture].to_i, shipping_days: params[:product][:shipping_days].to_i, brand_id: params[:product][:brand_id].to_i, price: params[:product][:price].to_i, progress: params[:product][:progress].to_i)
+
 
   end
 
@@ -67,6 +95,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+   def set_ancestry
+    @category_parent_array = ["---"]
+   end
 end
 
 
