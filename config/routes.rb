@@ -18,8 +18,12 @@ Rails.application.routes.draw do
   end
   root to: 'products#index'
 
-  resources :products
-
+  resources :products do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   resources :buyers, exept: [:new] do
     member do
       get 'new', to: 'buyers#new'
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
       get 'done', to: 'buyers#done'
     end
   end
+
   resources :users do
     member do
       get 'identification'
