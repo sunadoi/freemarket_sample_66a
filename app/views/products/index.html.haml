@@ -38,7 +38,7 @@
           =link_to product_path(lady.id) ,class: "new_item" do
             .item_text 
               =lady.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag lady.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(lady.price)
 
@@ -57,7 +57,7 @@
           =link_to product_path(men.id) ,class: "new_item" do
             .item_text 
               =men.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag men.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(men.price)
 
@@ -77,7 +77,7 @@
           =link_to product_path(appliance.id) ,class: "new_item" do
             .item_text 
               =appliance.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag appliance.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(appliance.price)
 
@@ -97,7 +97,7 @@
           =link_to product_path(toy.id) ,class: "new_item" do
             .item_text 
               =toy.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag toy.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(toy.price)
 
@@ -126,7 +126,7 @@
           =link_to product_path(chanel.id) ,class: "new_item" do
             .item_text 
               =chanel.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag chanel.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(chanel.price)
 
@@ -145,7 +145,7 @@
           =link_to product_path(coach.id) ,class: "new_item" do
             .item_text 
               =coach.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag coach.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(coach.price)
 
@@ -164,7 +164,7 @@
           =link_to product_path(louisvuitton.id) ,class: "new_item" do
             .item_text 
               =louisvuitton.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag louisvuitton.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(louisvuitton.price)
 
@@ -184,7 +184,7 @@
           =link_to product_path(gucci.id) ,class: "new_item" do
             .item_text 
               =gucci.name
-            = image_tag "inu.jpg",class: "item_pic", alt: "販売写真"
+            = image_tag gucci.photos.first.image.to_s,class: "item_pic", alt: "販売写真"
             %span{href:  "#",class: "price",id:"text_price"} 
               =price_split(gucci.price)
 
