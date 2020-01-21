@@ -170,12 +170,15 @@
                   .exhibition_main__container__product__money__inner__select__a__price
                     .exhibition_main__container__product__money__inner__select__a__price__yen
                       ¥
-                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure"
+                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure", id: "keyup"
               
                 .exhibition_main__container__product__money__inner__select__commission
                   販売手数料(10%)
+                  #keyup1
                 .exhibition_main__container__product__money__inner__select__profit
                   販売履歴
+                  #keyup2
+                
           .exhibition_main__container__product__discription
             %p.exhibition_main__container__product__discription__1
               = link_to "#", class: "link" do
