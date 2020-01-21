@@ -31,7 +31,6 @@ $(function(){
   }
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; 
-    console.log(parentCategory)
     if (parentCategory != "---"){ 
       $.ajax({
         url: 'get_category_children',
@@ -88,5 +87,22 @@ $(function(){
     }else{
       $('#grandchildren_wrapper').remove();
     }
+  });
+
+
+  function update_field(){
+    var result = $('#keyup').val();
+    figure = parseFloat(result) * 1.1
+    figure2 = parseFloat(figure) - result
+    figure3 = Math.round(figure2);
+    figure4 = parseInt(result) - parseInt(figure3)
+    $('#keyup1').text(`¥${figure3}`);
+    $("#keyup2").text(`¥${figure4}`);
+    
+}
+$(function() {
+    $('#keyup').on('keyup', function() {
+      update_field();
+    });
   });
 });
