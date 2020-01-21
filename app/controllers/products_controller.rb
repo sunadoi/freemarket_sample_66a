@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:new, :index, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_product, except: [:new, :index, :create, :get_category_children, :get_category_grandchildren, :edit, :update]
   include ApplicationHelper
-  before_action :set_ancestry, only: [:new]
+  before_action :set_ancestry, only: [:new, :edit, :update]
 
   def index
 
@@ -29,18 +29,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
-
-
- def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
- end
-
-
- def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
- end
-
  def create
     @product = Product.new(product_params)
     
@@ -53,10 +41,35 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @category_parent_array = ["---"]
+    
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
   end
 
   def update
+    @product = Product.find(params[:id])
+  
+    if @product.update(params_update_product)
+      redirect_to root_path
+    else
+      render :new
+    end
   end
+
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  
+ end
+
+
+ def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+ end
+
 
   def show
 
@@ -88,6 +101,11 @@ class ProductsController < ApplicationController
   def set_ancestry
     @category_parent_array = ["---"]
   end
+
+  def params_update_product
+    params.require(:product).permit(:name, :description, photos_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, category_id: params[:category_id].to_i, brand_id: params[:product][:brand_id].to_i, size: params[:product][:size].to_i, condition: params[:product][:condition].to_i, shipping_charge: params[:product][:shipping_charge].to_i, shipping_method: params[:product][:shipping_method].to_i, shipping_prefecture: params[:product][:shipping_prefecture].to_i, shipping_days: params[:product][:shipping_days].to_i, brand_id: params[:product][:brand_id].to_i, price: params[:product][:price].to_i, progress: params[:product][:progress].to_i)
+  end
 end
+
 
 
