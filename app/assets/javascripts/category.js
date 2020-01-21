@@ -92,13 +92,17 @@ $(function(){
 
   function update_field(){
     var result = $('#keyup').val();
+    if (result == "") {
+      $('#keyup1').text('_');
+      $('#keyup2').text('_');
+    } else {
     figure = parseFloat(result) * 1.1
     figure2 = parseFloat(figure) - result
     figure3 = Math.round(figure2);
     figure4 = parseInt(result) - parseInt(figure3)
     $('#keyup1').text(`¥${figure3}`);
     $("#keyup2").text(`¥${figure4}`);
-    
+    }
 }
 $(function() {
     $('#keyup').on('keyup', function() {
