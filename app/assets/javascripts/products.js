@@ -17,10 +17,6 @@ $(function(){
         return html;
       }
 
-
-
-
-      //new
       if (window.location.href.match(/\/products\/\d+\/edit/)){
         var prevContent = $('.label-content').prev();
         labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -37,12 +33,6 @@ $(function(){
         }
       }
          
-
-
-
-
-
-
       function setLabel() {
         var prevContent = $('.label-content').prev();
         labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -68,25 +58,10 @@ $(function(){
           var count = $('.preview-box').length;
           if (count == 5) { 
             $('.label-content').hide();
-            // var html1 = `<label class="label-box" for="product_photos_attributes_0_image" id="label-box--0">
-            // <pre class="label-box__text-visible">クリックしてファイルをアップロード</pre>
-            // </label>`
-            // $(".label-box").before(html1)
-            
           }
-
-
-
-
-          //new
           if ($(`#product_photos_attributes_${id}__destroy`)){
             $(`#product_photos_attributes_${id}__destroy`).prop('checked',false);
           } 
-
-
-
-
-
           setLabel();
           if(count < 5){
             $('.label-box').attr({id: `label-box--${count}`,for: `product_photos_attributes_${count}_image`});
@@ -99,20 +74,6 @@ $(function(){
         setLabel(count);
         var id = $(this).attr('id').replace(/[^0-9]/g, '');
         $(`#preview-box__${id}`).remove();
-        
-        // $(`#product_photos_attributes_${id}_image`).val("");
-  
-        // var count = $('.preview-box').length;
-        // if (count == 4) {
-        //   $('.label-content').show();
-        // }
-        // setLabel(count);
-  
-        // if(id < 5){
-        //   $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_image`});
-        // }
-
-
 
       if ($(`#product_images_attributes_${id}__destroy`).length == 0) {
         $(`#product_photos_attributes_${id}_image`).val("");
@@ -136,9 +97,6 @@ $(function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_image`});
         }
       }
-
-
-
       });
     });
 });
