@@ -76,7 +76,7 @@
                   
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = form.select :category_id, options_for_select(@category_parent_array.map{|c|c},@product.category_id_before_type_cast), {}, {class: "listing-select-wrapper__box--select", id: "parent_category"}
+                      = form.select :category_id, options_for_select(@category_parent_array,@product.category_id_before_type_cast), {}, {class: "listing-select-wrapper__box--select", id: "parent_category"}
         
                 .exhibition_main__container__product__detail__inner__select__status#margin_select
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
@@ -86,7 +86,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :size, options_for_select(Product.sizes.map{|c|c} , @product.size_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :size, options_for_select(Product.sizes, @product.size_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
                 .exhibition_main__container__product__detail__inner__select__status
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
@@ -106,7 +106,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :condition, options_for_select(Product.conditions.map{|c|c} , @product.condition_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :condition, options_for_select(Product.conditions, @product.condition_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
                     
                 
@@ -124,7 +124,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_charge, options_for_select(Product.shipping_charges.map{|c|c},@product.shipping_charge_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_charge, options_for_select(Product.shipping_charges,@product.shipping_charge_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
 
                 
 
