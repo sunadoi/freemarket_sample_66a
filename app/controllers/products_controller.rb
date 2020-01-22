@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:new, :index, :create, :get_category_children, :get_category_grandchildren, :edit, :update]
+  before_action :set_product, except: [:new, :index, :create, :get_category_children, :get_category_grandchildren]
   include ApplicationHelper
-  before_action :set_ancestry, only: [:new, :edit, :update]
+  before_action :set_ancestry, only: [:edit]
 
   def index
     @ladys = Product.where(category_id:1..190).first(10)
@@ -35,15 +35,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-    end
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(params_update_product)
       redirect_to root_path
     else
@@ -55,7 +49,6 @@ class ProductsController < ApplicationController
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
-
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
@@ -88,7 +81,7 @@ class ProductsController < ApplicationController
   end
 
   def set_ancestry
-    @category_parent_array = ["---"]
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def params_update_product
