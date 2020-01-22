@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :products 
     
-  resources :buyers, exept: [:new] do
+  resources :buyers, only: [:create] do
     member do
       get 'new', to: 'buyers#new'
     end
