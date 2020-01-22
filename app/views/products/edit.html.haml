@@ -3,7 +3,7 @@
     = link_to "/" do
       = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "logo", class: "image_top"
   .exhibition_main
-    = form_with(model: @product, url: products_path, local: true) do |form|
+    = form_with model: @product, local: true do |form|
       = form.hidden_field :progress, value: 1
       .exhibition_main__container
         .exhibition_main__container__title
@@ -20,16 +20,27 @@
           
           .post__drop__box__container
             .prev-content
+              - @product.photos.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
             .label-content
-              %label{for: "product_photos_attributes_0_image", class: "label-box", id: "label-box--0"}
+
+            
+              = form.label :"photos_attributes_#{@product.photos.length}_image", class: "label-box", id: "label-box--#{@product.photos.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              = form.fields_for :photos do |i|
+              = form.fields_for :photos do |i|    
                 = i.file_field :image, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][image]", id: "product_photos_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][image]", id: "product_photos_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_photos_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][image]", id: "product_photos_attributes_4_image" }
+                = i.check_box:_destroy, class: "hidden-checkbox"
+              - @product.photos.length.upto(4) do |i|
+                %input{name: "product[photos_attributes][#{i}][image]", id: "product_photos_attributes_#{i}_image", class:"hidden-field", type:"file"}
         .sell__block__form__name
 
 
@@ -195,7 +206,7 @@
                 加盟店規約
               に同意したことになります。
 
-            = form.submit "出品する", class: "exhibition_main__container__product__discription__exhibition"
+            = form.submit "編集する", class: "exhibition_main__container__product__discription__exhibition"
             = link_to "/" do
               .exhibition_main__container__product__discription__back
                 もどる
