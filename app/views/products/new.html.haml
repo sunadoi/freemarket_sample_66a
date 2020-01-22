@@ -33,6 +33,7 @@
         .sell__block__form__name
 
 
+
         .exhibition_main__container__product
           .exhibition_main__container__product__send
             .exhibition_main__container__product__send__top
@@ -86,7 +87,8 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
                     
-                  = form.select :brand_id, [["シャネル", 1]], {prompt: "---"}, class: "exhibition_main__container__product__detail__inner__select__wrappe__button"
+                  = form.collection_select :brand_id, Brand.all, :id, :name,{prompt: "--"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+
 
 
                 .exhibition_main__container__product__detail__inner__select__status
@@ -168,12 +170,15 @@
                   .exhibition_main__container__product__money__inner__select__a__price
                     .exhibition_main__container__product__money__inner__select__a__price__yen
                       ¥
-                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure"
+                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure", id: "keyup"
               
                 .exhibition_main__container__product__money__inner__select__commission
                   販売手数料(10%)
+                  #keyup1
                 .exhibition_main__container__product__money__inner__select__profit
                   販売履歴
+                  #keyup2
+                
           .exhibition_main__container__product__discription
             %p.exhibition_main__container__product__discription__1
               = link_to "#", class: "link" do

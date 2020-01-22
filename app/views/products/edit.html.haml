@@ -20,17 +20,29 @@
           
           .post__drop__box__container
             .prev-content
+              - @product.photos.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
             .label-content
-              %label{for: "product_photos_attributes_0_image", class: "label-box", id: "label-box--0"}
+
+            
+              = form.label :"photos_attributes_#{@product.photos.length}_image", class: "label-box", id: "label-box--#{@product.photos.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              = form.fields_for :photos do |i|
+              = form.fields_for :photos do |i|    
                 = i.file_field :image, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][image]", id: "product_photos_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][image]", id: "product_photos_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_photos_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][image]", id: "product_photos_attributes_4_image" }
+                = i.check_box:_destroy, class: "hidden-checkbox"
+              - @product.photos.length.upto(4) do |i|
+                %input{name: "product[photos_attributes][#{i}][image]", id: "product_photos_attributes_#{i}_image", class:"hidden-field", type:"file"}
         .sell__block__form__name
+
 
 
         .exhibition_main__container__product
@@ -65,7 +77,7 @@
                   .listing-select-wrapper
                     .listing-select-wrapper__box
                       = form.select :category_id, options_for_select(@category_parent_array.map{|c|c},@product.category_id_before_type_cast), {}, {class: "listing-select-wrapper__box--select", id: "parent_category"}
-                      -# = form.select :category_id,@category_parent_array.map{|c|[c]},), {}, {class: "listing-select-wrapper__box--select", id: "parent_category"}
+        
                 .exhibition_main__container__product__detail__inner__select__status#margin_select
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
                     サイズ
@@ -83,9 +95,9 @@
                       任意
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
-                    
                   -# = form.select :brand_id, options_for_select(Brand.all.map{|c|[c[:name], c[:id]]} ,@product.brand.id), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
                   = form.select :brand_id, options_for_select(Brand.pluck(:name, :id), @product.brand.id), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+
                 .exhibition_main__container__product__detail__inner__select__status
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
                     商品の状態
@@ -95,10 +107,9 @@
                   %i.fa.fa-chevron-down
                     
                   = form.select :condition, options_for_select(Product.conditions.map{|c|c} , @product.condition_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+
                     
                 
-                
-
           .exhibition_main__container__product__shipping_method
             .exhibition_main__container__product__shipping_method__inner
               配送について
@@ -114,6 +125,7 @@
                   %i.fa.fa-chevron-down
                     
                   = form.select :shipping_charge, options_for_select(Product.shipping_charges.map{|c|c},@product.shipping_charge_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+
                 
 
                 .exhibition_main__container__product__shipping_method__inner__select__burden
@@ -127,7 +139,6 @@
                   = form.select :shipping_method, options_for_select(Product.shipping_methods.map{|c|c},@product.shipping_method_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
-
                 .exhibition_main__container__product__shipping_method__inner__select__region
                   %h3.exhibition_main__container__product__shipping_method__inner__select__region__left
                     発送元の地域
@@ -137,8 +148,8 @@
                   %i.fa.fa-chevron-down
                     
                   = form.select :shipping_prefecture, options_for_select(Address.prefectures.map{|c|c},@product.shipping_prefecture_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
-                    
 
+                    
 
                 .exhibition_main__container__product__shipping_method__inner__select__day
                   %h3.exhibition_main__container__product__shipping_method__inner__select__day__left
@@ -149,6 +160,7 @@
                   %i.fa.fa-chevron-down
                     
                   = form.select :shipping_days, options_for_select(Product.shipping_days.map{|c|c},@product.shipping_days_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+
                     
 
           .exhibition_main__container__product__money
@@ -165,12 +177,15 @@
                   .exhibition_main__container__product__money__inner__select__a__price
                     .exhibition_main__container__product__money__inner__select__a__price__yen
                       ¥
-                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure"
+                    = form.text_field :price, placeholder: "例） 300", class: "exhibition_main__container__product__money__inner__select__a__price__figure", id: "keyup"
               
                 .exhibition_main__container__product__money__inner__select__commission
                   販売手数料(10%)
+                  #keyup1
                 .exhibition_main__container__product__money__inner__select__profit
                   販売履歴
+                  #keyup2
+                
           .exhibition_main__container__product__discription
             %p.exhibition_main__container__product__discription__1
               = link_to "#", class: "link" do
@@ -187,7 +202,9 @@
                 加盟店規約
               に同意したことになります。
 
+
             = form.submit "変更する", class: "exhibition_main__container__product__discription__exhibition"
+
             = link_to "/" do
               .exhibition_main__container__product__discription__back
                 もどる
@@ -208,5 +225,4 @@
           = image_tag "logo_gray.svg", size: "80x65", alt: "logo", class: "image_under"
       .exhibition_footer__inner__inc
         © Mercari, Inc.
-
 

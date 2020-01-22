@@ -25,14 +25,14 @@
     .card_registration_wrapper__main__container
       .card_registration_wrapper__main__container__top
         クレジットカード情報入力
-      = form_with(model: @card, url: card_path, local: true) do |form|
+      = form_tag(card_path, method: :post, id: 'charge-form',  name: "inputForm") do
         .card_registration_wrapper__main__container__middle
           .card_registration_wrapper__main__container__middle__number
             %span.card_registration_wrapper__main__container__middle__number__left
               カード番号
             %span.card_registration_wrapper__main__container__middle__number__right
               必須
-            = form.text_field :number, placeholder: "半角数字のみ", class: "card_registration_wrapper__main__container__middle__number__under"
+            = text_field_tag "number", "", class: "number card_registration_wrapper__main__container__middle__number__under", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %img{alt: "カード", height: "35", src: "http://manual.estore.co.jp/shared/mg_sozai/card_m_all.gif", width: "80%",class: "card_registration_img"}
           .card_registration_wrapper__main__container__middle__expiration_1
             %span.card_registration_wrapper__main__container__middle__expiration_1__left
@@ -42,10 +42,28 @@
           .card_registration_wrapper__main__container__middle__expiration_2
             %i.fa.fa-chevron-down{class: "card_registration_chevron1"}
             %i.fa.fa-chevron-down{class: "card_registration_chevron2"}
-            = form.select :expiration_month, [["01", 1],["02", 2],["03", 3],["04", 4],["05", 5],["06", 6],["07", 7],["08", 8],["09", 9],["10", 10],["11", 11],["12", 12]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__mon"}
+            %select#exp_month{name: "exp_month", type: "text", class: "card_registration_wrapper__main__container__middle__expiration_2__mon"}
+              %option{value: ""} --
+              %option{value: "1"}01
+              %option{value: "2"}02
+              %option{value: "3"}03
+              %option{value: "4"}04
+              %option{value: "5"}05
+              %option{value: "6"}06
+              %option{value: "7"}07
+              %option{value: "8"}08
+              %option{value: "9"}09
+              %option{value: "10"}10
+              %option{value: "11"}11
+              %option{value: "12"}12
             %span.card_registration_wrapper__main__container__middle__expiration_2__j
               月
-            = form.select :expiration_year, [["20", 20],["21", 21],["22", 22],["23", 23]],{},{class: "card_registration_wrapper__main__container__middle__expiration_2__year"}
+            %select#exp_year{name: "exp_year", type: "text", class: "card_registration_wrapper__main__container__middle__expiration_2__year"}
+              %option{value: ""} --
+              %option{value: "2020"}20
+              %option{value: "2021"}21
+              %option{value: "2022"}22
+              %option{value: "2023"}23
             %span.card_registration_wrapper__main__container__middle__expiration_2__j
               年
           .card_registration_wrapper__main__container__middle__safty
@@ -53,13 +71,13 @@
               セキュリティーコード
             %span.card_registration_wrapper__main__container__middle__safty__right
               必須
-            = form.text_field :security_code, class: "card_registration_wrapper__main__container__middle__safty__number", placeholder: "カード背面4桁もしくは3桁の番号"
+            = text_field_tag "cvc", "", class: "cvc card_registration_wrapper__main__container__middle__safty__number", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+            #card_token
           .card_awesome
             %i.fa.fa-question-circle
             %span.card_registration_wrapper__main__container__middle__link
               カード裏面の番号とは
           .form__card_btn
-            = form.submit "次へ進む",  class: "next-btn"
+            = submit_tag "次へ進む", class: "next-btn", id: "token_submit"
   .signup__footer
     = render partial: "footer"
-          

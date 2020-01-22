@@ -31,10 +31,9 @@ $(function(){
   }
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; 
-    console.log(parentCategory)
     if (parentCategory != "---"){ 
       $.ajax({
-        url: 'get_category_children',
+        url: '/get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -67,9 +66,9 @@ $(function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/get_category_grandchildren',
         type: 'GET',
-        data: { child_id: childId },
+        data: {child_id: childId},
         dataType: 'json'
       })
       .done(function(grandchildren){
@@ -88,5 +87,26 @@ $(function(){
     }else{
       $('#grandchildren_wrapper').remove();
     }
+  });
+
+
+  function update_field(){
+    var result = $('#keyup').val();
+    if (result == "") {
+      $('#keyup1').text('_');
+      $('#keyup2').text('_');
+    } else {
+    figure = parseFloat(result) * 1.1
+    figure2 = parseFloat(figure) - result
+    figure3 = Math.round(figure2);
+    figure4 = parseInt(result) - parseInt(figure3)
+    $('#keyup1').text(`¥${figure3}`);
+    $("#keyup2").text(`¥${figure4}`);
+    }
+}
+$(function() {
+    $('#keyup').on('keyup', function() {
+      update_field();
+    });
   });
 });
