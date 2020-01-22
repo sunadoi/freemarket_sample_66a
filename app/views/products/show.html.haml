@@ -8,10 +8,11 @@
     .sales__list_top
       .sales__list_top_pic
         -if @product.photos.present?
-          - @product.photos.each do |photo|
-            .detail
+          .detail
+            - @product.photos.each do |photo|
               = image_tag photo.image.to_s, class: "sales_pic"
-            .list
+          .list
+            - @product.photos.each do |photo|
               = image_tag photo.image.to_s, class: "sales_pic_smoll"
       .sales__list_top_item
         .sales__list_top_item_contener
