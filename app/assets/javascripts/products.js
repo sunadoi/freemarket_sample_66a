@@ -75,7 +75,7 @@ $(function(){
         var id = $(this).attr('id').replace(/[^0-9]/g, '');
         $(`#preview-box__${id}`).remove();
 
-      if ($(`#product_images_attributes_${id}__destroy`).length == 0) {
+      if ($(`#product_photos_attributes_${id}__destroy`).length == 0) {
         $(`#product_photos_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
         if (count == 4) {
