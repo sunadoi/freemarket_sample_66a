@@ -4,34 +4,28 @@ class ProductsController < ApplicationController
   before_action :set_ancestry, only: [:new, :edit, :update]
 
   def index
+    @ladys = Product.where(category_id:1..190).first(10)
+    @mens = Product.where(category_id:200..345).first(10)
+    @appliances = Product.where(category_id:898..983).first(10)
+    @toys = Product.where(category_id:685..797).first(10)
 
-
-
-      @ladys = Product.where(category_id:1..190).first(10)
-      @mens = Product.where(category_id:200..345).first(10)
-      @appliances = Product.where(category_id:898..983).first(10)
-      @toys = Product.where(category_id:685..797).first(10)
-
-      @chanels = Product.where(brand_id:1).first(10)
-      @coachs = Product.where(brand_id:2).first(10)
-      @louisvuittons = Product.where(brand_id:3).first(10)
-      @guccis = Product.where(brand_id:4).first(10)
-
+    @chanels = Product.where(brand_id:1).first(10)
+    @coachs = Product.where(brand_id:2).first(10)
+    @louisvuittons = Product.where(brand_id:3).first(10)
+    @guccis = Product.where(brand_id:4).first(10)
   end
 
   def new
     @product = Product.new
     @product.photos.new
     @category_parent_array = ["---"]
-  
     Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent.name
     end
   end
 
- def create
+  def create
     @product = Product.new(product_params)
-    
     if @product.save
       @seller = Seller.create(user_id: current_user.id, product_id: @product.id)
       redirect_to root_path
@@ -43,7 +37,6 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @category_parent_array = ["---"]
-    
     Category.where(ancestry: nil).each do |parent|
     @category_parent_array << parent.name
     end
@@ -51,7 +44,6 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-  
     if @product.update(params_update_product)
       redirect_to root_path
     else
@@ -62,22 +54,19 @@ class ProductsController < ApplicationController
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  
- end
+  end
 
 
- def get_category_grandchildren
+  def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
- end
+  end
 
 
   def show
-
     @seller_products = @product.user.products.order(id: "DESC").first(6)
     @good = Seller.where(user_id: @product.user.id, evaluate: 1).count
     @ok = Seller.where(user_id: @product.user.id, evaluate: 2).count
     @bad = Seller.where(user_id: @product.user.id, evaluate: 3).count
-
   end
 
   def destroy
@@ -95,7 +84,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-      @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def set_ancestry
