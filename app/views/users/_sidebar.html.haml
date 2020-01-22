@@ -1,6 +1,6 @@
 .main__wrapper__left
   .main__wrapper__left__top
-    = link_to user_path do
+    = link_to user_path(current_user.id) do
       .main__wrapper__left__top__list_topPage
         .main__wrapper__left__top__list_topPage__middle
           .main__wrapper__left__top__list_topPage__middle__text
@@ -126,7 +126,7 @@
     .main__wrapper__left__set
       設定
     .main__wrapper__left__bottom
-      = link_to edit_user_path do
+      = link_to edit_user_path(current_user.id) do
         .main__wrapper__left__bottom__list
           .main__wrapper__left__bottom__list__middle
             .main__wrapper__left__bottom__list__middle__text
@@ -140,7 +140,7 @@
               発送元・お届け先住所変更
             .main__wrapper__left__bottom__list__middle__icon
               
-      = link_to card_user_path do
+      = link_to card_user_path(current_user.id) do
         .main__wrapper__left__bottom__list
           .main__wrapper__left__bottom__list__middle
             .main__wrapper__left__bottom__list__middle__text
@@ -154,7 +154,7 @@
               メール/パスワード
             .main__wrapper__left__bottom__list__middle__icon
               
-      = link_to identification_user_path do
+      = link_to identification_user_path(current_user.id) do
         .main__wrapper__left__bottom__list
           .main__wrapper__left__bottom__list__middle
             .main__wrapper__left__bottom__list__middle__text
@@ -168,7 +168,7 @@
               電話番号の確認
             .main__wrapper__left__bottom__list__middle__icon
               
-      = link_to log_out_user_path do
+      = link_to log_out_user_path(current_user.id) do
         .main__wrapper__left__bottom__list
           .main__wrapper__left__bottom__list__middle
             .main__wrapper__left__bottom__list__middle__text
