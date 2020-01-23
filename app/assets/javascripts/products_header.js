@@ -61,7 +61,7 @@ $(function() {
 
 
     $(document).ready(function(){
-        $('.slider').bxSlider({
+        $('.mein_pic').bxSlider({
             auto: true,
             pause: 5000,
         });

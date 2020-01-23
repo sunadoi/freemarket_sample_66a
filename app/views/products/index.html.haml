@@ -1,19 +1,23 @@
 = render partial: 'header'
 .mein_pic
-  .slider
-    =image_tag "inu.jpg",class: "pic"
-    =image_tag "akai.jpg",class: "pic"
-
-  .mein_pic_title
+  .mein_pic_title.application
     .mein_pic_title_mein
-      %h2 ちゃんチャカちゃん簡単アプリ
+      スマホでかんたん！フリマアプリ
     .mein_pic_title_text
-      %a 安心スマホアプリ
+      手軽で安心なスマホアプリをダウンロードしよう！
     .mein_pic_title_log
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class: "app", alt: "app" 
-      =link_to "#" ,class: "new_item" do
-        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app", alt: "app" 
+      =link_to "#" ,class: "app" do
+        = image_tag "phone.png",class: "app_logo", alt: "app", size: "40x40"
+        ダウンロード！
+      =link_to "#" ,class: "app" do
+        = image_tag "phone.png",class: "app_logo", alt: "app", size: "40x40"
+        Download!
+
+  .mein_pic_title.akai
+    .mein_pic_title_mein.akai
+      AKAI製品が今アツい！
+    .mein_pic_title_text.akai
+      AKAIで音楽を始めよう！
 
 
 
