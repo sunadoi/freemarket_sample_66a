@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :tel])
   end
 
+  def ensure_login
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to products_path
+    end
+  end
+
   private
 
   def production?
