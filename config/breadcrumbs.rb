@@ -1,5 +1,5 @@
 crumb :root do
-  link "メルちゃん", root_path
+  link "モルカリ", root_path
 end
 
 crumb :mypage do

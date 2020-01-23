@@ -143,46 +143,71 @@
 } 
 
 
+
+
 .mein_pic{
   width: 100vw;
   height: 400px;
   position: relative;
-
-    .pic{
-      width: 100vw;
-      height: 400px;
-    }
-  
   .mein_pic_title{
-    width: 1020px;
     height: 100%;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 20%;
-    max-width: 860px;
-    
-    .mein_pic_title_mein{
-      font-size: 90px;
-      font-weight: bold;
-      color: #e0e0e0;
+    padding-left: 100px;
+    max-width: 100%;
+    &.application{
+      background-image: url("ad_app.jpg");
+      background-size: cover;
     }
-
-
-    .mein_pic_title_text{
-      font-size: 20px;
-      height: 15%;
-      a {
-        color: white;
+    &.akai{
+      background-image: url("akai.jpg");
+      background-size: cover;
+    }
+    &_mein{
+      padding: 27px 0;
+      font-size: 50px;
+      width: 480px;
+      height: 250px;
+      font-weight: 900;
+      color: #eeeeee;
+      &.akai{
+        width: 1020px;
+        text-align: center;
       }
     }
 
-    .mein_pic_title_log{
-      margin-bottom: 2%;
+
+    &_text{
+      font-size: 20px;
+      height: 15%;
+      width: 1020px;
+      color: #eeeeee;
+      &.akai{
+        text-align: center;
+      }
+    }
+    &_log{
       width: 100%;
+      display: flex;
+      .app{
+        display: flex;
+        padding: 5px 0;
+        height: 50px;
+        width: 210px;
+        font-size: 20px;
+        font-weight: 900;
+        color: #ffffff;
+        background-color: #000000;
+        margin: 0 8px;
+        border: 1px solid #eeeeee;
+        border-radius: 4px;
+        line-height: 2;
+        img{
+          margin-right: 8px;
+        }
+      }
     }
   }
 }
+
 
 
 
@@ -314,7 +339,7 @@
   background-color: #eeeeee;
   &_ad{
     height: 260px;
-    background-image: url('inu.jpg');
+    background-image: url('ad_app.jpg');
     background-size: 100% 100%;
     display: flex;
     vertical-align: middle;
@@ -334,15 +359,32 @@
         margin-bottom: 2%;
         width: 100%;
         margin-top: 2%;
+        display: flex;
+        vertical-align: middle;
         &__new_item {
-          .app_box{
-            width: 60px;
-            padding-right: 2%;
-          }
+          width: 70px;
+          height: 70px;
+          padding: 10px;
+          border-radius: 16px;
+          background-color: #ffffff;
         }
         .app{
-          padding-right: 2%;
+          display: flex;
+          padding: 5px 0;
+          height: 40px;
+          width: 170px;
+          font-weight: 900;
+          color: #ffffff;
+          background-color: #000000;
+          margin: 15px 8px;
+          border: 1px solid #eeeeee;
+          border-radius: 4px;
+          line-height: 2;
+          img{
+            margin-right: 8px;
+          }
         }
+
       }
     }
   }

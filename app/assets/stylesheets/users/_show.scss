@@ -177,7 +177,8 @@
         &__top{
           width: 100%;
           height: 200px;
-          background-image: url("https://d1f5hsy4d47upe.cloudfront.net/1c/1c0a73e254f713c2a9f33f8f6b06fb5e_t.jpeg");
+          background-image: url("background.jpg");
+          background-size: cover;
           &__a{
             width: 100%;
             height: 160px;
@@ -190,6 +191,7 @@
               height: 60px;
               .image_top{
                 border-radius: 50%;
+                background-color: #cccccc;
               }
             }
             &__name{
