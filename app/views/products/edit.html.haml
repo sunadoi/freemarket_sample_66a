@@ -3,7 +3,7 @@
     = link_to "/" do
       = image_tag "fmarket_logo_red.svg", size: "185x49", alt: "logo", class: "image_top"
   .exhibition_main
-    = form_with model: @product, local: true do |form|
+    = form_with(model: @product, local: true) do |form|
       = form.hidden_field :progress, value: 1
       .exhibition_main__container
         .exhibition_main__container__title
@@ -76,8 +76,8 @@
                   
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = form.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                    
+                      = form.select :category_id, options_for_select(@category_parent_array,@product.category_id_before_type_cast), {}, {class: "listing-select-wrapper__box--select", id: "parent_category"}
+        
                 .exhibition_main__container__product__detail__inner__select__status#margin_select
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
                     サイズ
@@ -86,9 +86,7 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :size, Product.sizes, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
-
-
+                  = form.select :size, options_for_select(Product.sizes, @product.size_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
                 .exhibition_main__container__product__detail__inner__select__status
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
@@ -97,10 +95,8 @@
                       任意
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   
-                    
-                  = form.collection_select :brand_id, Brand.all, :id, :name,{prompt: "--"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
-
-
+                  -# = form.select :brand_id, options_for_select(Brand.all.map{|c|[c[:name], c[:id]]} ,@product.brand.id), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :brand_id, options_for_select(Brand.pluck(:name, :id), @product.brand.id), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
                 .exhibition_main__container__product__detail__inner__select__status
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
@@ -110,11 +106,10 @@
                 .exhibition_main__container__product__detail__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :condition, Product.conditions, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+                  = form.select :condition, options_for_select(Product.conditions, @product.condition_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
+
                     
                 
-                
-
           .exhibition_main__container__product__shipping_method
             .exhibition_main__container__product__shipping_method__inner
               配送について
@@ -129,7 +124,8 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_charge, Product.shipping_charges, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_charge, options_for_select(Product.shipping_charges,@product.shipping_charge_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+
                 
 
                 .exhibition_main__container__product__shipping_method__inner__select__burden
@@ -140,8 +136,7 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_method, Product.shipping_methods, {prompt: "---"}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
-
+                  = form.select :shipping_method, options_for_select(Product.shipping_methods.map{|c|c},@product.shipping_method_before_type_cast), {}, {class: "exhibition_main__container__product__detail__inner__select__wrappe__button"}
 
 
                 .exhibition_main__container__product__shipping_method__inner__select__region
@@ -152,9 +147,9 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_prefecture, Address.prefectures, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
-                    
+                  = form.select :shipping_prefecture, options_for_select(Address.prefectures.map{|c|c},@product.shipping_prefecture_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
 
+                    
 
                 .exhibition_main__container__product__shipping_method__inner__select__day
                   %h3.exhibition_main__container__product__shipping_method__inner__select__day__left
@@ -164,7 +159,8 @@
                 .exhibition_main__container__product__shipping_method__inner__select__wrappe
                   %i.fa.fa-chevron-down
                     
-                  = form.select :shipping_days, Product.shipping_days, {prompt: "---"}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+                  = form.select :shipping_days, options_for_select(Product.shipping_days.map{|c|c},@product.shipping_days_before_type_cast), {}, {class: "exhibition_main__container__product__shipping_method__inner__select__wrappe__button"}
+
                     
 
           .exhibition_main__container__product__money
@@ -206,7 +202,9 @@
                 加盟店規約
               に同意したことになります。
 
-            = form.submit "編集する", class: "exhibition_main__container__product__discription__exhibition"
+
+            = form.submit "変更する", class: "exhibition_main__container__product__discription__exhibition"
+
             = link_to "/" do
               .exhibition_main__container__product__discription__back
                 もどる
@@ -227,3 +225,4 @@
           = image_tag "logo_gray.svg", size: "80x65", alt: "logo", class: "image_under"
       .exhibition_footer__inner__inc
         © Mercari, Inc.
+
