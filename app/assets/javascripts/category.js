@@ -109,4 +109,10 @@ $(function() {
       update_field();
     });
   });
+  $(function() {
+    $('.listing-select-wrapper__box--select_1').click(function(){
+      $(`.edit_x`).remove();
+  });
+});
+
 });
