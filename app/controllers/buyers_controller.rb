@@ -1,6 +1,8 @@
 class BuyersController < ApplicationController
   require 'payjp'
 
+  before_action :ensure_login
+
   def new
     @buyer = Buyer.new
     @product = Product.find(params[:id])
@@ -9,7 +11,8 @@ class BuyersController < ApplicationController
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      flash[:alert] = "クレジットカードを登録してください"
+      redirect_to new_card_path
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       #保管した顧客IDでpayjpから情報取得
@@ -20,18 +23,22 @@ class BuyersController < ApplicationController
   end
 
   def create
-    
     card = Card.find_by(user_id: current_user.id)
     @product = Product.find(params[:buyer][:product_id])
     Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
     Payjp::Charge.create(
-    amount: @product.price,   #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: card.customer_id, #顧客ID
-    currency: 'jpy', #日本円
-  )
+      amount: @product.price,   #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+    )
     @buyer =Buyer.new(user_id: current_user.id, product_id: params[:buyer][:product_id])
-    @buyer.save
-    render :done #完了画面に移動
+    if @buyer.save
+      @product.update(progress: 2)
+      flash[:notice] = "商品を購入しました"
+      redirect_to root_path
+    else
+      flash[:alert] = @buyer.errors
+      render action: :new
+    end
   end
-
 end

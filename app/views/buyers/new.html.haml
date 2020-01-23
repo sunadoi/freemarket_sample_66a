@@ -1,7 +1,7 @@
 .signup-wrapper
   .buy-header
     %h1.address-header__logo
-      = link_to "#"do 
+      = link_to "/" do 
         = image_tag "fmarket_logo_white.svg"
   %main.get-main
     %section.l-get-container
@@ -52,7 +52,6 @@
                 = exp_month + " / " + exp_year
                 %br 
                 = image_tag 'visa.png', height: '20px', width: '50px', class: 'visa'
-                
         .buyers__card__Method
           .buyers__card__Method__text
             .buyers__card__Method__text__top
@@ -69,7 +68,6 @@
               =@address.street
               =@address.building
               %br
-                
               =@address.user.nickname
               %br 
         .buyers__card__Method
@@ -83,8 +81,6 @@
                 = form_with(model: @buyer, method: :post,local: true,class: "btn_color") do |form|
                   = form.hidden_field :product_id, value: @product.id
                   = form.submit "購入する" ,class: "btn_color"
-               
-                  
             .buyers__card__Method__text__app
               アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
             .buyers__card__Method__text__app-btn
@@ -94,7 +90,5 @@
               .buyers__card__Method__text__app-btn__googleplay
                 =link_to "#" ,class: "new_item" do
                   = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app"
-                 
-   
   .signup__footer
     = render partial: "users/registrations/footer"

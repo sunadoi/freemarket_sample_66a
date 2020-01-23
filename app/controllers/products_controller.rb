@@ -2,17 +2,18 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:new, :index, :create,:get_category_children, :get_category_grandchildren]
   include ApplicationHelper
   before_action :set_ancestry, only: [:edit]
+  before_action :ensure_login, except: [:index, :show]
 
   def index
-    @ladys = Product.where(category_id:1..190).order(id: "DESC").first(10)
-    @mens = Product.where(category_id:200..345).order(id: "DESC").first(10)
-    @appliances = Product.where(category_id:898..983).order(id: "DESC").first(10)
-    @toys = Product.where(category_id:685..797).order(id: "DESC").first(10)
+    @ladys = Product.where(category_id:1..190, progress: 1).order(id: "DESC").first(10)
+    @mens = Product.where(category_id:200..345, progress: 1).order(id: "DESC").first(10)
+    @appliances = Product.where(category_id:898..983, progress: 1).order(id: "DESC").first(10)
+    @toys = Product.where(category_id:685..797, progress: 1).order(id: "DESC").first(10)
 
-    @chanels = Product.where(brand_id:1).order(id: "DESC").first(10)
-    @coachs = Product.where(brand_id:2).order(id: "DESC").first(10)
-    @louisvuittons = Product.where(brand_id:3).order(id: "DESC").first(10)
-    @guccis = Product.where(brand_id:4).order(id: "DESC").first(10)
+    @chanels = Product.where(brand_id:1, progress: 1).order(id: "DESC").first(10)
+    @coachs = Product.where(brand_id:2, progress: 1).order(id: "DESC").first(10)
+    @louisvuittons = Product.where(brand_id:3, progress: 1).order(id: "DESC").first(10)
+    @guccis = Product.where(brand_id:4, progress: 1).order(id: "DESC").first(10)
   end
 
   def new
@@ -61,8 +62,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.destroy!
-      redirect_to controller: 'users', action: 'show'
+    if @product.destroy
+      flash[:notice] = "出品商品を削除しました"
+      redirect_to root_path
     else
       redirect_to action: 'show', alert: '削除できませんでした'
     end
