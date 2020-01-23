@@ -154,11 +154,11 @@
     padding-left: 100px;
     max-width: 100%;
     &.application{
-      background-image: url("ad_app.jpg");
+      background-image: image-url("ad_app.jpg");
       background-size: cover;
     }
     &.akai{
-      background-image: url("akai.jpg");
+      background-image: image-url("akai.jpg");
       background-size: cover;
     }
     &_mein{
@@ -339,7 +339,7 @@
   background-color: #eeeeee;
   &_ad{
     height: 260px;
-    background-image: url('ad_app.jpg');
+    background-image: image-url('ad_app.jpg');
     background-size: 100% 100%;
     display: flex;
     vertical-align: middle;

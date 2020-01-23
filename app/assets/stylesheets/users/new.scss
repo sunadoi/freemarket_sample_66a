@@ -60,10 +60,11 @@
         display:block;
         padding-right: 16px;
         i {
+          line-height: 1.5;
           float: left;
           padding-left: 11px;
           bottom: 25px;
-          font-size: 20px;
+          font-size: 25px;
           color: #ffffff;
           padding-top: 7px;
         }
@@ -88,10 +89,11 @@
         display:block;
         padding-right: 16px;
         i {
+          line-height: 1.5;
           float: left;
           padding-left: 11px;
           bottom: 25px;
-          font-size: 33px;
+          font-size: 30px;
           color: #ffffff;
           padding-top: 4px;
         }
@@ -116,18 +118,15 @@
         margin: 0 auto;
         display:block;
         padding-right: 16px;
-        .main__conect__lists__google__btn {
-        color: #333;
-        }
-        .main__conect__lists__google__icon {
-          background-image:url("https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png");
-          background-size:cover;
-          height: 30px;
-          width: 30px;
-          position: relative;
-          bottom:40px;
-          left:15px;
-        }      
+        i {
+          line-height: 1.5;
+          float: left;
+          padding-left: 11px;
+          bottom: 25px;
+          font-size: 28px;
+          color: #b62020;
+          padding-top: 4px;
+        }    
       }
     }
   }

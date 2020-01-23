@@ -18,13 +18,12 @@
             = link_to user_facebook_omniauth_authorize_path, method: :post do
               .signin-main__conect__lists__facebook__btn
                 Facebookでログイン
-                %i.fbicon
-                  = icon('fab', 'facebook-square')
+                = icon('fab', 'facebook-square')
           %li.signin-main__conect__lists__google2
             = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
               .signin-main__conect__lists__google2__btn
                 Googleでログイン
-              .signin-main__conect__lists__google2__icon
+                = icon('fab', 'google')
           %li.signin-main__conect__lists__input
             = form.email_field :email, autocomplete: "email",placeholder: "メールアドレス", class: "form__input"
           %li.signin-main__conect__lists__input

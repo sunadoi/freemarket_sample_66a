@@ -139,18 +139,15 @@
       &__facebook{
         margin: 16px 0 0;
         background: #385185;
+        padding-top:17px;
         &__btn{
           color: white;
-          padding-top:17px;
           padding-right: 20px;
-        .fbicon{
+        i{
           float: left;
           padding-left: 17px;
-          position: relative;
-          bottom: 25px;
-          font-size: 33px;
+          font-size: 25px;
           color: #ffffff;
-          padding-top: 15px;
         }
         }
       }
@@ -161,14 +158,11 @@
         &__btn{
           color: #333;
         }
-        &__icon{
-          background-image:url(https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png);
-          background-size:cover;
-          height: 30px;
-          width: 30px;
-          position: relative;
-          bottom:28px;
-          left:15px;
+        i{
+          float: left;
+          padding-left: 17px;
+          color: #b62020;
+          font-size: 20px;
         }
       }
     }
