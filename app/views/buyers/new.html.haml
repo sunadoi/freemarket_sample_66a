@@ -8,7 +8,7 @@
       %h2.l-get-head__registration 購入内容の確認
       .l-get-head__registration__form
         .l-get-content__form__box__imag
-          = image_tag 'inu.jpg', height: '80px', width: '80px', class: 'pic'
+          = image_tag "#{@product.photos[0].image}", height: '80px', width: '80px', class: 'pic'
         .l-get-content__form__box__text
           .l-get-content__form__box__text__title
             = @product.name
