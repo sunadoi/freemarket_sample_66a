@@ -4,33 +4,23 @@ $(function(){
     return html;
   }
   function appendChidrenBox(insertHTML){
-    var childSelectHtml = '';
-    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
-                        <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category", name="category">
-                            <option value="---" data-category="---">---</option>
-                            ${insertHTML}
-                          <select>
-                          <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                        </div>
-                      </div>`;
-    $('.listing-select-wrapper').after(childSelectHtml);
+    var childSelectHtml = "";
+    console.log(insertHTML);
+    childSelectHtml = `<select class="listing-select-wrapper__box--select_1 edit_x edit_next" id="child_category">
+                        <option value="---" data-category="---">---</option>
+                        ${insertHTML}`;
+    $(".parent_category").after(childSelectHtml);
   }
   function appendGrandchidrenBox(insertHTML){
-    var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
-                              <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="category_id">
-                                  <option value="---" data-category="---">---</option>
-                                  ${insertHTML}
-                                </select>
-                                <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
-                              </div>
-                            </div>`;
-    $('.listing-select-wrapper__added').after(grandchildSelectHtml);
+    var grandchildSelectHtml = "";
+    grandchildSelectHtml = `<select class="listing-select-wrapper__box--select_1 edit_x edit_next_u5" id="grandchild_category", name="product[category_id]">
+                            <option value="---" data-category="---">---</option>
+                            ${insertHTML}`;
+    $(".edit_x").after(grandchildSelectHtml);
   }
-  $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; 
+  $(".parent_category").on("change", function(){
+    var parentCategory = document.getElementsByClassName("parent_category")[0].value;
+    console.log(parentCategory);
     if (parentCategory != "---"){ 
       $.ajax({
         url: '/get_category_children',
@@ -111,7 +101,7 @@ $(function() {
   });
   $(function() {
     $('.listing-select-wrapper__box--select_1').click(function(){
-      $(`.edit_x`).remove();
+      $(".edit_x").remove();
   });
 });
 

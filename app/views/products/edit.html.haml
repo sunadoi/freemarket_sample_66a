@@ -76,9 +76,9 @@
                   
                   .listing-select-wrapper
                     .listing-select-wrapper__box
-                      = form.select :category_id, options_for_select(@category_parent_array,@product.category.parent.parent.id), {}, {class: "listing-select-wrapper__box--select_1 edit_next", id: "parent_category"}
-                      = form.select :category_id, options_for_select(Category.pluck(:name, :id),@product.category.parent.id), {}, {class: "listing-select-wrapper__box--select_1 edit_x edit_next", id: "parent_category"}
-                      = form.select :category_id, options_for_select(Category.pluck(:name, :id),@product.category_id), {}, {class: "listing-select-wrapper__box--select_1 edit_x edit_next_u5", id: "parent_category"}
+                      = form.select :parent_category, options_for_select(@category_parent_array,@product.category.parent.parent.name), {}, {class: "listing-select-wrapper__box--select_1 edit_next parent_category"}
+                      = form.select :child_category, options_for_select(Category.pluck(:name, :id),@product.category.parent.id), {}, {class: "listing-select-wrapper__box--select_1 edit_x "}
+                      = form.select :category_id, options_for_select(Category.pluck(:name, :id),@product.category_id), {}, {class: "listing-select-wrapper__box--select_1 edit_x edit_next_u5"}
         
                 .exhibition_main__container__product__detail__inner__select__status#margin_select_1
                   %h3.exhibition_main__container__product__detail__inner__select__status__left
