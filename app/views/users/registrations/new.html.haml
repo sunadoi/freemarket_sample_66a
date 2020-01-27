@@ -17,7 +17,7 @@
               = form.label :email, 'メールアドレス'
               %span.l-registration-content__require 必須
               %br/
-              = form.email_field :email, class: "form-input__user", placeholder: "PC・携帯どちらでも可"
+              = form.text_field :email, class: "form-input__user", placeholder: "PC・携帯どちらでも可"
             - if @sns_id.present?
               = hidden_field_tag :sns_auth, true
             - else
